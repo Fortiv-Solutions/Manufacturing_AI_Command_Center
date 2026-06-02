@@ -1,0 +1,213 @@
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { ChevronLeft, Sparkles, Filter, Plus } from "lucide-react";
+import { PageHeader } from "@/components/PageHeader";
+import { KpiCard } from "@/components/KpiCard";
+import { SparkLine, MainChart } from "@/components/MiniChart";
+import { DataCard } from "@/components/DataCard";
+import { getModule, getSubModule } from "@/data/modules";
+import { useState } from "react";
+
+export const Route = createFileRoute("/m/$moduleId/$subId")({
+  loader: ({ params }) => {
+    const m = getModule(params.moduleId);
+    const s = getSubModule(params.moduleId, params.subId);
+    if (!m || !s) throw notFound();
+    return { m, s };
+  },
+  head: ({ loaderData }) => ({
+    meta: [
+      { title: `${loaderData?.s.title ?? "Sub-module"} — Fortiv` },
+      { name: "description", content: loaderData?.s.blurb ?? "" },
+    ],
+  }),
+  notFoundComponent: () => (
+    <div className="text-center py-20">
+      <h2 className="text-xl font-semibold">Not found</h2>
+      <Link to="/" className="text-primary text-sm mt-2 inline-block">Back to dashboard</Link>
+    </div>
+  ),
+  component: SubModuleDetail,
+});
+
+const TABS = ["Overview", "Records", "Activity", "AI Suggestions", "Settings"] as const;
+
+function SubModuleDetail() {
+  const { m, s } = Route.useLoaderData();
+  const [tab, setTab] = useState<(typeof TABS)[number]>("Overview");
+
+  return (
+    <div className="max-w-[1480px] mx-auto">
+      <PageHeader
+        breadcrumbs={[
+          { label: "Home", to: "/" },
+          { label: m.short, to: `/m/${m.id}` },
+          { label: s.title },
+        ]}
+        title={s.title}
+        subtitle={s.blurb}
+      />
+
+      <div className="flex items-center gap-1 mb-6 border-b">
+        {TABS.map((t) => (
+          <button
+            key={t}
+            onClick={() => setTab(t)}
+            className={`relative px-4 py-2.5 text-[13px] font-medium transition-colors ${
+              tab === t ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {t}
+            {tab === t && <span className="absolute -bottom-px left-2 right-2 h-0.5 bg-primary rounded-full" />}
+          </button>
+        ))}
+      </div>
+
+      {tab === "Overview" && (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+            {s.kpis.map((k: any) => (
+              <KpiCard key={k.label} label={k.label} value={k.value} delta={k.delta} tone={k.tone ?? "success"} sparkline={<SparkLine />} />
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 mt-4">
+            <div className="xl:col-span-2 rounded-2xl bg-card border p-5">
+              <div className="flex items-center justify-between mb-3">
+                <div>
+                  <div className="text-[15px] font-semibold tracking-tight">{s.chartLabel}</div>
+                  <div className="text-[11.5px] text-muted-foreground mt-0.5">Mock data · refresh ~2s</div>
+                </div>
+                <div className="flex items-center gap-2 text-[11.5px] text-muted-foreground">
+                  <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-primary" /> Series A</span>
+                  <span className="flex items-center gap-1.5"><span className="h-2 w-2 rounded-full bg-warning" /> Series B</span>
+                </div>
+              </div>
+              <div className="h-[300px]"><MainChart type={s.chartType} /></div>
+            </div>
+
+            <div className="rounded-2xl bg-card border p-5">
+              <div className="flex items-center justify-between mb-3">
+                <div className="text-[15px] font-semibold tracking-tight">AI suggestions</div>
+                <Sparkles className="h-4 w-4 text-primary" />
+              </div>
+              <div className="space-y-3">
+                {[
+                  "Reschedule JOB-4824 to Line 4 — frees 60 min on Line 3.",
+                  "Auto-draft PO for CRCA Sheet 1.2mm — 18 SKUs below ROL.",
+                  "Send WhatsApp follow-up to Yash Agencies (78d overdue).",
+                  "Open CAPA on burr-edge defect cluster — Pareto top 32%.",
+                ].map((tip, i) => (
+                  <div key={i} className="rounded-xl border bg-accent/40 p-3">
+                    <div className="text-[12.5px] leading-relaxed text-foreground/90">{tip}</div>
+                    <div className="flex items-center gap-2 mt-2">
+                      <button className="h-7 px-2.5 rounded-md bg-primary text-primary-foreground text-[11.5px] font-medium">Approve</button>
+                      <button className="h-7 px-2.5 rounded-md border text-[11.5px] font-medium hover:bg-muted">Dismiss</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <DataCard
+              title="Recent records"
+              action={
+                <div className="flex items-center gap-2">
+                  <button className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg border text-[12px] font-medium hover:bg-muted">
+                    <Filter className="h-3.5 w-3.5" /> Filter
+                  </button>
+                  <button className="inline-flex items-center gap-1.5 h-8 px-3 rounded-lg bg-primary text-primary-foreground text-[12px] font-medium hover:opacity-90">
+                    <Plus className="h-3.5 w-3.5" /> New
+                  </button>
+                </div>
+              }
+              columns={s.columns}
+              rows={s.rows}
+            />
+          </div>
+        </>
+      )}
+
+      {tab === "Records" && (
+        <DataCard title={`${s.title} — all records`} columns={s.columns} rows={[...s.rows, ...s.rows]} />
+      )}
+
+      {tab === "Activity" && (
+        <div className="rounded-2xl bg-card border p-6">
+          <div className="space-y-5">
+            {[
+              { who: "AI Agent", what: `Auto-generated ${s.title.toLowerCase()} record`, when: "2 min ago" },
+              { who: "Sunita Patel", what: "Approved AI suggestion #4823", when: "12 min ago" },
+              { who: "System", what: "Synced with SAP B1", when: "18 min ago" },
+              { who: "Deepak Trivedi", what: "Reassigned to Kavita Sharma", when: "42 min ago" },
+              { who: "AI Agent", what: "WhatsApp sent in Gujarati to dealer", when: "1h ago" },
+            ].map((a, i) => (
+              <div key={i} className="flex gap-3 pb-5 border-b last:border-0 last:pb-0">
+                <div className="h-8 w-8 rounded-full bg-primary/10 text-primary grid place-items-center text-[11px] font-semibold shrink-0">
+                  {a.who.slice(0, 2).toUpperCase()}
+                </div>
+                <div className="flex-1">
+                  <div className="text-[13px]"><span className="font-semibold">{a.who}</span> <span className="text-muted-foreground">{a.what}</span></div>
+                  <div className="text-[11px] text-muted-foreground mt-0.5">{a.when}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {tab === "AI Suggestions" && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="rounded-2xl border bg-card p-5">
+              <div className="flex items-center gap-2 text-[11px] text-primary font-medium">
+                <Sparkles className="h-3.5 w-3.5" /> Generated by AI
+              </div>
+              <div className="text-[14px] font-semibold mt-2">Suggestion #{4820 + i}</div>
+              <p className="text-[12.5px] text-muted-foreground mt-1 leading-relaxed">
+                AI detected a pattern in {s.title.toLowerCase()} and recommends an action that saves an estimated 18 minutes of operator time.
+              </p>
+              <div className="flex gap-2 mt-3">
+                <button className="h-8 px-3 rounded-md bg-primary text-primary-foreground text-[12px] font-medium">Approve</button>
+                <button className="h-8 px-3 rounded-md border text-[12px] font-medium hover:bg-muted">Review</button>
+                <button className="h-8 px-3 rounded-md text-[12px] font-medium text-muted-foreground hover:bg-muted">Dismiss</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {tab === "Settings" && (
+        <div className="rounded-2xl bg-card border p-6 max-w-2xl">
+          <h3 className="text-[15px] font-semibold mb-1">Agent configuration</h3>
+          <p className="text-[12.5px] text-muted-foreground mb-5">Tune thresholds, notification channels and language for this agent.</p>
+          <div className="space-y-5">
+            {[
+              { l: "Agent name", v: s.title },
+              { l: "Trigger interval", v: "Every 5 minutes" },
+              { l: "Notification channels", v: "WhatsApp · Email · Voice" },
+              { l: "Languages", v: "English · Hindi · Gujarati" },
+              { l: "Approval required", v: "For value > ₹1,00,000" },
+            ].map((f) => (
+              <div key={f.l} className="grid grid-cols-1 sm:grid-cols-[180px_1fr] items-center gap-3">
+                <label className="text-[12.5px] font-medium text-muted-foreground">{f.l}</label>
+                <input defaultValue={f.v} className="h-10 rounded-lg border bg-background px-3 text-[13px] focus:outline-none focus:border-primary/50" />
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-2 mt-6 pt-5 border-t">
+            <button className="h-9 px-4 rounded-lg bg-primary text-primary-foreground text-[12.5px] font-medium">Save changes</button>
+            <button className="h-9 px-4 rounded-lg border text-[12.5px] font-medium hover:bg-muted">Cancel</button>
+          </div>
+        </div>
+      )}
+
+      <div className="mt-8">
+        <Link to="/m/$moduleId" params={{ moduleId: m.id }} className="inline-flex items-center gap-1.5 text-[12.5px] text-muted-foreground hover:text-foreground">
+          <ChevronLeft className="h-3.5 w-3.5" /> Back to {m.short}
+        </Link>
+      </div>
+    </div>
+  );
+}
