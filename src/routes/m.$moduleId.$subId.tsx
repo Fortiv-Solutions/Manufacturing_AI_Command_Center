@@ -65,7 +65,7 @@ function SubModuleDetail() {
       {tab === "Overview" && (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-            {s.kpis.map((k) => (
+            {s.kpis.map((k: any) => (
               <KpiCard key={k.label} label={k.label} value={k.value} delta={k.delta} tone={k.tone ?? "success"} sparkline={<SparkLine />} />
             ))}
           </div>

@@ -48,7 +48,7 @@ function ModuleLanding() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {m.subModules.map((s) => (
+        {m.subModules.map((s: any) => (
           <Link
             key={s.id}
             to="/m/$moduleId/$subId"
@@ -65,7 +65,7 @@ function ModuleLanding() {
             <p className="text-[12.5px] text-muted-foreground leading-relaxed mt-2 line-clamp-3 flex-1">{s.blurb}</p>
             <div className="flex items-center justify-between mt-4 pt-4 border-t">
               <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
-                {s.kpis.slice(0, 2).map((k) => (
+                {s.kpis.slice(0, 2).map((k: any) => (
                   <span key={k.label}>
                     <span className="font-semibold text-foreground tabular">{k.value}</span>
                     <span className="ml-1">{k.label.toLowerCase()}</span>
