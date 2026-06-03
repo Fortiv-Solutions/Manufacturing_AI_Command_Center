@@ -1,7 +1,7 @@
 import {
   Factory, ShoppingCart, ShieldCheck, MessageSquare,
   LayoutDashboard, PhoneCall, LifeBuoy, Bell,
-  Droplet, FileText, ShieldAlert, Cpu, Users,
+  Droplet, FileText, ShieldAlert, Cpu, Users, Zap,
   type LucideIcon,
 } from "lucide-react";
 

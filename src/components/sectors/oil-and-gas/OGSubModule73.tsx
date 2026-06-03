@@ -29,16 +29,13 @@ export function OGSubModule73() {
   const [flaringValue, setFlaringValue] = useState("1,203 tCO2e");
 
   const handleOverride = (field: string) => {
-    toast.prompt("Manual override requested. Enter new value and reason:", {
-      action: {
-        label: "Apply",
-        onClick: (val) => {
-          if (field === "diesel") setDieselValue(val + " tCO2e");
-          if (field === "flaring") setFlaringValue(val + " tCO2e");
-          toast.success("Metric value overridden. Logged in audit trail.");
-        }
-      }
-    });
+    if (typeof window === "undefined") return;
+    const val = window.prompt("Manual override requested. Enter new value (tCO2e) and reason:");
+    if (val !== null && val.trim() !== "") {
+      if (field === "diesel") setDieselValue(val + " tCO2e");
+      if (field === "flaring") setFlaringValue(val + " tCO2e");
+      toast.success("Metric value overridden. Logged in audit trail.");
+    }
   };
 
   const handleGenerateBRSRPDF = () => {
