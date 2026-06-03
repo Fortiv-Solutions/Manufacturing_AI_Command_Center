@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ChevronRight, Download, Sparkles } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 export function PageHeader({
   breadcrumbs, title, subtitle, action,
@@ -30,15 +30,7 @@ export function PageHeader({
           <h1 className="text-[24px] font-semibold tracking-tight leading-tight">{title}</h1>
           {subtitle && <p className="text-[13.5px] text-muted-foreground mt-1 max-w-2xl">{subtitle}</p>}
         </div>
-        <div className="flex items-center gap-2">
-          {action}
-          <button className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg border bg-background text-[12.5px] font-medium hover:bg-muted">
-            <Download className="h-3.5 w-3.5" /> Export
-          </button>
-          <button className="inline-flex items-center gap-1.5 h-9 px-3.5 rounded-lg bg-foreground text-background text-[12.5px] font-medium hover:opacity-90">
-            <Sparkles className="h-3.5 w-3.5" /> Run AI agent
-          </button>
-        </div>
+        {action && <div className="flex items-center gap-2">{action}</div>}
       </div>
     </div>
   );

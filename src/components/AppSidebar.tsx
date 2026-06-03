@@ -1,11 +1,31 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Home, Bell, Inbox, Sparkles, Database, Settings2, FileText } from "lucide-react";
+import { Sparkles, Settings2, ChevronRight } from "lucide-react";
 import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
   SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarHeader, SidebarFooter,
   useSidebar,
 } from "@/components/ui/sidebar";
 import { modules } from "@/data/modules";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
+
+const GROUPS = [
+  {
+    label: "Intelligence",
+    ids: ["m6-dashboards"],
+  },
+  {
+    label: "Operations",
+    ids: ["m1-production", "m2-procurement", "m3-quality"],
+  },
+  {
+    label: "Sales & Customer",
+    ids: ["m4-dealers", "m7-voice", "m8-complaints", "m9-followups"],
+  },
+  {
+    label: "Oil & Gas Sector",
+    ids: ["og-regulatory", "og-land-lease", "og-hse", "og-technical-doc", "og-workflow", "og-workforce", "og-reporting"],
+  },
+];
 
 export function AppSidebar() {
   const { state } = useSidebar();
@@ -22,66 +42,82 @@ export function AppSidebar() {
           </div>
           {!collapsed && (
             <div className="leading-tight">
-              <div className="text-[15px] font-semibold tracking-tight">Fortiv</div>
-              <div className="text-[11px] text-muted-foreground">Mfg AI Command</div>
+              <div className="text-[15px] font-semibold tracking-tight">Fortiv Solutions</div>
+              <div className="text-[11px] text-muted-foreground">Manufacturing Command Centre</div>
             </div>
           )}
         </Link>
       </SidebarHeader>
 
       <SidebarContent className="px-1.5">
-        <SidebarGroup>
-          {!collapsed && <SidebarGroupLabel className="text-[10.5px] uppercase tracking-wider">Home</SidebarGroupLabel>}
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <Item to="/" icon={Home} label="Dashboard" active={pathname === "/"} collapsed={collapsed} />
-              <Item to="/alerts" icon={Bell} label="Alerts" active={isActive("/alerts")} collapsed={collapsed} />
-              <Item to="/approvals" icon={Inbox} label="Approvals" active={isActive("/approvals")} collapsed={collapsed} />
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+        {GROUPS.map((group) => {
+          const groupModules = group.ids
+            .map((id) => modules.find((m) => m.id === id))
+            .filter(Boolean) as typeof modules;
 
-        <SidebarGroup>
-          {!collapsed && <SidebarGroupLabel className="text-[10.5px] uppercase tracking-wider">Modules</SidebarGroupLabel>}
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {modules.map((m) => (
-                <Item
-                  key={m.id}
-                  to={`/m/${m.id}`}
-                  icon={m.icon}
-                  label={m.short}
-                  badge={m.code}
-                  active={isActive(`/m/${m.id}`)}
-                  collapsed={collapsed}
-                />
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+          if (group.label === "Oil & Gas Sector") {
+            return (
+              <SidebarGroup key={group.label}>
+                <Collapsible defaultOpen={true} className="group/collapsible w-full">
+                  {!collapsed && (
+                    <SidebarGroupLabel asChild>
+                      <CollapsibleTrigger className="flex w-full items-center justify-between text-[10.5px] uppercase tracking-wider hover:text-foreground cursor-pointer select-none">
+                        <span>{group.label}</span>
+                        <ChevronRight className="h-3.5 w-3.5 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                      </CollapsibleTrigger>
+                    </SidebarGroupLabel>
+                  )}
+                  <CollapsibleContent>
+                    <SidebarGroupContent className="mt-1.5 animate-in fade-in slide-in-from-top-1 duration-200">
+                      <SidebarMenu>
+                        {groupModules.map((m) => (
+                          <Item
+                            key={m.id}
+                            to={`/m/${m.id}`}
+                            icon={m.icon}
+                            label={m.short}
+                            active={isActive(`/m/${m.id}`)}
+                            collapsed={collapsed}
+                          />
+                        ))}
+                      </SidebarMenu>
+                    </SidebarGroupContent>
+                  </CollapsibleContent>
+                </Collapsible>
+              </SidebarGroup>
+            );
+          }
 
-        <SidebarGroup>
-          {!collapsed && <SidebarGroupLabel className="text-[10.5px] uppercase tracking-wider">System</SidebarGroupLabel>}
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <Item to="/masters" icon={Database} label="Masters" active={isActive("/masters")} collapsed={collapsed} />
-              <Item to="/reports" icon={FileText} label="Reports" active={isActive("/reports")} collapsed={collapsed} />
-              <Item to="/settings" icon={Settings2} label="Settings" active={isActive("/settings")} collapsed={collapsed} />
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+          return (
+            <SidebarGroup key={group.label}>
+              {!collapsed && (
+                <SidebarGroupLabel className="text-[10.5px] uppercase tracking-wider">
+                  {group.label}
+                </SidebarGroupLabel>
+              )}
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {groupModules.map((m) => (
+                    <Item
+                      key={m.id}
+                      to={`/m/${m.id}`}
+                      icon={m.icon}
+                      label={m.short}
+                      active={isActive(`/m/${m.id}`)}
+                      collapsed={collapsed}
+                    />
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          );
+        })}
       </SidebarContent>
 
       <SidebarFooter className="px-2 pb-3">
-        {!collapsed && (
-          <div className="rounded-xl bg-accent/60 p-3 text-[12px] leading-snug">
-            <div className="font-semibold text-accent-foreground">Daily MD brief</div>
-            <div className="text-muted-foreground mt-0.5">9:30 AM · auto-generated</div>
-            <button className="mt-2 w-full rounded-md bg-primary text-primary-foreground py-1.5 text-[12px] font-medium hover:opacity-90">
-              Open brief
-            </button>
-          </div>
-        )}
+        <SidebarMenu>
+          <Item to="/settings" icon={Settings2} label="Settings" active={isActive("/settings")} collapsed={collapsed} />
+        </SidebarMenu>
       </SidebarFooter>
     </Sidebar>
   );
