@@ -1,8 +1,19 @@
 import { useState } from "react";
 import {
-  Plus, Filter, Clock, CheckCircle2, AlertTriangle, ChevronRight,
-  User, ArrowRightCircle, XCircle, Timer, Shield, CircleDot,
-  FileText, Hourglass
+  Plus,
+  Filter,
+  Clock,
+  CheckCircle2,
+  AlertTriangle,
+  ChevronRight,
+  User,
+  ArrowRightCircle,
+  XCircle,
+  Timer,
+  Shield,
+  CircleDot,
+  FileText,
+  Hourglass,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -118,18 +129,30 @@ const WORKFLOWS: Workflow[] = [
     column: "approved_closed",
     approvalChain: [
       {
-        step: 1, name: "MOC Initiation", approver: "Priya Menon",
-        role: "HSE Manager", timestamp: "08:40 IST", status: "complete",
+        step: 1,
+        name: "MOC Initiation",
+        approver: "Priya Menon",
+        role: "HSE Manager",
+        timestamp: "08:40 IST",
+        status: "complete",
         comment: "Procedure revision request submitted.",
       },
       {
-        step: 2, name: "Technical Review", approver: "Rajesh Kumar",
-        role: "Well Engineer", timestamp: "09:15 IST", status: "complete",
+        step: 2,
+        name: "Technical Review",
+        approver: "Rajesh Kumar",
+        role: "Well Engineer",
+        timestamp: "09:15 IST",
+        status: "complete",
         comment: "Technical feasibility confirmed.",
       },
       {
-        step: 3, name: "Operations Approval", approver: "Anand Sharma",
-        role: "VP Operations", timestamp: "10:02 IST", status: "complete",
+        step: 3,
+        name: "Operations Approval",
+        approver: "Anand Sharma",
+        role: "VP Operations",
+        timestamp: "10:02 IST",
+        status: "complete",
         comment: "Approved — implement with updated SOP.",
       },
     ],
@@ -143,18 +166,30 @@ const WORKFLOWS: Workflow[] = [
     completedDate: "25 Oct 2025",
     approvalChain: [
       {
-        step: 1, name: "Emergency Request", approver: "Sushant Verma",
-        role: "Field Supervisor", timestamp: "14:12 IST", status: "complete",
+        step: 1,
+        name: "Emergency Request",
+        approver: "Sushant Verma",
+        role: "Field Supervisor",
+        timestamp: "14:12 IST",
+        status: "complete",
         comment: "Emergency confined space entry requested — gas testing equipment unavailable.",
       },
       {
-        step: 2, name: "HSE Exception Review", approver: "Priya Menon",
-        role: "HSE Manager", timestamp: "14:18 IST", status: "complete",
+        step: 2,
+        name: "HSE Exception Review",
+        approver: "Priya Menon",
+        role: "HSE Manager",
+        timestamp: "14:18 IST",
+        status: "complete",
         comment: "Emergency exception granted with buddy system mandatory.",
       },
       {
-        step: 3, name: "Site Manager Auth", approver: "Anand Sharma",
-        role: "VP Operations", timestamp: "14:25 IST", status: "complete",
+        step: 3,
+        name: "Site Manager Auth",
+        approver: "Anand Sharma",
+        role: "VP Operations",
+        timestamp: "14:25 IST",
+        status: "complete",
         comment: "Authorised under emergency protocol EP-04.",
       },
     ],
@@ -169,25 +204,41 @@ const WORKFLOWS: Workflow[] = [
     column: "approved_closed",
     approvalChain: [
       {
-        step: 1, name: "Extension Request", approver: "Sushant Verma",
-        role: "Field Supervisor", timestamp: "07:30 IST", status: "complete",
+        step: 1,
+        name: "Extension Request",
+        approver: "Sushant Verma",
+        role: "Field Supervisor",
+        timestamp: "07:30 IST",
+        status: "complete",
         comment: "14-day extension for rig crew due to drilling delays.",
       },
       {
-        step: 2, name: "Contracts Review", approver: "Arjun Mehta",
-        role: "Contracts Manager", timestamp: "09:45 IST", status: "complete",
+        step: 2,
+        name: "Contracts Review",
+        approver: "Arjun Mehta",
+        role: "Contracts Manager",
+        timestamp: "09:45 IST",
+        status: "complete",
         comment: "Contract terms verified — rate card applicable.",
       },
       {
-        step: 3, name: "Finance Approval", approver: "Ravi Patel",
-        role: "Finance Controller", authorityLimit: "Rs. 20 Cr",
-        timestamp: "11:10 IST", status: "complete",
+        step: 3,
+        name: "Finance Approval",
+        approver: "Ravi Patel",
+        role: "Finance Controller",
+        authorityLimit: "Rs. 20 Cr",
+        timestamp: "11:10 IST",
+        status: "complete",
         comment: "Budget allocation confirmed under CAPEX line.",
       },
       {
-        step: 4, name: "VP Operations", approver: "Anand Sharma",
-        role: "VP Operations", authorityLimit: "Rs. 5 Cr",
-        timestamp: "12:35 IST", status: "complete",
+        step: 4,
+        name: "VP Operations",
+        approver: "Anand Sharma",
+        role: "VP Operations",
+        authorityLimit: "Rs. 5 Cr",
+        timestamp: "12:35 IST",
+        status: "complete",
         comment: "Approved.",
       },
     ],
@@ -206,18 +257,29 @@ const WORKFLOWS: Workflow[] = [
     column: "in_review",
     approvalChain: [
       {
-        step: 1, name: "Budget Exception Request", approver: "Arjun Mehta",
-        role: "Contracts Manager", timestamp: "10:15 IST", status: "complete",
+        step: 1,
+        name: "Budget Exception Request",
+        approver: "Arjun Mehta",
+        role: "Contracts Manager",
+        timestamp: "10:15 IST",
+        status: "complete",
         comment: "Chemical spend exceeds budget line by Rs. 38,000.",
       },
       {
-        step: 2, name: "HSE & Ops Review", approver: "Priya Menon",
-        role: "HSE Manager", status: "pending",
-        elapsedMin: 42, escalationThresholdMin: 90,
+        step: 2,
+        name: "HSE & Ops Review",
+        approver: "Priya Menon",
+        role: "HSE Manager",
+        status: "pending",
+        elapsedMin: 42,
+        escalationThresholdMin: 90,
       },
       {
-        step: 3, name: "Finance Sign-off", approver: "Ravi Patel",
-        role: "Finance Controller", status: "awaiting",
+        step: 3,
+        name: "Finance Sign-off",
+        approver: "Ravi Patel",
+        role: "Finance Controller",
+        status: "awaiting",
       },
     ],
   },
@@ -231,7 +293,11 @@ const COLUMNS: { key: ColumnKey; label: string }[] = [
 ];
 
 const TYPE_FILTER_OPTIONS: WorkflowType[] = [
-  "AFE", "MOC", "HSE Exception", "Contractor Auth", "Budget Exception",
+  "AFE",
+  "MOC",
+  "HSE Exception",
+  "Contractor Auth",
+  "Budget Exception",
 ];
 
 /* ------------------------------------------------------------------ */
@@ -306,12 +372,13 @@ export function OGSubModule51() {
         newChain[pendingIdx] = {
           ...newChain[pendingIdx],
           status: "complete",
-          timestamp: new Date().toLocaleTimeString("en-IN", {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: false,
-            timeZone: "Asia/Kolkata",
-          }) + " IST",
+          timestamp:
+            new Date().toLocaleTimeString("en-IN", {
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: false,
+              timeZone: "Asia/Kolkata",
+            }) + " IST",
           comment: "Approved via workflow system.",
           elapsedMin: undefined,
           escalationThresholdMin: undefined,
@@ -319,7 +386,12 @@ export function OGSubModule51() {
 
         // advance next awaiting to pending
         if (pendingIdx + 1 < newChain.length && newChain[pendingIdx + 1].status === "awaiting") {
-          newChain[pendingIdx + 1] = { ...newChain[pendingIdx + 1], status: "pending", elapsedMin: 0, escalationThresholdMin: 120 };
+          newChain[pendingIdx + 1] = {
+            ...newChain[pendingIdx + 1],
+            status: "pending",
+            elapsedMin: 0,
+            escalationThresholdMin: 120,
+          };
         }
 
         const allDone = newChain.every((s) => s.status === "complete");
@@ -352,10 +424,14 @@ export function OGSubModule51() {
           elapsedMin: undefined,
           escalationThresholdMin: undefined,
           completedDate: allDone
-            ? new Date().toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })
+            ? new Date().toLocaleDateString("en-IN", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric",
+              })
             : wf.completedDate,
         };
-      })
+      }),
     );
 
     const stepName = chain[pendingIdx].name;
@@ -382,7 +458,9 @@ export function OGSubModule51() {
             >
               <option value="All">All Types</option>
               {TYPE_FILTER_OPTIONS.map((t) => (
-                <option key={t} value={t}>{t}</option>
+                <option key={t} value={t}>
+                  {t}
+                </option>
               ))}
             </select>
           </div>
@@ -449,7 +527,9 @@ export function OGSubModule51() {
                       >
                         {/* Type badge */}
                         <div className="flex items-center justify-between mb-1.5">
-                          <Badge className={`${getTypeBadgeStyle(wf.type)} border text-[9px] font-bold`}>
+                          <Badge
+                            className={`${getTypeBadgeStyle(wf.type)} border text-[9px] font-bold`}
+                          >
                             {wf.type}
                           </Badge>
                           <span className="text-[9px] font-mono text-[#8892A0]">{wf.id}</span>
@@ -488,7 +568,9 @@ export function OGSubModule51() {
 
                         {/* Time elapsed & escalation */}
                         {wf.elapsedMin != null && wf.escalationThresholdMin != null && (
-                          <div className={`flex items-center gap-1 mt-1.5 text-[10px] font-semibold font-mono ${getEscalationColor(wf.elapsedMin, wf.escalationThresholdMin)}`}>
+                          <div
+                            className={`flex items-center gap-1 mt-1.5 text-[10px] font-semibold font-mono ${getEscalationColor(wf.elapsedMin, wf.escalationThresholdMin)}`}
+                          >
                             <Timer className="h-3 w-3" />
                             <span>{wf.timeElapsed} elapsed</span>
                             {wf.elapsedMin / wf.escalationThresholdMin > 0.5 && (
@@ -527,10 +609,14 @@ export function OGSubModule51() {
                 <div className="flex items-start justify-between gap-3">
                   <div className="space-y-1.5 flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <Badge className={`${getTypeBadgeStyle(selectedWorkflow.type)} border text-[9.5px] font-bold`}>
+                      <Badge
+                        className={`${getTypeBadgeStyle(selectedWorkflow.type)} border text-[9.5px] font-bold`}
+                      >
                         {selectedWorkflow.type}
                       </Badge>
-                      <span className="text-[10px] font-mono text-[#8892A0]">{selectedWorkflow.id}</span>
+                      <span className="text-[10px] font-mono text-[#8892A0]">
+                        {selectedWorkflow.id}
+                      </span>
                     </div>
                     <h3 className="text-sm font-bold text-[#0D1B2A] leading-snug">
                       {selectedWorkflow.subject}
@@ -541,10 +627,14 @@ export function OGSubModule51() {
                         <strong className="text-[#1A6B8A]">{selectedWorkflow.initiator}</strong>
                       </span>
                       {selectedWorkflow.value && (
-                        <span className="font-mono font-bold text-[#0D1B2A]">{selectedWorkflow.value}</span>
+                        <span className="font-mono font-bold text-[#0D1B2A]">
+                          {selectedWorkflow.value}
+                        </span>
                       )}
                       {selectedWorkflow.currentStep && (
-                        <span className="font-mono text-[#C8922A] font-semibold">{selectedWorkflow.currentStep}</span>
+                        <span className="font-mono text-[#C8922A] font-semibold">
+                          {selectedWorkflow.currentStep}
+                        </span>
                       )}
                     </div>
                   </div>
@@ -586,8 +676,8 @@ export function OGSubModule51() {
                               step.status === "complete"
                                 ? "bg-[#0F7B6C] text-white"
                                 : step.status === "pending"
-                                ? "bg-amber-100 text-[#C8922A] ring-2 ring-[#C8922A]/30"
-                                : "bg-slate-100 text-[#8892A0]"
+                                  ? "bg-amber-100 text-[#C8922A] ring-2 ring-[#C8922A]/30"
+                                  : "bg-slate-100 text-[#8892A0]"
                             }`}
                           >
                             {step.status === "complete" ? (
@@ -615,8 +705,8 @@ export function OGSubModule51() {
                               step.status === "complete"
                                 ? "border-[#0F7B6C]/20 bg-[#E3F4F2]/30"
                                 : step.status === "pending"
-                                ? "border-[#C8922A]/30 bg-amber-50/50 shadow-sm"
-                                : "border-[#D1D9E3] bg-slate-50/50"
+                                  ? "border-[#C8922A]/30 bg-amber-50/50 shadow-sm"
+                                  : "border-[#D1D9E3] bg-slate-50/50"
                             }`}
                           >
                             {/* Step header */}
@@ -627,13 +717,15 @@ export function OGSubModule51() {
                                     step.status === "complete"
                                       ? "bg-[#0F7B6C]/10 text-[#0F7B6C]"
                                       : step.status === "pending"
-                                      ? "bg-[#C8922A]/10 text-[#C8922A]"
-                                      : "bg-slate-100 text-[#8892A0]"
+                                        ? "bg-[#C8922A]/10 text-[#C8922A]"
+                                        : "bg-slate-100 text-[#8892A0]"
                                   }`}
                                 >
                                   STEP {step.step}
                                 </span>
-                                <span className="text-xs font-bold text-[#0D1B2A]">{step.name}</span>
+                                <span className="text-xs font-bold text-[#0D1B2A]">
+                                  {step.name}
+                                </span>
                               </div>
                               {/* Status label */}
                               {step.status === "complete" && step.timestamp && (
@@ -646,7 +738,10 @@ export function OGSubModule51() {
                                 <span
                                   className={`flex items-center gap-1 text-[10px] font-mono font-bold ${
                                     step.elapsedMin != null && step.escalationThresholdMin != null
-                                      ? getEscalationColor(step.elapsedMin, step.escalationThresholdMin)
+                                      ? getEscalationColor(
+                                          step.elapsedMin,
+                                          step.escalationThresholdMin,
+                                        )
                                       : "text-[#C8922A]"
                                   }`}
                                 >
@@ -683,9 +778,10 @@ export function OGSubModule51() {
                                     className={`h-full rounded-full transition-all ${
                                       (step.elapsedMin || 0) / step.escalationThresholdMin > 0.8
                                         ? "bg-[#C0392B]"
-                                        : (step.elapsedMin || 0) / step.escalationThresholdMin >= 0.5
-                                        ? "bg-[#C8922A]"
-                                        : "bg-[#0F7B6C]"
+                                        : (step.elapsedMin || 0) / step.escalationThresholdMin >=
+                                            0.5
+                                          ? "bg-[#C8922A]"
+                                          : "bg-[#0F7B6C]"
                                     }`}
                                     style={{
                                       width: `${Math.min(((step.elapsedMin || 0) / step.escalationThresholdMin) * 100, 100)}%`,

@@ -1,7 +1,19 @@
 import { useState, useRef, useEffect } from "react";
 import {
-  Send, Database, Cpu, Search, Sparkles, Pin, BookOpen,
-  ArrowRight, Download, RefreshCw, MessageSquare, ChevronRight, User, Terminal
+  Send,
+  Database,
+  Cpu,
+  Search,
+  Sparkles,
+  Pin,
+  BookOpen,
+  ArrowRight,
+  Download,
+  RefreshCw,
+  MessageSquare,
+  ChevronRight,
+  User,
+  Terminal,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -28,70 +40,109 @@ const HISTORICAL_QUERIES = [
   "List active maintenance backlog by severity",
   "HSE compliance checklist filing record YTD",
   "How much chemical expenditure was saved MTD?",
-  "Average cycle time for AFE approvals this quarter"
+  "Average cycle time for AFE approvals this quarter",
 ];
 
 const PRELOADED_CONVERSATION: Message[] = [
   {
     sender: "user",
     text: "Compare our H1 2025 OPEX per barrel against H1 2024 and tell me which cost categories drove the difference.",
-    timestamp: "04 Nov 09:14 IST"
+    timestamp: "04 Nov 09:14 IST",
   },
   {
     sender: "ai",
     text: "Here is the comparison of H1 FY 2025 lifting costs compared to H1 FY 2024, along with the primary cost drivers.",
     timestamp: "04 Nov 09:14 IST",
     confidence: 97,
-    sources: ["H1 FY 2025 OPEX Ledger", "H1 FY 2024 OPEX Ledger", "Chemical PO Register", "Maintenance Records - Pad A 2025", "HR Headcount Report Q4 FY 2024"],
+    sources: [
+      "H1 FY 2025 OPEX Ledger",
+      "H1 FY 2024 OPEX Ledger",
+      "Chemical PO Register",
+      "Maintenance Records - Pad A 2025",
+      "HR Headcount Report Q4 FY 2024",
+    ],
     table: {
       headers: ["Lifting Cost Metric", "H1 FY 2024", "H1 FY 2025", "Variance (Rs.)", "Change (%)"],
       rows: [
         ["All-in OPEX / bbl", "Rs. 3,741", "Rs. 4,089", "+Rs. 348", "+9.3%"],
         ["Chemical Treatments / bbl", "Rs. 1,020", "Rs. 1,162", "+Rs. 142", "+13.9%"],
         ["Equipment Rental / bbl", "Rs. 720", "Rs. 817", "+Rs. 97", "+13.5%"],
-        ["Maintenance & Repairs / bbl", "Rs. 580", "Rs. 644", "+Rs. 64", "+11.0%"]
-      ]
-    }
+        ["Maintenance & Repairs / bbl", "Rs. 580", "Rs. 644", "+Rs. 64", "+11.0%"],
+      ],
+    },
   },
   {
     sender: "user",
     text: "Which 3 wells had the highest NPT in Q3 2025 and what caused it?",
-    timestamp: "04 Nov 09:19 IST"
+    timestamp: "04 Nov 09:19 IST",
   },
   {
     sender: "ai",
     text: "These are the top 3 wells by Non-Productive Time (NPT) for Q3 FY 2025 (Jul–Sep 2025). Note that Well B-07's recurring stuck pump jack indicates a potential design flaw.",
     timestamp: "04 Nov 09:19 IST",
     confidence: 94,
-    sources: ["Q3 2025 Daily Drilling Reports - C-07", "Workover Report A-04 Jul 2025", "Maintenance Records B-07 2024-2025"],
+    sources: [
+      "Q3 2025 Daily Drilling Reports - C-07",
+      "Workover Report A-04 Jul 2025",
+      "Maintenance Records B-07 2024-2025",
+    ],
     table: {
       headers: ["Rank", "Well ID", "NPT Hours", "NPT %", "Primary Cause / Description"],
       rows: [
-        ["1", "Well C-07", "38.4 hrs", "7.1%", "ESP motor failure (28 Aug - 22 hrs); Separator blockage (14 Sep - 16.4 hrs)"],
-        ["2", "Well A-04", "29.1 hrs", "5.4%", "Planned workover - ESP string replacement (Jul 2025)"],
-        ["3", "Well B-07", "18.7 hrs", "3.5%", "Stuck pump jack during routine maintenance check (02 Sep - 3rd occurrence in 12 months)"]
-      ]
-    }
+        [
+          "1",
+          "Well C-07",
+          "38.4 hrs",
+          "7.1%",
+          "ESP motor failure (28 Aug - 22 hrs); Separator blockage (14 Sep - 16.4 hrs)",
+        ],
+        [
+          "2",
+          "Well A-04",
+          "29.1 hrs",
+          "5.4%",
+          "Planned workover - ESP string replacement (Jul 2025)",
+        ],
+        [
+          "3",
+          "Well B-07",
+          "18.7 hrs",
+          "3.5%",
+          "Stuck pump jack during routine maintenance check (02 Sep - 3rd occurrence in 12 months)",
+        ],
+      ],
+    },
   },
   {
     sender: "user",
     text: "What is our current all-in lifting cost per barrel and how does it compare to our budget for this financial year?",
-    timestamp: "04 Nov 09:26 IST"
+    timestamp: "04 Nov 09:26 IST",
   },
   {
     sender: "ai",
     text: "Current Lifting Cost comparing October 2025 Actuals against the approved FY 2025-26 Budget. OPEX remains within tolerance limits despite a minor chemical overrun.",
     timestamp: "04 Nov 09:26 IST",
     confidence: 99,
-    sources: ["Oct 2025 OPEX Actuals - Finance", "FY 2025-26 Budget - ERP", "CAPEX Schedule FY 2025-26", "Depreciation Register"],
+    sources: [
+      "Oct 2025 OPEX Actuals - Finance",
+      "FY 2025-26 Budget - ERP",
+      "CAPEX Schedule FY 2025-26",
+      "Depreciation Register",
+    ],
     table: {
-      headers: ["Lifting Cost Category", "Actuals (Oct 25)", "Budget FY 25-26", "Variance (Rs.)", "Change (%)"],
+      headers: [
+        "Lifting Cost Category",
+        "Actuals (Oct 25)",
+        "Budget FY 25-26",
+        "Variance (Rs.)",
+        "Change (%)",
+      ],
       rows: [
         ["OPEX-only (Rs./bbl)", "Rs. 4,127", "Rs. 3,980", "+Rs. 147", "+3.69%"],
-        ["All-in Lifting Cost (Rs./bbl)", "Rs. 6,840", "Rs. 6,510", "+Rs. 330", "+5.07%"]
-      ]
-    }
-  }
+        ["All-in Lifting Cost (Rs./bbl)", "Rs. 6,840", "Rs. 6,510", "+Rs. 330", "+5.07%"],
+      ],
+    },
+  },
 ];
 
 export function OGSubModule72() {
@@ -99,7 +150,7 @@ export function OGSubModule72() {
   const [queryText, setQueryText] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isPending, setIsPending] = useState(false);
-  
+
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -113,40 +164,45 @@ export function OGSubModule72() {
     const userMsg: Message = {
       sender: "user",
       text,
-      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + " IST"
+      timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " IST",
     };
 
-    setMessages(prev => [...prev, userMsg]);
+    setMessages((prev) => [...prev, userMsg]);
     setQueryText("");
     setIsPending(true);
 
     // Simulate AI streaming response after 1.5s
     setTimeout(() => {
       setIsPending(false);
-      
+
       let aiResponseText = "";
       let mockTable = undefined;
       let mockSources = ["SAP Financial Ledger Oct 2025", "Daily Ops DB logs"];
 
       if (text.toLowerCase().includes("water cut")) {
-        aiResponseText = "Here are the wells with the highest water cut percentages recorded last week.";
+        aiResponseText =
+          "Here are the wells with the highest water cut percentages recorded last week.";
         mockTable = {
           headers: ["Well ID", "Water Cut %", "Gross Production", "Status"],
           rows: [
             ["Well B-09", "64.2%", "420 bbl/d", "High water cut alert"],
             ["Well C-04", "58.1%", "610 bbl/d", "Monitored"],
-            ["Well A-12", "54.8%", "340 bbl/d", "Normal"]
-          ]
+            ["Well A-12", "54.8%", "340 bbl/d", "Normal"],
+          ],
         };
-      } else if (text.toLowerCase().includes("maintenance") || text.toLowerCase().includes("backlog")) {
-        aiResponseText = "Active maintenance backlog grouped by priority levels from the CMMS registers.";
+      } else if (
+        text.toLowerCase().includes("maintenance") ||
+        text.toLowerCase().includes("backlog")
+      ) {
+        aiResponseText =
+          "Active maintenance backlog grouped by priority levels from the CMMS registers.";
         mockTable = {
           headers: ["Priority", "Open Work Orders", "Average Age", "Status"],
           rows: [
             ["Critical (Safety/LTI)", "1 (Pad B valve)", "1.5 days", "Scheduled"],
             ["High (Production Impact)", "3 work orders", "4.2 days", "Assigned"],
-            ["Medium (Preventive)", "11 work orders", "14 days", "On schedule"]
-          ]
+            ["Medium (Preventive)", "11 work orders", "14 days", "On schedule"],
+          ],
         };
       } else {
         aiResponseText = `I compiled the operational logs matching your query: "${text}". No major anomalies detected in this register range.`;
@@ -155,21 +211,22 @@ export function OGSubModule72() {
           rows: [
             ["Gross Oil Production", "4,120 bbl/day", "On Schedule"],
             ["OPEX Lifting Cost", "Rs. 4,077/bbl", "Within tolerance"],
-            ["Active Permits (PTW)", "4 Open", "Verified Compliant"]
-          ]
+            ["Active Permits (PTW)", "4 Open", "Verified Compliant"],
+          ],
         };
       }
 
       const aiMsg: Message = {
         sender: "ai",
         text: aiResponseText,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + " IST",
+        timestamp:
+          new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) + " IST",
         confidence: 95,
         sources: mockSources,
-        table: mockTable
+        table: mockTable,
       };
 
-      setMessages(prev => [...prev, aiMsg]);
+      setMessages((prev) => [...prev, aiMsg]);
     }, 1500);
   };
 
@@ -179,12 +236,13 @@ export function OGSubModule72() {
 
   return (
     <div className="rounded-2xl border border-[#D1D9E3] bg-white shadow-sm overflow-hidden flex h-[620px]">
-      
       {/* ── Left Sidebar: Query History (25%) ────────── */}
       {isSidebarOpen && (
         <div className="w-1/4 border-r border-[#D1D9E3] bg-slate-50/50 flex flex-col hidden md:flex">
           <div className="p-4 border-b border-[#D1D9E3] flex items-center justify-between">
-            <span className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">Analysis History</span>
+            <span className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+              Analysis History
+            </span>
             <MessageSquare className="h-4 w-4 text-[#8892A0]" />
           </div>
           <div className="flex-1 overflow-y-auto p-2 space-y-1">
@@ -204,7 +262,6 @@ export function OGSubModule72() {
 
       {/* ── Right Section: Conversational Workspace ───── */}
       <div className="flex-1 flex flex-col bg-slate-50/10">
-        
         {/* Top Header status */}
         <div className="p-4 border-b border-[#D1D9E3] bg-white flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -217,7 +274,8 @@ export function OGSubModule72() {
             <div className="flex items-center gap-1.5">
               <Database className="h-4 w-4 text-[#1A6B8A]" />
               <span className="text-[11px] font-semibold text-[#8892A0]">
-                Data Freshness: <strong className="text-[#0D1B2A] font-mono">04 Nov 06:00 IST</strong>
+                Data Freshness:{" "}
+                <strong className="text-[#0D1B2A] font-mono">04 Nov 06:00 IST</strong>
               </span>
             </div>
           </div>
@@ -247,20 +305,30 @@ export function OGSubModule72() {
                 key={idx}
                 className={`flex gap-3 max-w-[85%] ${isUser ? "ml-auto flex-row-reverse" : "mr-auto"}`}
               >
-                <div className={`h-8.5 w-8.5 rounded-full shrink-0 flex items-center justify-center border ${
-                  isUser ? "bg-blue-50 border-blue-200" : "bg-slate-100 border-[#D1D9E3]"
-                }`}>
-                  {isUser ? <User className="h-4.5 w-4.5 text-[#1A6B8A]" /> : <Cpu className="h-4.5 w-4.5 text-[#0D1B2A]" />}
+                <div
+                  className={`h-8.5 w-8.5 rounded-full shrink-0 flex items-center justify-center border ${
+                    isUser ? "bg-blue-50 border-blue-200" : "bg-slate-100 border-[#D1D9E3]"
+                  }`}
+                >
+                  {isUser ? (
+                    <User className="h-4.5 w-4.5 text-[#1A6B8A]" />
+                  ) : (
+                    <Cpu className="h-4.5 w-4.5 text-[#0D1B2A]" />
+                  )}
                 </div>
 
-                <div className={`rounded-2xl p-4 space-y-3 shadow-sm border ${
-                  isUser
-                    ? "bg-[#0D1B2A] text-white border-transparent"
-                    : "bg-white text-[#0D1B2A] border-[#D1D9E3]"
-                }`}>
+                <div
+                  className={`rounded-2xl p-4 space-y-3 shadow-sm border ${
+                    isUser
+                      ? "bg-[#0D1B2A] text-white border-transparent"
+                      : "bg-white text-[#0D1B2A] border-[#D1D9E3]"
+                  }`}
+                >
                   <div className="flex items-center justify-between gap-6">
                     <p className="text-xs leading-relaxed font-sans">{msg.text}</p>
-                    <span className={`text-[9.5px] font-mono shrink-0 ${isUser ? "text-white/60" : "text-[#8892A0]"}`}>
+                    <span
+                      className={`text-[9.5px] font-mono shrink-0 ${isUser ? "text-white/60" : "text-[#8892A0]"}`}
+                    >
                       {msg.timestamp}
                     </span>
                   </div>
@@ -272,7 +340,9 @@ export function OGSubModule72() {
                         <thead>
                           <tr className="border-b border-[#D1D9E3] bg-slate-50/50 text-[9px] font-bold uppercase tracking-wider text-[#8892A0]">
                             {msg.table.headers.map((h, i) => (
-                              <th key={i} className="py-2 px-3 text-left">{h}</th>
+                              <th key={i} className="py-2 px-3 text-left">
+                                {h}
+                              </th>
                             ))}
                           </tr>
                         </thead>
@@ -280,7 +350,10 @@ export function OGSubModule72() {
                           {msg.table.rows.map((row, i) => (
                             <tr key={i} className="hover:bg-slate-50/50 transition-colors">
                               {row.map((cell, cIdx) => (
-                                <td key={cIdx} className={`py-2 px-3 ${cIdx > 0 && cIdx < 4 ? "font-mono font-semibold" : ""}`}>
+                                <td
+                                  key={cIdx}
+                                  className={`py-2 px-3 ${cIdx > 0 && cIdx < 4 ? "font-mono font-semibold" : ""}`}
+                                >
                                   {cell}
                                 </td>
                               ))}
@@ -303,7 +376,7 @@ export function OGSubModule72() {
                         <div className="flex flex-wrap items-center gap-1.5">
                           <BookOpen className="h-3.5 w-3.5" />
                           <span className="font-semibold">Sources:</span>
-                          {msg.sources.map(s => (
+                          {msg.sources.map((s) => (
                             <Badge
                               key={s}
                               onClick={() => toast.info(`Viewing source ledger: "${s}"`)}
@@ -358,20 +431,20 @@ export function OGSubModule72() {
             <span className="text-[9.5px] text-[#8892A0] uppercase font-bold mr-1 flex items-center gap-0.5">
               <Terminal className="h-3 w-3" /> Quick Prompts:
             </span>
-            {["Compare H1 2025 OPEX vs H1 2024", "Highest NPT in Q3 2025", "Water cut details"].map(p => (
-              <Badge
-                key={p}
-                onClick={() => handleSendQuery(p)}
-                className="bg-slate-50 text-slate-600 border border-slate-200 text-[9px] hover:bg-slate-100 cursor-pointer font-semibold py-0.5"
-              >
-                {p}
-              </Badge>
-            ))}
+            {["Compare H1 2025 OPEX vs H1 2024", "Highest NPT in Q3 2025", "Water cut details"].map(
+              (p) => (
+                <Badge
+                  key={p}
+                  onClick={() => handleSendQuery(p)}
+                  className="bg-slate-50 text-slate-600 border border-slate-200 text-[9px] hover:bg-slate-100 cursor-pointer font-semibold py-0.5"
+                >
+                  {p}
+                </Badge>
+              ),
+            )}
           </div>
         </div>
-
       </div>
-
     </div>
   );
 }

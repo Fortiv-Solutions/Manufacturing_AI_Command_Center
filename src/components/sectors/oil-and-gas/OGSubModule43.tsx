@@ -1,7 +1,17 @@
 import { useState } from "react";
 import {
-  MessageSquare, Sparkles, Loader2, CheckCircle2, AlertCircle,
-  Clock, Users, Send, Download, ChevronRight, Check, User
+  MessageSquare,
+  Sparkles,
+  Loader2,
+  CheckCircle2,
+  AlertCircle,
+  Clock,
+  Users,
+  Send,
+  Download,
+  ChevronRight,
+  Check,
+  User,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -47,24 +57,91 @@ export function OGSubModule43() {
   const [summary] = useState([
     "Production at Well Pad A recovered to 94% of target following the completion of the Well C-07 ESP workover on 26 October. Gross oil for the week ending 27 October was 41,280 bbl, against a target of 43,500 bbl, with the remaining shortfall attributable to planned maintenance downtime at Pad A compressor station.",
     "Water injection shortfall remains unresolved pending delivery of the replacement pump impeller for the Pad B injection pump. Current injection rate is 12,400 bbl/day against a target of 18,200 bbl/day. Anand Sharma confirmed that a purchase order has been approved and the impeller is expected on site by 07 November.",
-    "Q3 financial closeout was approved, with OPEX confirmed at Rs. 4.8 crore against a budget of Rs. 4.6 crore (+4.3%). Three actions from last week's meeting were carried forward, all with revised due dates agreed by owners."
+    "Q3 financial closeout was approved, with OPEX confirmed at Rs. 4.8 crore against a budget of Rs. 4.6 crore (+4.3%). Three actions from last week's meeting were carried forward, all with revised due dates agreed by owners.",
   ]);
 
   const [decisions] = useState<Decision[]>([
-    { id: 1, text: "Q3 OPEX closeout approved at Rs. 4.8 crore — signed off by Ravi Patel", decidedBy: "Ravi Patel" },
-    { id: 2, text: "Well C-07 workover declared complete and well returned to production", decidedBy: "Anand Sharma" },
-    { id: 3, text: "Pad B injection pump repair prioritised — target restoration by 10 Nov 2025", decidedBy: "Anand Sharma" },
-    { id: 4, text: "B-15 spud date confirmed: 05 Nov 2025 — Sushant Verma to mobilise rig crew", decidedBy: "Sushant Verma" }
+    {
+      id: 1,
+      text: "Q3 OPEX closeout approved at Rs. 4.8 crore — signed off by Ravi Patel",
+      decidedBy: "Ravi Patel",
+    },
+    {
+      id: 2,
+      text: "Well C-07 workover declared complete and well returned to production",
+      decidedBy: "Anand Sharma",
+    },
+    {
+      id: 3,
+      text: "Pad B injection pump repair prioritised — target restoration by 10 Nov 2025",
+      decidedBy: "Anand Sharma",
+    },
+    {
+      id: 4,
+      text: "B-15 spud date confirmed: 05 Nov 2025 — Sushant Verma to mobilise rig crew",
+      decidedBy: "Sushant Verma",
+    },
   ]);
 
   const [actions, setActions] = useState<ActionItem[]>([
-    { id: "ACT-2025-1284", description: "Order replacement pump impeller — Part No. MP-4027 for Pad B injection pump", owner: "Anand Sharma", due: "04 Nov 2025", priority: "HIGH", status: "Open" },
-    { id: "ACT-2025-1285", description: "Update emergency contact list for Well Pad B site personnel", owner: "Priya Menon", due: "31 Oct 2025", priority: "HIGH", status: "Open" },
-    { id: "ACT-2025-1286", description: "Circulate Q4 OPEX budget template to all cost centre owners", owner: "Ravi Patel", due: "05 Nov 2025", priority: "MED", status: "Open" },
-    { id: "ACT-2025-1287", description: "Confirm B-15 spud date and mobilise full rig crew from Jodhpur yard", owner: "Sushant Verma", due: "02 Nov 2025", priority: "HIGH", status: "Open" },
-    { id: "ACT-2025-1288", description: "Submit Q3 production data to DGH — W-10 monthly return filing", owner: "Rajesh Kumar", due: "07 Nov 2025", priority: "HIGH", status: "Open" },
-    { id: "ACT-2025-1261", description: "Scaffold inspection at Well Pad B — pending since last week", owner: "Sushant Verma", due: "24 Oct 2025", priority: "HIGH", status: "Overdue", carried: true },
-    { id: "ACT-2025-1268", description: "Chemical inventory audit — Pad C storage yards", owner: "Priya Menon", due: "25 Oct 2025", priority: "MED", status: "Overdue", carried: true }
+    {
+      id: "ACT-2025-1284",
+      description: "Order replacement pump impeller — Part No. MP-4027 for Pad B injection pump",
+      owner: "Anand Sharma",
+      due: "04 Nov 2025",
+      priority: "HIGH",
+      status: "Open",
+    },
+    {
+      id: "ACT-2025-1285",
+      description: "Update emergency contact list for Well Pad B site personnel",
+      owner: "Priya Menon",
+      due: "31 Oct 2025",
+      priority: "HIGH",
+      status: "Open",
+    },
+    {
+      id: "ACT-2025-1286",
+      description: "Circulate Q4 OPEX budget template to all cost centre owners",
+      owner: "Ravi Patel",
+      due: "05 Nov 2025",
+      priority: "MED",
+      status: "Open",
+    },
+    {
+      id: "ACT-2025-1287",
+      description: "Confirm B-15 spud date and mobilise full rig crew from Jodhpur yard",
+      owner: "Sushant Verma",
+      due: "02 Nov 2025",
+      priority: "HIGH",
+      status: "Open",
+    },
+    {
+      id: "ACT-2025-1288",
+      description: "Submit Q3 production data to DGH — W-10 monthly return filing",
+      owner: "Rajesh Kumar",
+      due: "07 Nov 2025",
+      priority: "HIGH",
+      status: "Open",
+    },
+    {
+      id: "ACT-2025-1261",
+      description: "Scaffold inspection at Well Pad B — pending since last week",
+      owner: "Sushant Verma",
+      due: "24 Oct 2025",
+      priority: "HIGH",
+      status: "Overdue",
+      carried: true,
+    },
+    {
+      id: "ACT-2025-1268",
+      description: "Chemical inventory audit — Pad C storage yards",
+      owner: "Priya Menon",
+      due: "25 Oct 2025",
+      priority: "MED",
+      status: "Overdue",
+      carried: true,
+    },
   ]);
 
   const handleProcess = () => {
@@ -85,8 +162,8 @@ export function OGSubModule43() {
   };
 
   const markComplete = (id: string) => {
-    setActions(prev =>
-      prev.map(a => a.id === id ? { ...a, status: "Complete" as const } : a)
+    setActions((prev) =>
+      prev.map((a) => (a.id === id ? { ...a, status: "Complete" as const } : a)),
     );
     toast.success(`Action ${id} marked complete.`);
   };
@@ -104,12 +181,11 @@ export function OGSubModule43() {
     return "bg-slate-100 text-slate-600";
   };
 
-  const openCount = actions.filter(a => a.status === "Open" || a.status === "In Progress").length;
-  const overdueCount = actions.filter(a => a.status === "Overdue").length;
+  const openCount = actions.filter((a) => a.status === "Open" || a.status === "In Progress").length;
+  const overdueCount = actions.filter((a) => a.status === "Overdue").length;
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
       {/* Left Transcript Input (40%) */}
       <div className="lg:col-span-5 space-y-6">
         <div className="rounded-2xl border border-[#D1D9E3] bg-white p-5 shadow-sm space-y-4">
@@ -120,7 +196,9 @@ export function OGSubModule43() {
 
           <div className="grid grid-cols-2 gap-3">
             <div className="space-y-1">
-              <label className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">Meeting Type</label>
+              <label className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                Meeting Type
+              </label>
               <select className="w-full h-9 rounded-lg border border-[#D1D9E3] bg-white px-2.5 text-xs">
                 <option>Weekly Production Review</option>
                 <option>Daily Production Review</option>
@@ -130,19 +208,30 @@ export function OGSubModule43() {
               </select>
             </div>
             <div className="space-y-1">
-              <label className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">Date</label>
-              <input type="text" defaultValue="28 Oct 2025" className="w-full h-9 rounded-lg border border-[#D1D9E3] bg-[#F5F6FA] px-2.5 text-xs font-mono" readOnly />
+              <label className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                Date
+              </label>
+              <input
+                type="text"
+                defaultValue="28 Oct 2025"
+                className="w-full h-9 rounded-lg border border-[#D1D9E3] bg-[#F5F6FA] px-2.5 text-xs font-mono"
+                readOnly
+              />
             </div>
           </div>
 
           <div className="space-y-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">Meeting Transcript</label>
-              <span className="text-[10px] font-mono text-[#8892A0]">{transcript.split(" ").length} words</span>
+              <label className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                Meeting Transcript
+              </label>
+              <span className="text-[10px] font-mono text-[#8892A0]">
+                {transcript.split(" ").length} words
+              </span>
             </div>
             <textarea
               value={transcript}
-              onChange={e => setTranscript(e.target.value)}
+              onChange={(e) => setTranscript(e.target.value)}
               rows={10}
               placeholder="Paste your meeting transcript or voice-to-text output here..."
               className="w-full rounded-lg border border-[#D1D9E3] bg-white p-3 text-xs text-[#0D1B2A] focus:outline-none focus:ring-1 focus:ring-[#C8922A] resize-none leading-relaxed font-mono"
@@ -155,9 +244,15 @@ export function OGSubModule43() {
             className="w-full bg-[#C8922A] hover:bg-[#b78222] text-white font-semibold text-xs h-10 rounded-lg"
           >
             {isProcessing ? (
-              <><Loader2 className="h-4 w-4 animate-spin mr-1.5" />Processing Transcript...</>
+              <>
+                <Loader2 className="h-4 w-4 animate-spin mr-1.5" />
+                Processing Transcript...
+              </>
             ) : (
-              <><Sparkles className="h-4 w-4 mr-1.5" />Process Meeting</>
+              <>
+                <Sparkles className="h-4 w-4 mr-1.5" />
+                Process Meeting
+              </>
             )}
           </Button>
         </div>
@@ -175,7 +270,9 @@ export function OGSubModule43() {
             </div>
             <div className="rounded-xl border border-[#D1D9E3] bg-white p-3 shadow-sm text-center">
               <p className="text-[9.5px] font-bold text-[#8892A0] uppercase">Decisions</p>
-              <p className="text-lg font-bold font-mono text-[#0D1B2A] mt-0.5">{decisions.length}</p>
+              <p className="text-lg font-bold font-mono text-[#0D1B2A] mt-0.5">
+                {decisions.length}
+              </p>
             </div>
           </div>
         )}
@@ -183,10 +280,9 @@ export function OGSubModule43() {
 
       {/* Right Output Panel (60%) */}
       <div className="lg:col-span-7 rounded-2xl border border-[#D1D9E3] bg-white shadow-sm flex flex-col overflow-hidden">
-
         {/* Tab Bar */}
         <div className="border-b border-[#D1D9E3] px-5 pt-4 flex items-center gap-1 bg-white">
-          {(["Summary", "Actions", "Decisions"] as const).map(tab => (
+          {(["Summary", "Actions", "Decisions"] as const).map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
@@ -210,24 +306,40 @@ export function OGSubModule43() {
           ) : isProcessing ? (
             <div className="py-24 text-center space-y-4">
               <Loader2 className="h-8 w-8 text-[#C8922A] animate-spin mx-auto" />
-              <p className="text-xs text-[#8892A0]">Extracting decisions and assigning action owners...</p>
+              <p className="text-xs text-[#8892A0]">
+                Extracting decisions and assigning action owners...
+              </p>
             </div>
           ) : activeTab === "Summary" ? (
             <div className="space-y-4">
-              <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">Executive Summary — MTG-2025-0847</h4>
+              <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                Executive Summary — MTG-2025-0847
+              </h4>
               {summary.map((para, idx) => (
-                <p key={idx} className="text-xs text-[#0D1B2A] leading-relaxed border-l-2 border-[#D1D9E3] pl-3">{para}</p>
+                <p
+                  key={idx}
+                  className="text-xs text-[#0D1B2A] leading-relaxed border-l-2 border-[#D1D9E3] pl-3"
+                >
+                  {para}
+                </p>
               ))}
             </div>
           ) : activeTab === "Decisions" ? (
             <div className="space-y-3">
-              <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">Decisions Logged ({decisions.length})</h4>
+              <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                Decisions Logged ({decisions.length})
+              </h4>
               {decisions.map((d) => (
-                <div key={d.id} className="flex items-start gap-3 p-3 rounded-xl border bg-slate-50 text-xs">
+                <div
+                  key={d.id}
+                  className="flex items-start gap-3 p-3 rounded-xl border bg-slate-50 text-xs"
+                >
                   <CheckCircle2 className="h-4 w-4 text-[#0F7B6C] shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-[#0D1B2A]">{d.text}</p>
-                    <p className="text-[#8892A0] text-[10px] mt-0.5">Decided by: <strong className="text-[#1A6B8A]">{d.decidedBy}</strong></p>
+                    <p className="text-[#8892A0] text-[10px] mt-0.5">
+                      Decided by: <strong className="text-[#1A6B8A]">{d.decidedBy}</strong>
+                    </p>
                   </div>
                 </div>
               ))}
@@ -238,30 +350,61 @@ export function OGSubModule43() {
               {overdueCount > 0 && (
                 <div className="p-3 bg-[#FDECEA] border border-[#C0392B]/20 rounded-xl flex gap-2 text-xs text-[#C0392B] mb-4">
                   <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
-                  <p className="font-semibold">{overdueCount} actions carried forward from previous meeting and overdue — auto-escalated.</p>
+                  <p className="font-semibold">
+                    {overdueCount} actions carried forward from previous meeting and overdue —
+                    auto-escalated.
+                  </p>
                 </div>
               )}
 
-              <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">Extracted Actions ({actions.length})</h4>
+              <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                Extracted Actions ({actions.length})
+              </h4>
               <div className="space-y-2">
-                {actions.map(a => (
-                  <div key={a.id} className={`p-3 rounded-xl border text-xs transition-all ${a.carried ? "border-[#C0392B]/30 bg-rose-50/30" : "border-[#D1D9E3] bg-white hover:bg-slate-50"}`}>
+                {actions.map((a) => (
+                  <div
+                    key={a.id}
+                    className={`p-3 rounded-xl border text-xs transition-all ${a.carried ? "border-[#C0392B]/30 bg-rose-50/30" : "border-[#D1D9E3] bg-white hover:bg-slate-50"}`}
+                  >
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0 space-y-1">
                         <div className="flex items-center gap-2">
-                          {a.carried && <Badge className="bg-[#FDECEA] text-[#C0392B] border-[#C0392B]/20 text-[9px] font-bold shrink-0">CARRIED FWD</Badge>}
-                          <span className="font-bold text-[#0D1B2A] line-clamp-2">{a.description}</span>
+                          {a.carried && (
+                            <Badge className="bg-[#FDECEA] text-[#C0392B] border-[#C0392B]/20 text-[9px] font-bold shrink-0">
+                              CARRIED FWD
+                            </Badge>
+                          )}
+                          <span className="font-bold text-[#0D1B2A] line-clamp-2">
+                            {a.description}
+                          </span>
                         </div>
                         <div className="flex items-center gap-3 text-[10.5px] text-[#8892A0]">
-                          <span className="flex items-center gap-1"><User className="h-3 w-3" /><strong className="text-[#1A6B8A]">{a.owner}</strong></span>
-                          <span className="flex items-center gap-1"><Clock className="h-3 w-3" /><span className="font-mono">{a.due}</span></span>
+                          <span className="flex items-center gap-1">
+                            <User className="h-3 w-3" />
+                            <strong className="text-[#1A6B8A]">{a.owner}</strong>
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
+                            <span className="font-mono">{a.due}</span>
+                          </span>
                         </div>
                       </div>
                       <div className="flex flex-col items-end gap-1.5 shrink-0">
-                        <Badge className={`${getPriorityColor(a.priority)} border text-[9.5px] font-bold`}>{a.priority}</Badge>
-                        <Badge className={`${getStatusColor(a.status)} text-[9.5px] font-semibold border-0`}>{a.status}</Badge>
+                        <Badge
+                          className={`${getPriorityColor(a.priority)} border text-[9.5px] font-bold`}
+                        >
+                          {a.priority}
+                        </Badge>
+                        <Badge
+                          className={`${getStatusColor(a.status)} text-[9.5px] font-semibold border-0`}
+                        >
+                          {a.status}
+                        </Badge>
                         {(a.status === "Open" || a.status === "In Progress") && (
-                          <button onClick={() => markComplete(a.id)} className="text-[9.5px] text-[#0F7B6C] font-bold hover:underline flex items-center gap-0.5">
+                          <button
+                            onClick={() => markComplete(a.id)}
+                            className="text-[9.5px] text-[#0F7B6C] font-bold hover:underline flex items-center gap-0.5"
+                          >
                             <Check className="h-3 w-3" /> Done
                           </button>
                         )}
@@ -277,22 +420,34 @@ export function OGSubModule43() {
         {/* Footer Actions */}
         {isProcessed && (
           <div className="p-4 border-t border-[#D1D9E3] bg-white flex items-center justify-between gap-3">
-            <span className="text-[10.5px] font-mono text-[#8892A0]">MTG-2025-0847 · 28 Oct 2025 · 52 min</span>
+            <span className="text-[10.5px] font-mono text-[#8892A0]">
+              MTG-2025-0847 · 28 Oct 2025 · 52 min
+            </span>
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" className="h-8 text-xs" onClick={() => toast.success("Minutes exported as PDF.")}>
+              <Button
+                variant="outline"
+                size="sm"
+                className="h-8 text-xs"
+                onClick={() => toast.success("Minutes exported as PDF.")}
+              >
                 <Download className="h-3.5 w-3.5 mr-1" /> Export Minutes
               </Button>
-              <Button size="sm" className="h-8 bg-[#C8922A] hover:bg-[#b78222] text-white text-xs font-bold"
+              <Button
+                size="sm"
+                className="h-8 bg-[#C8922A] hover:bg-[#b78222] text-white text-xs font-bold"
                 onClick={() => {
                   toast.loading("Dispatching WhatsApp/Email reminders to all action owners...");
-                  setTimeout(() => { toast.dismiss(); toast.success("Reminders sent to 5 action owners."); }, 1000);
-                }}>
+                  setTimeout(() => {
+                    toast.dismiss();
+                    toast.success("Reminders sent to 5 action owners.");
+                  }, 1000);
+                }}
+              >
                 <Send className="h-3.5 w-3.5 mr-1" /> Approve & Send Reminders
               </Button>
             </div>
           </div>
         )}
-
       </div>
     </div>
   );

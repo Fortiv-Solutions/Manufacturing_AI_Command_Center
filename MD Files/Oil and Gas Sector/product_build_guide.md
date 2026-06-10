@@ -4,18 +4,18 @@
 
 ---
 
-| Field | Value |
-|---|---|
-| Company | [COMPANY_NAME] |
-| Website | [WEBSITE] |
-| Version | [VERSION] |
-| Market Focus | [MARKET / REGION] |
-| Document Type | Product Reference & Build Guide |
+| Field          | Value                              |
+| -------------- | ---------------------------------- |
+| Company        | [COMPANY_NAME]                     |
+| Website        | [WEBSITE]                          |
+| Version        | [VERSION]                          |
+| Market Focus   | [MARKET / REGION]                  |
+| Document Type  | Product Reference & Build Guide    |
 | Classification | [PUBLIC / INTERNAL / CONFIDENTIAL] |
-| Prepared For | Product, Engineering & Sales Teams |
+| Prepared For   | Product, Engineering & Sales Teams |
 
 **PRODUCT REFERENCE & BUILD GUIDE**
-*Strategy · Architecture · Demo Scripts · Build Prompts*
+_Strategy · Architecture · Demo Scripts · Build Prompts_
 
 ---
 
@@ -83,7 +83,7 @@ The guide covers the platform's full functional scope, module-by-module, with pu
 
 ## M1 — Regulatory Compliance & Filing Automation
 
-*Eliminate manual form-filling by auto-populating state regulatory filings from operational documents.*
+_Eliminate manual form-filling by auto-populating state regulatory filings from operational documents._
 
 ### Module Purpose
 
@@ -105,6 +105,7 @@ Upload a 12-page operational summary PDF from the previous month. Within 90 seco
 An AI agent that reads operational reports, extracts relevant data fields, and maps them automatically to the correct fields in official regulatory submission forms.
 
 **What it does:**
+
 - Parses PDF and structured operational reports to extract production volumes, dates, well identifiers, and operator details
 - Maps extracted values to the exact field positions in regulatory forms (e.g., OISD-STD-189, PNGRB monthly production templates)
 - Flags fields with missing or ambiguous source data and queues them for human review before submission
@@ -139,6 +140,7 @@ Field 12D -> FLAGGED — water disposal volume missing
 A continuous monitoring engine that cross-references operational documents and current submissions against the latest applicable regulatory requirements, flagging gaps before they become violations.
 
 **What it does:**
+
 - Maintains an up-to-date knowledge base of regulations applicable to [MARKET / REGION] operations
 - Compares drafted or submitted filings against regulatory requirements to identify missing disclosures or non-compliant data points
 - Generates a prioritised gap report categorised by severity — Critical, Advisory, and Informational
@@ -175,6 +177,7 @@ INFORMATIONAL (1):
 A tamper-evident, fully searchable record of every regulatory submission, revision, source document reference, and approval event — structured for instant retrieval during inspections or audits.
 
 **What it does:**
+
 - Automatically logs every submission event, including timestamp, operator, form version, and attached source documents
 - Maintains version history for all filings — every revision is preserved and searchable
 - Enables instant retrieval of any historical filing by date, form type, block, well, or operator
@@ -202,7 +205,7 @@ Jun 2024  W-10  v1.1  Submitted 04-Jun-24  Revised   Priya Menon  [see note]
 
 ## M2 — Land & Lease Document Intelligence
 
-*Extract, structure, and track lease obligations from thousands of scanned contract documents.*
+_Extract, structure, and track lease obligations from thousands of scanned contract documents._
 
 ### Module Purpose
 
@@ -224,6 +227,7 @@ Drop a folder of 200 scanned lease PDFs — some handwritten, some typewritten, 
 An OCR and NLP pipeline that processes any format of lease document — scanned PDFs, digital contracts, typed or handwritten agreements — and extracts all material terms into structured, queryable data.
 
 **What it does:**
+
 - Performs optical character recognition on scanned and image-based documents, including low-quality historical scans
 - Extracts and classifies: lessee/lessor names, block/survey identifiers, effective dates, expiry dates, rental rates, royalty percentages, drilling obligations, assignment restrictions, and renewal options
 - Handles multi-format, multi-language documents common in [MARKET / REGION] portfolios
@@ -260,6 +264,7 @@ EXTRACTED FIELDS:
 An automated obligation calendar that converts extracted lease terms into time-bound commitments, with proactive alerts delivered well ahead of every deadline.
 
 **What it does:**
+
 - Converts all date-bound lease terms (rentals, work programme commitments, renewal options, surrender deadlines) into calendar events — without manual data entry
 - Sends configurable advance alerts at 90-day, 30-day, and 7-day intervals before each obligation deadline
 - Tracks obligation status — Upcoming, In Progress, Completed, Overdue — with documented evidence of completion
@@ -295,6 +300,7 @@ DUE WITHIN 60-90 DAYS (5): [click to expand]
 An AI-assisted contract review tool that compares lease terms across the portfolio, identifies non-standard clauses, and surfaces unusual obligations that may require legal attention.
 
 **What it does:**
+
 - Compares clause language across all leases to identify deviations from standard PSC/RSC templates used in [MARKET / REGION]
 - Flags unusual provisions — such as non-standard force majeure definitions, atypical cost recovery caps, or restricted transfer rights
 - Identifies potentially conflicting obligations across overlapping lease areas
@@ -326,7 +332,7 @@ FLAGGED CLAUSES (2 of 3 reviewed):
 
 ## M3 — HSE Documentation & Permit Workflows
 
-*Replace manual safety documentation with AI-drafted, workflow-routed, compliance-ready safety instruments.*
+_Replace manual safety documentation with AI-drafted, workflow-routed, compliance-ready safety instruments._
 
 ### Module Purpose
 
@@ -348,6 +354,7 @@ Type a plain-English description of a worksite activity: 'Hot work on gas compre
 A generative AI tool that produces a complete, OISD-compliant Job Safety Analysis from a plain-English description of the planned work activity.
 
 **What it does:**
+
 - Accepts a free-text work description and generates a structured JSA with job steps, associated hazards, risk ratings (Likelihood × Severity matrix), and required controls
 - Pre-loads JSA templates with the applicable OISD standards, PESO regulations, and [MARKET / REGION]-specific requirements for the work type
 - References required PPE, isolation requirements, gas testing frequencies, and emergency response contacts
@@ -387,6 +394,7 @@ Job Step 2: Acid mixing and quality check
 A fully digital Permit-to-Work system that automates the issuance, multi-level routing, sign-off, extension, and close-out of all permit types, with a complete electronic audit trail.
 
 **What it does:**
+
 - Supports all standard permit types: Hot Work, Cold Work, Confined Space Entry, Electrical Isolation, Height Work, Excavation
 - Enforces approver hierarchy — area authority, safety officer, and site manager approvals are sequentially required before permit activation
 - Sends automated reminders to pending approvers and escalates overdue approvals to the next level
@@ -420,6 +428,7 @@ PTW-2025-1150  EXCAVATION   DRAFT     Initiator: Ravi Patel  [in progress]
 An AI copilot that guides supervisors through structured incident documentation and assists in identifying probable root causes from narrative descriptions, producing a complete OSHA/OISD-format incident report.
 
 **What it does:**
+
 - Presents a structured incident capture form — immediate actions, personnel involved, timeline of events, equipment/area involved, injuries, and environmental impact
 - AI analyses the narrative description and suggests probable immediate causes, underlying causes, and root causes using established frameworks (Bowtie, 5-Why, or Fault Tree)
 - Auto-populates mandatory notification fields for DGMS, OISD, or factory inspectorate as applicable to the incident type and severity
@@ -458,6 +467,7 @@ Incident reports written hours after an event by a stressed supervisor are often
 A centralised library for all safety procedures, standard operating procedures, and method statements — with AI-assisted creation, version control, and automated currency checks against current regulations.
 
 **What it does:**
+
 - Stores all SOPs in a searchable, version-controlled repository accessible to all site personnel
 - AI flags SOPs that reference superseded regulations or outdated equipment standards — prompting scheduled reviews
 - Assists in drafting new SOPs from scratch using Gen AI with the applicable regulatory standard loaded as context
@@ -488,7 +498,7 @@ FLAGGED DETAIL:
 
 ## M4 — Technical Document Intelligence & Knowledge Management
 
-*Give every engineer instant, plain-English access to the full depth of the company's technical documentation.*
+_Give every engineer instant, plain-English access to the full depth of the company's technical documentation._
 
 ### Module Purpose
 
@@ -510,6 +520,7 @@ Ask the platform, in plain English: 'What were the top 3 causes of NPT in the Ca
 A conversational search interface that allows any user to query the company's full document archive using plain English questions, receiving cited, structured answers drawn from original source documents.
 
 **What it does:**
+
 - Indexes all document types: PDFs, Word files, Excel logs, scanned records, and structured data exports
 - Processes natural language queries and returns answers with inline citations linking to the exact page and paragraph of the source document
 - Handles complex, multi-part questions that would require reviewing multiple documents manually
@@ -544,6 +555,7 @@ SOURCES: [2 documents cited]
 A generative AI writing assistant that auto-drafts engineering reports, end-of-well summaries, shift handover notes, and management updates from raw field data, logs, and previous report templates.
 
 **What it does:**
+
 - Ingests raw inputs — daily drilling reports, production logs, test data, field notes — and drafts a structured narrative report in the company's standard format
 - Produces end-of-well summary reports, monthly production reports, and well performance analyses in draft form for engineer review
 - Generates shift handover notes automatically from logged activities, outstanding actions, and equipment status
@@ -581,6 +593,7 @@ Drilling Performance Summary:
 An AI tool that automatically summarises operational and management meetings, extracts all action items, assigns owners, sets due dates, and tracks completion status.
 
 **What it does:**
+
 - Processes meeting transcripts (audio transcript or text minutes) and generates a structured summary with decisions made, actions assigned, and key discussion points
 - Extracts action items in a structured format: owner name, action description, due date, and priority level
 - Sends automated action reminders to assigned individuals and compiles an overdue action report for team leaders
@@ -619,6 +632,7 @@ ACTIONS EXTRACTED (6 items):
 A structured knowledge base system that captures the expertise of senior engineers and field veterans — through document ingestion, interview transcripts, and annotated case studies — making that knowledge accessible to the full organisation.
 
 **What it does:**
+
 - Ingests and indexes informal knowledge sources: email threads, annotated reports, handwritten field notes, interview transcripts, lessons-learned documents
 - Structures captured knowledge into a searchable taxonomy by well, field, formation, equipment type, and operation type
 - Makes historical decisions and their reasoning searchable — 'Why was the wellhead design changed for the Phase 3 wells?'
@@ -647,7 +661,7 @@ SOURCES: Lessons Learned Report 2012-03, Field Review Note by [expert name], 1 e
 
 ## M5 — Operational Workflow & Process Automation
 
-*Replace manual approvals, status updates, and routine coordination tasks with automated, auditable workflows.*
+_Replace manual approvals, status updates, and routine coordination tasks with automated, auditable workflows._
 
 ### Module Purpose
 
@@ -669,6 +683,7 @@ Watch a Workover Authority for Expenditure (AFE) progress from initiation to ful
 A configurable digital workflow engine that automates the routing, approval, escalation, and archiving of any multi-party authorisation process — from AFEs and MOC requests to budget exceptions and contract amendments.
 
 **What it does:**
+
 - Configurable workflow templates for AFE approvals, Management of Change (MOC), HSE exception requests, and contractor work authorisations
 - Enforces approval authority limits — automatically escalates to the next level if an approver's authority limit is insufficient for the value or risk level
 - Sends real-time notifications to pending approvers with a summary of what is being approved, by whom, and why
@@ -702,6 +717,7 @@ STEP 5  VP Operations final authorisation    —          ⏸ Awaiting Step 4
 A data aggregation and report generation system that automatically compiles daily operational reports from multiple source systems and distributes them to defined stakeholder lists — with zero manual aggregation.
 
 **What it does:**
+
 - Pulls data from existing systems (production logs, maintenance records, permit status, HSE incidents) at a scheduled time each day
 - Compiles data into a standardised daily operations report covering production volumes, key events, open actions, and safety status
 - Distributes reports automatically to defined distribution lists — executive, operations, and field levels receive appropriately filtered versions
@@ -737,6 +753,7 @@ OPEN ACTIONS: 14 total | 3 overdue (highlighted in attached detail report)
 An AI-assisted procurement workflow that converts approved maintenance plans, stock alerts, and service requests into structured purchase orders, routes them through the appropriate approval chain, and tracks delivery through to goods receipt.
 
 **What it does:**
+
 - Auto-generates draft Purchase Orders from approved work orders, minimum stock level alerts, or manual requisitions — pre-populated with preferred vendor, last price, and delivery lead time
 - Routes POs through the correct approval level based on value and commodity category — consistent with the company's Delegation of Authority matrix
 - Tracks PO status from creation through approval, dispatch, and goods receipt — with proactive alerts for delayed deliveries against critical maintenance schedules
@@ -769,7 +786,7 @@ AUTO-GENERATED DRAFT PO:
 
 ## M6 — Workforce & Training Compliance Management
 
-*Eliminate certification lapses and compliance risk by automating crew qualification tracking and training workflows.*
+_Eliminate certification lapses and compliance risk by automating crew qualification tracking and training workflows._
 
 ### Module Purpose
 
@@ -791,6 +808,7 @@ The permit-to-work system is linked to the workforce module. When a supervisor t
 A centralised qualification register that tracks every employee's mandatory certification portfolio, sends advance expiry alerts, and provides a real-time compliance dashboard for site managers and HR.
 
 **What it does:**
+
 - Maintains a complete record of all certifications, licences, and mandatory training for every employee and contractor on site
 - Sends automated alerts to the individual, their supervisor, and HR at 60-day, 30-day, and 7-day intervals before each certificate expires
 - Provides a site-level compliance dashboard showing the percentage of the workforce with fully current qualifications
@@ -828,6 +846,7 @@ ALREADY EXPIRED (3 personnel) — CRITICAL:
 An AI-assisted onboarding system that generates role-specific competency frameworks, training plans, and induction materials for new employees and contractors — reducing the time to operational readiness.
 
 **What it does:**
+
 - Generates a role-specific onboarding checklist and training plan from a template library customised to [COMPANY_NAME]'s roles and competency standards
 - AI drafts role-specific induction materials covering site rules, emergency procedures, and job-specific safety requirements
 - Tracks onboarding task completion — induction sign-offs, equipment familiarisation, system access, and buddy allocation — against a target completion timeline
@@ -864,6 +883,7 @@ Week 2-4: [12 more items]  |  Mandatory certs: [6 items]
 A real-time qualification gate integrated into the permit-to-work system that verifies all named personnel hold the required current certifications for the work type before a permit can be issued.
 
 **What it does:**
+
 - When a PTW is initiated, automatically checks the certification status of every named worker against the qualification requirements for that permit type
 - Blocks permit issuance if any named worker lacks a required current certification — displaying the specific gap and expiry detail
 - Allows the supervisor to substitute a qualified replacement inline, without leaving the permit workflow
@@ -896,7 +916,7 @@ QUALIFICATION CHECK RESULTS:
 
 ## M7 — Management Reporting & Business Intelligence
 
-*Give leadership instant, plain-English access to operational and financial performance — without analyst dependency.*
+_Give leadership instant, plain-English access to operational and financial performance — without analyst dependency._
 
 ### Module Purpose
 
@@ -918,6 +938,7 @@ In front of a management audience, type a conversational question into the BI in
 A scheduled report generation engine that automatically compiles board-ready operational, financial, and safety reports from underlying data sources — producing structured, formatted documents without manual aggregation.
 
 **What it does:**
+
 - Pulls production, OPEX, safety, and compliance data from source systems on a scheduled basis
 - Generates monthly and quarterly management reports in [COMPANY_NAME]'s standard board format — with charts, variance commentary, and exception highlights
 - Drafts narrative commentary using Gen AI — summarising performance, explaining variances, and highlighting risks — for review and editing by the operations team
@@ -954,6 +975,7 @@ AI-GENERATED VARIANCE COMMENTARY (draft):
 A natural language interface to operational and financial data that allows non-technical managers to ask complex analytical questions and receive structured, sourced answers — without SQL, Excel, or analyst support.
 
 **What it does:**
+
 - Processes plain-English questions about operational performance, financial data, production history, maintenance records, and compliance status
 - Returns structured answers — tables, comparisons, trend summaries — with the underlying data records cited
 - Handles comparative and trend questions: 'Which well has had the highest NPT rate over the last 6 months and what were the causes?'
@@ -989,6 +1011,7 @@ A: 'Based on Oct 2025 actuals: Rs. 4,127/bbl (OPEX only) / Rs. 6,840/bbl (all-in
 A software-based ESG data consolidation and reporting module that aggregates environmental and sustainability data from operational records and generates verified, audit-ready ESG disclosures — without manual data collection or hardware.
 
 **What it does:**
+
 - Consolidates environmental data from operational reports, fuel consumption logs, water usage records, and waste disposal manifests into a single ESG data register
 - Calculates emissions estimates using activity-based methodologies and applicable emission factors — producing Scope 1 and Scope 2 estimates from operational records alone
 - Auto-populates mandatory environmental filings for MoEFCC, CPCB, and other [MARKET / REGION] regulatory bodies
@@ -1230,119 +1253,119 @@ Replace all placeholder values below before distributing this document or using 
 
 ### B.1 Product Identity
 
-| Key | Value |
-|---|---|
-| `PRODUCT_NAME` | [PROJECT_NAME] |
-| `COMPANY_NAME` | [COMPANY_NAME] |
-| `TAGLINE` | [TAGLINE] |
-| `WEBSITE` | [WEBSITE] |
-| `VERSION` | [VERSION] |
-| `MARKET` | [MARKET / REGION] |
+| Key              | Value                              |
+| ---------------- | ---------------------------------- |
+| `PRODUCT_NAME`   | [PROJECT_NAME]                     |
+| `COMPANY_NAME`   | [COMPANY_NAME]                     |
+| `TAGLINE`        | [TAGLINE]                          |
+| `WEBSITE`        | [WEBSITE]                          |
+| `VERSION`        | [VERSION]                          |
+| `MARKET`         | [MARKET / REGION]                  |
 | `CLASSIFICATION` | [PUBLIC / INTERNAL / CONFIDENTIAL] |
 
 ### B.2 Brand Colours
 
-| Key | Value |
-|---|---|
-| `PRIMARY_NAVY` | `#0D1B2A` — headers, sidebar, primary text |
-| `ACCENT_BLUE` | `#1A6B8A` — section headers, links, active states |
-| `ACCENT_MID` | `#2596BE` — secondary accents, chart series 1 |
-| `ACCENT_LIGHT` | `#D6EEF7` — hover backgrounds, subtle fills |
-| `GOLD` | `#C8922A` — primary CTA, highlights, badges |
-| `GOLD_LIGHT` | `#FDF3E3` — warning/callout backgrounds |
-| `TEAL` | `#0F7B6C` — success states, demo box header |
-| `TEAL_LIGHT` | `#E3F4F2` — demo box background |
-| `CORAL` | `#C0392B` — critical alerts, expiry warnings |
-| `CORAL_LIGHT` | `#FDECEA` — critical alert background |
-| `PURPLE` | `#6B3FA0` — prompt box header, secondary accent |
-| `PURPLE_LIGHT` | `#F0EAF9` — prompt box background |
-| `BORDER` | `#D1D9E3` — card borders, table lines |
-| `MUTED` | `#8892A0` — secondary text, footer labels |
+| Key            | Value                                             |
+| -------------- | ------------------------------------------------- |
+| `PRIMARY_NAVY` | `#0D1B2A` — headers, sidebar, primary text        |
+| `ACCENT_BLUE`  | `#1A6B8A` — section headers, links, active states |
+| `ACCENT_MID`   | `#2596BE` — secondary accents, chart series 1     |
+| `ACCENT_LIGHT` | `#D6EEF7` — hover backgrounds, subtle fills       |
+| `GOLD`         | `#C8922A` — primary CTA, highlights, badges       |
+| `GOLD_LIGHT`   | `#FDF3E3` — warning/callout backgrounds           |
+| `TEAL`         | `#0F7B6C` — success states, demo box header       |
+| `TEAL_LIGHT`   | `#E3F4F2` — demo box background                   |
+| `CORAL`        | `#C0392B` — critical alerts, expiry warnings      |
+| `CORAL_LIGHT`  | `#FDECEA` — critical alert background             |
+| `PURPLE`       | `#6B3FA0` — prompt box header, secondary accent   |
+| `PURPLE_LIGHT` | `#F0EAF9` — prompt box background                 |
+| `BORDER`       | `#D1D9E3` — card borders, table lines             |
+| `MUTED`        | `#8892A0` — secondary text, footer labels         |
 
 ### B.3 Typography
 
-| Key | Value |
-|---|---|
-| `FONT_PRIMARY` | Arial (universal, all platforms) |
-| `FONT_MONO` | Courier New (code blocks, demo scripts) |
-| `SIZE_H1` | 36pt / 2.25rem — page titles |
-| `SIZE_H2` | 28pt / 1.75rem — module titles |
-| `SIZE_H3` | 24pt / 1.5rem — submodule titles |
-| `SIZE_BODY` | 22pt / 1.375rem — body text |
-| `SIZE_SMALL` | 20pt / 1.25rem — captions, metadata |
-| `WEIGHT_BOLD` | 700 — headings, labels |
-| `WEIGHT_REGULAR` | 400 — body text |
+| Key              | Value                                   |
+| ---------------- | --------------------------------------- |
+| `FONT_PRIMARY`   | Arial (universal, all platforms)        |
+| `FONT_MONO`      | Courier New (code blocks, demo scripts) |
+| `SIZE_H1`        | 36pt / 2.25rem — page titles            |
+| `SIZE_H2`        | 28pt / 1.75rem — module titles          |
+| `SIZE_H3`        | 24pt / 1.5rem — submodule titles        |
+| `SIZE_BODY`      | 22pt / 1.375rem — body text             |
+| `SIZE_SMALL`     | 20pt / 1.25rem — captions, metadata     |
+| `WEIGHT_BOLD`    | 700 — headings, labels                  |
+| `WEIGHT_REGULAR` | 400 — body text                         |
 
 ### B.4 Demo Entities & Sample Personnel
 
-| Key | Value |
-|---|---|
-| `PERSON_1` | Anand Sharma — VP Operations / Site Manager |
-| `PERSON_2` | Priya Menon — HSE Manager / Safety Officer |
-| `PERSON_3` | Rajesh Kumar — Well Engineer / Driller |
-| `PERSON_4` | Ravi Patel — Finance Controller |
-| `PERSON_5` | Sushant Verma — Drilling Superintendent |
+| Key        | Value                                                |
+| ---------- | ---------------------------------------------------- |
+| `PERSON_1` | Anand Sharma — VP Operations / Site Manager          |
+| `PERSON_2` | Priya Menon — HSE Manager / Safety Officer           |
+| `PERSON_3` | Rajesh Kumar — Well Engineer / Driller               |
+| `PERSON_4` | Ravi Patel — Finance Controller                      |
+| `PERSON_5` | Sushant Verma — Drilling Superintendent              |
 | `PERSON_6` | Arjun Mehta — Assistant Drilling Engineer (new hire) |
-| `PERSON_7` | Vijay Singh — Field Technician (expired cert demo) |
-| `PERSON_8` | Ramesh Nair — Senior Technician |
+| `PERSON_7` | Vijay Singh — Field Technician (expired cert demo)   |
+| `PERSON_8` | Ramesh Nair — Senior Technician                      |
 
 ### B.5 Sample Projects & Operational Entities
 
-| Key | Value |
-|---|---|
-| `BLOCK_1` | KG-DWN-98/3 — Krishna Godavari deepwater block |
-| `BLOCK_2` | CB-ONN-2010/1 — Cambay onshore block, Gujarat |
-| `BLOCK_3` | RJ-ONN-2015/1 — Rajasthan onshore block |
-| `WELLPAD_A` | Well Pad A — Rajasthan operations centre |
-| `WELLPAD_B` | Well Pad B — Cambay field |
-| `WELLPAD_C` | Well Pad C — KG offshore platform |
-| `SAMPLE_VENDOR` | Nat Petrosols Pvt. Ltd. |
-| `SAMPLE_REGULATOR` | PNGRB / DGH / MoPNG / OISD / PESO / DGMS |
+| Key                | Value                                          |
+| ------------------ | ---------------------------------------------- |
+| `BLOCK_1`          | KG-DWN-98/3 — Krishna Godavari deepwater block |
+| `BLOCK_2`          | CB-ONN-2010/1 — Cambay onshore block, Gujarat  |
+| `BLOCK_3`          | RJ-ONN-2015/1 — Rajasthan onshore block        |
+| `WELLPAD_A`        | Well Pad A — Rajasthan operations centre       |
+| `WELLPAD_B`        | Well Pad B — Cambay field                      |
+| `WELLPAD_C`        | Well Pad C — KG offshore platform              |
+| `SAMPLE_VENDOR`    | Nat Petrosols Pvt. Ltd.                        |
+| `SAMPLE_REGULATOR` | PNGRB / DGH / MoPNG / OISD / PESO / DGMS       |
 
 ### B.6 Format Preferences
 
-| Key | Value |
-|---|---|
-| `CURRENCY` | Rs. [amount] — Indian Rupee (e.g. Rs. 1.84 crore, Rs. 47,200) |
-| `LARGE_NUMBERS` | Indian format: lakh / crore (not million/billion) |
-| `DATE_FORMAT` | DD MMM YYYY (e.g. 28 Oct 2025) |
-| `DATE_SHORT` | DD-MMM-YY (e.g. 28-Oct-25) |
-| `TIME_FORMAT` | HH:MM IST (24-hour, Indian Standard Time) |
-| `LANGUAGE` | English (Indian) — formal, no regional slang |
-| `VOLUME_OIL` | bbl (barrels) and KL (kilolitres) — dual labelling |
-| `VOLUME_GAS` | MMSCFD (million standard cubic feet per day) |
+| Key             | Value                                                         |
+| --------------- | ------------------------------------------------------------- |
+| `CURRENCY`      | Rs. [amount] — Indian Rupee (e.g. Rs. 1.84 crore, Rs. 47,200) |
+| `LARGE_NUMBERS` | Indian format: lakh / crore (not million/billion)             |
+| `DATE_FORMAT`   | DD MMM YYYY (e.g. 28 Oct 2025)                                |
+| `DATE_SHORT`    | DD-MMM-YY (e.g. 28-Oct-25)                                    |
+| `TIME_FORMAT`   | HH:MM IST (24-hour, Indian Standard Time)                     |
+| `LANGUAGE`      | English (Indian) — formal, no regional slang                  |
+| `VOLUME_OIL`    | bbl (barrels) and KL (kilolitres) — dual labelling            |
+| `VOLUME_GAS`    | MMSCFD (million standard cubic feet per day)                  |
 
 ### B.7 Compliance & Regulatory References
 
-| Key | Value |
-|---|---|
-| `REGULATOR_1` | PNGRB — Petroleum and Natural Gas Regulatory Board |
-| `REGULATOR_2` | DGH — Directorate General of Hydrocarbons |
-| `REGULATOR_3` | MoPNG — Ministry of Petroleum and Natural Gas |
-| `SAFETY_BODY_1` | OISD — Oil Industry Safety Directorate |
-| `SAFETY_BODY_2` | DGMS — Directorate General of Mines Safety |
-| `SAFETY_BODY_3` | PESO — Petroleum and Explosives Safety Organisation |
-| `ESG_STANDARD` | BRSR — Business Responsibility and Sustainability Reporting (SEBI) |
-| `ESG_FRAMEWORK` | GRI Standards — Global Reporting Initiative |
+| Key             | Value                                                              |
+| --------------- | ------------------------------------------------------------------ |
+| `REGULATOR_1`   | PNGRB — Petroleum and Natural Gas Regulatory Board                 |
+| `REGULATOR_2`   | DGH — Directorate General of Hydrocarbons                          |
+| `REGULATOR_3`   | MoPNG — Ministry of Petroleum and Natural Gas                      |
+| `SAFETY_BODY_1` | OISD — Oil Industry Safety Directorate                             |
+| `SAFETY_BODY_2` | DGMS — Directorate General of Mines Safety                         |
+| `SAFETY_BODY_3` | PESO — Petroleum and Explosives Safety Organisation                |
+| `ESG_STANDARD`  | BRSR — Business Responsibility and Sustainability Reporting (SEBI) |
+| `ESG_FRAMEWORK` | GRI Standards — Global Reporting Initiative                        |
 
 ### B.8 Preferred Tech Stack
 
-| Key | Value |
-|---|---|
-| `FRONTEND` | React 18 + TypeScript + Tailwind CSS |
-| `CHARTS` | Recharts (preferred) or Chart.js |
-| `ICONS` | Lucide React |
-| `STATE` | Zustand (lightweight) or React Context |
-| `AI_API` | Anthropic Claude API (claude-sonnet-4-6) — primary |
-| `DOCUMENT_AI` | LLM + OCR pipeline (Tesseract or AWS Textract) |
-| `BACKEND` | Node.js + Express or Python FastAPI |
-| `DATABASE` | PostgreSQL + pgvector (for document embeddings) |
-| `AUTH` | JWT + role-based access control |
-| `DEPLOYMENT` | AWS (preferred) or Azure — [MARKET / REGION] region |
-| `COMPLIANCE` | ISO 27001 aligned. Data residency: India preferred |
+| Key           | Value                                               |
+| ------------- | --------------------------------------------------- |
+| `FRONTEND`    | React 18 + TypeScript + Tailwind CSS                |
+| `CHARTS`      | Recharts (preferred) or Chart.js                    |
+| `ICONS`       | Lucide React                                        |
+| `STATE`       | Zustand (lightweight) or React Context              |
+| `AI_API`      | Anthropic Claude API (claude-sonnet-4-6) — primary  |
+| `DOCUMENT_AI` | LLM + OCR pipeline (Tesseract or AWS Textract)      |
+| `BACKEND`     | Node.js + Express or Python FastAPI                 |
+| `DATABASE`    | PostgreSQL + pgvector (for document embeddings)     |
+| `AUTH`        | JWT + role-based access control                     |
+| `DEPLOYMENT`  | AWS (preferred) or Azure — [MARKET / REGION] region |
+| `COMPLIANCE`  | ISO 27001 aligned. Data residency: India preferred  |
 
 ---
 
-*— End of Document —*
+_— End of Document —_
 
-*[COMPANY_NAME] · [PRODUCT_NAME] · v[VERSION] · [CLASSIFICATION]*
+_[COMPANY_NAME] · [PRODUCT_NAME] · v[VERSION] · [CLASSIFICATION]_

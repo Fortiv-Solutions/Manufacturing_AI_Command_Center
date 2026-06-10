@@ -1,7 +1,15 @@
 import { useState } from "react";
 import {
-  CheckCircle2, AlertTriangle, XCircle, Search, Mail,
-  Download, ExternalLink, Calendar, ChevronRight, User
+  CheckCircle2,
+  AlertTriangle,
+  XCircle,
+  Search,
+  Mail,
+  Download,
+  ExternalLink,
+  Calendar,
+  ChevronRight,
+  User,
 } from "lucide-react";
 import { toast } from "sonner";
 import { ResponsiveContainer, PieChart, Pie, Cell, Legend, Tooltip } from "recharts";
@@ -33,7 +41,7 @@ interface Worker {
 const COMPLIANCE_DATA = [
   { name: "Fully Compliant", value: 134, color: "#0F7B6C" },
   { name: "Expiring Within 30 Days", value: 5, color: "#C8922A" },
-  { name: "Already Expired - Blocked", value: 3, color: "#C0392B" }
+  { name: "Already Expired - Blocked", value: 3, color: "#C0392B" },
 ];
 
 const EXPIRING_30_DAYS = [
@@ -41,13 +49,13 @@ const EXPIRING_30_DAYS = [
   { name: "Meena Sharma", cert: "First Aid (St. John)", date: "14 Nov 2025", days: 10 },
   { name: "Suresh Kumar", cert: "Rigging Supervisor", date: "22 Nov 2025", days: 18 },
   { name: "Priya Menon", cert: "OISD-STD-154", date: "25 Nov 2025", days: 21 },
-  { name: "Ravi Patel", cert: "Fire Safety Awareness", date: "30 Nov 2025", days: 26 }
+  { name: "Ravi Patel", cert: "Fire Safety Awareness", date: "30 Nov 2025", days: 26 },
 ];
 
 const EXPIRED_BLOCKED = [
   { name: "Vijay Singh", cert: "Well Control Level 1", date: "21 Oct 2025", daysOverdue: 13 },
   { name: "Suresh Kumar", cert: "BOSIET", date: "02 Nov 2025", daysOverdue: 2 },
-  { name: "Deepak Arora", cert: "Gas Testing Level 2", date: "29 Oct 2025", daysOverdue: 5 }
+  { name: "Deepak Arora", cert: "Gas Testing Level 2", date: "29 Oct 2025", daysOverdue: 5 },
 ];
 
 const WORKFORCE: Worker[] = [
@@ -60,15 +68,64 @@ const WORKFORCE: Worker[] = [
     onboardDate: "12 Mar 2019",
     blockedPermits: ["Hot Work (well area)", "Well Test Permits", "Workover AFE execution"],
     certificates: [
-      { name: "Well Control Level 1", status: "EXPIRED", issuedDate: "22 Oct 2021", expiryDate: "21 Oct 2025", daysRemaining: -13, renewalStatus: "Booked: 14 Nov (IWCF Mumbai)" },
-      { name: "H2S Awareness", status: "EXPIRING", issuedDate: "04 Nov 2024", expiryDate: "11 Nov 2025", daysRemaining: 7 },
-      { name: "OISD-STD-154", status: "EXPIRING", issuedDate: "04 Nov 2024", expiryDate: "11 Nov 2025", daysRemaining: 7 },
-      { name: "First Aid (St. John)", status: "CURRENT", issuedDate: "08 Jan 2025", expiryDate: "07 Jan 2027", daysRemaining: 430 },
-      { name: "Confined Space Entry", status: "CURRENT", issuedDate: "15 Mar 2024", expiryDate: "14 Mar 2026", daysRemaining: 132 },
-      { name: "Gas Testing Level 1", status: "CURRENT", issuedDate: "15 Mar 2024", expiryDate: "14 Mar 2026", daysRemaining: 132 },
-      { name: "Fire Safety Awareness", status: "CURRENT", issuedDate: "02 Feb 2025", expiryDate: "01 Feb 2026", daysRemaining: 104 },
-      { name: "PTW Awareness", status: "CURRENT", issuedDate: "12 Mar 2024", expiryDate: "11 Mar 2026", daysRemaining: 129 }
-    ]
+      {
+        name: "Well Control Level 1",
+        status: "EXPIRED",
+        issuedDate: "22 Oct 2021",
+        expiryDate: "21 Oct 2025",
+        daysRemaining: -13,
+        renewalStatus: "Booked: 14 Nov (IWCF Mumbai)",
+      },
+      {
+        name: "H2S Awareness",
+        status: "EXPIRING",
+        issuedDate: "04 Nov 2024",
+        expiryDate: "11 Nov 2025",
+        daysRemaining: 7,
+      },
+      {
+        name: "OISD-STD-154",
+        status: "EXPIRING",
+        issuedDate: "04 Nov 2024",
+        expiryDate: "11 Nov 2025",
+        daysRemaining: 7,
+      },
+      {
+        name: "First Aid (St. John)",
+        status: "CURRENT",
+        issuedDate: "08 Jan 2025",
+        expiryDate: "07 Jan 2027",
+        daysRemaining: 430,
+      },
+      {
+        name: "Confined Space Entry",
+        status: "CURRENT",
+        issuedDate: "15 Mar 2024",
+        expiryDate: "14 Mar 2026",
+        daysRemaining: 132,
+      },
+      {
+        name: "Gas Testing Level 1",
+        status: "CURRENT",
+        issuedDate: "15 Mar 2024",
+        expiryDate: "14 Mar 2026",
+        daysRemaining: 132,
+      },
+      {
+        name: "Fire Safety Awareness",
+        status: "CURRENT",
+        issuedDate: "02 Feb 2025",
+        expiryDate: "01 Feb 2026",
+        daysRemaining: 104,
+      },
+      {
+        name: "PTW Awareness",
+        status: "CURRENT",
+        issuedDate: "12 Mar 2024",
+        expiryDate: "11 Mar 2026",
+        daysRemaining: 129,
+      },
+    ],
   },
   {
     id: "EMP-0881",
@@ -79,10 +136,29 @@ const WORKFORCE: Worker[] = [
     onboardDate: "14 Jun 2021",
     blockedPermits: ["Offshore Helicopter Travel Clearance"],
     certificates: [
-      { name: "BOSIET", status: "EXPIRED", issuedDate: "03 Nov 2021", expiryDate: "02 Nov 2025", daysRemaining: -2, renewalStatus: "Pending Booking" },
-      { name: "Rigging Supervisor", status: "EXPIRING", issuedDate: "23 Nov 2022", expiryDate: "22 Nov 2025", daysRemaining: 18 },
-      { name: "First Aid (St. John)", status: "CURRENT", issuedDate: "10 Feb 2024", expiryDate: "09 Feb 2026", daysRemaining: 112 }
-    ]
+      {
+        name: "BOSIET",
+        status: "EXPIRED",
+        issuedDate: "03 Nov 2021",
+        expiryDate: "02 Nov 2025",
+        daysRemaining: -2,
+        renewalStatus: "Pending Booking",
+      },
+      {
+        name: "Rigging Supervisor",
+        status: "EXPIRING",
+        issuedDate: "23 Nov 2022",
+        expiryDate: "22 Nov 2025",
+        daysRemaining: 18,
+      },
+      {
+        name: "First Aid (St. John)",
+        status: "CURRENT",
+        issuedDate: "10 Feb 2024",
+        expiryDate: "09 Feb 2026",
+        daysRemaining: 112,
+      },
+    ],
   },
   {
     id: "EMP-1029",
@@ -93,10 +169,28 @@ const WORKFORCE: Worker[] = [
     onboardDate: "20 Sep 2023",
     blockedPermits: ["Confined Space Entry (as gas tester)", "PTW Issuer (Confined Space)"],
     certificates: [
-      { name: "Gas Testing Level 2", status: "EXPIRED", issuedDate: "30 Oct 2023", expiryDate: "29 Oct 2025", daysRemaining: -5 },
-      { name: "H2S Awareness", status: "CURRENT", issuedDate: "10 Jan 2025", expiryDate: "09 Jan 2026", daysRemaining: 81 },
-      { name: "Confined Space Entry", status: "CURRENT", issuedDate: "09 Dec 2023", expiryDate: "08 Dec 2025", daysRemaining: 5 }
-    ]
+      {
+        name: "Gas Testing Level 2",
+        status: "EXPIRED",
+        issuedDate: "30 Oct 2023",
+        expiryDate: "29 Oct 2025",
+        daysRemaining: -5,
+      },
+      {
+        name: "H2S Awareness",
+        status: "CURRENT",
+        issuedDate: "10 Jan 2025",
+        expiryDate: "09 Jan 2026",
+        daysRemaining: 81,
+      },
+      {
+        name: "Confined Space Entry",
+        status: "CURRENT",
+        issuedDate: "09 Dec 2023",
+        expiryDate: "08 Dec 2025",
+        daysRemaining: 5,
+      },
+    ],
   },
   {
     id: "EMP-0612",
@@ -107,9 +201,21 @@ const WORKFORCE: Worker[] = [
     onboardDate: "10 Jan 2020",
     blockedPermits: [],
     certificates: [
-      { name: "H2S Awareness", status: "EXPIRING", issuedDate: "12 Nov 2024", expiryDate: "11 Nov 2025", daysRemaining: 7 },
-      { name: "PTW Awareness", status: "CURRENT", issuedDate: "15 Apr 2024", expiryDate: "14 Apr 2026", daysRemaining: 163 }
-    ]
+      {
+        name: "H2S Awareness",
+        status: "EXPIRING",
+        issuedDate: "12 Nov 2024",
+        expiryDate: "11 Nov 2025",
+        daysRemaining: 7,
+      },
+      {
+        name: "PTW Awareness",
+        status: "CURRENT",
+        issuedDate: "15 Apr 2024",
+        expiryDate: "14 Apr 2026",
+        daysRemaining: 163,
+      },
+    ],
   },
   {
     id: "EMP-0941",
@@ -120,9 +226,15 @@ const WORKFORCE: Worker[] = [
     onboardDate: "05 May 2022",
     blockedPermits: [],
     certificates: [
-      { name: "First Aid (St. John)", status: "EXPIRING", issuedDate: "15 Nov 2023", expiryDate: "14 Nov 2025", daysRemaining: 10 }
-    ]
-  }
+      {
+        name: "First Aid (St. John)",
+        status: "EXPIRING",
+        issuedDate: "15 Nov 2023",
+        expiryDate: "14 Nov 2025",
+        daysRemaining: 10,
+      },
+    ],
+  },
 ];
 
 export function OGSubModule61() {
@@ -135,34 +247,66 @@ export function OGSubModule61() {
   };
 
   const handleBookRenewal = (name: string, cert: string) => {
-    toast.success(`Renewal course request pre-populated for ${name} - ${cert}. Forwarded to HR & HSE.`);
+    toast.success(
+      `Renewal course request pre-populated for ${name} - ${cert}. Forwarded to HR & HSE.`,
+    );
   };
 
-  const filteredWorkers = WORKFORCE.filter(w =>
-    w.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    w.role.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredWorkers = WORKFORCE.filter(
+    (w) =>
+      w.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      w.role.toLowerCase().includes(searchQuery.toLowerCase()),
   );
 
   return (
     <div className="space-y-6">
-
       {/* ── Top Stats Bar ────────────────────────────── */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: "Workforce Compliance Rate", value: "94.4%", color: "#0F7B6C", bg: "bg-[#E3F4F2]", border: "border-[#0F7B6C]/20" },
-          { label: "Certifications Expiring (30 Days)", value: "5", color: "#C8922A", bg: "bg-amber-50", border: "border-[#C8922A]/20", pulse: true },
-          { label: "Workers Currently Blocked", value: "3", color: "#C0392B", bg: "bg-[#FDECEA]", border: "border-[#C0392B]/20", pulse: true },
-          { label: "Onboardings In Progress", value: "2", color: "#1A6B8A", bg: "bg-blue-50", border: "border-blue-200" }
-        ].map(kpi => (
+          {
+            label: "Workforce Compliance Rate",
+            value: "94.4%",
+            color: "#0F7B6C",
+            bg: "bg-[#E3F4F2]",
+            border: "border-[#0F7B6C]/20",
+          },
+          {
+            label: "Certifications Expiring (30 Days)",
+            value: "5",
+            color: "#C8922A",
+            bg: "bg-amber-50",
+            border: "border-[#C8922A]/20",
+            pulse: true,
+          },
+          {
+            label: "Workers Currently Blocked",
+            value: "3",
+            color: "#C0392B",
+            bg: "bg-[#FDECEA]",
+            border: "border-[#C0392B]/20",
+            pulse: true,
+          },
+          {
+            label: "Onboardings In Progress",
+            value: "2",
+            color: "#1A6B8A",
+            bg: "bg-blue-50",
+            border: "border-blue-200",
+          },
+        ].map((kpi) => (
           <div
             key={kpi.label}
             className={`rounded-2xl border ${kpi.border} bg-white p-4 shadow-sm flex items-center gap-3 transition-transform hover:scale-[1.01]`}
           >
-            <div className={`${kpi.bg} h-11 w-11 rounded-xl flex items-center justify-center shrink-0`}>
+            <div
+              className={`${kpi.bg} h-11 w-11 rounded-xl flex items-center justify-center shrink-0`}
+            >
               {kpi.value === "94.4%" ? (
                 <CheckCircle2 className="h-6 w-6 text-[#0F7B6C]" />
               ) : kpi.color === "#C8922A" ? (
-                <AlertTriangle className={`h-6 w-6 text-[#C8922A] ${kpi.pulse ? "animate-bounce" : ""}`} />
+                <AlertTriangle
+                  className={`h-6 w-6 text-[#C8922A] ${kpi.pulse ? "animate-bounce" : ""}`}
+                />
               ) : kpi.color === "#C0392B" ? (
                 <XCircle className={`h-6 w-6 text-[#C0392B] ${kpi.pulse ? "animate-pulse" : ""}`} />
               ) : (
@@ -171,7 +315,9 @@ export function OGSubModule61() {
             </div>
             <div>
               <p className="text-[11px] text-[#8892A0] font-semibold">{kpi.label}</p>
-              <p className="text-2xl font-bold font-mono" style={{ color: kpi.color }}>{kpi.value}</p>
+              <p className="text-2xl font-bold font-mono" style={{ color: kpi.color }}>
+                {kpi.value}
+              </p>
             </div>
           </div>
         ))}
@@ -202,9 +348,12 @@ export function OGSubModule61() {
             </ResponsiveContainer>
           </div>
           <div className="grid grid-cols-1 gap-3 w-full md:w-1/2">
-            {COMPLIANCE_DATA.map(item => (
+            {COMPLIANCE_DATA.map((item) => (
               <div key={item.name} className="flex items-center gap-3">
-                <span className="h-3.5 w-3.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
+                <span
+                  className="h-3.5 w-3.5 rounded-full shrink-0"
+                  style={{ backgroundColor: item.color }}
+                />
                 <div className="flex-1 flex justify-between text-xs">
                   <span className="font-semibold text-[#0D1B2A]">{item.name}</span>
                   <span className="font-mono text-[#8892A0] font-bold">
@@ -219,7 +368,6 @@ export function OGSubModule61() {
 
       {/* ── Bottom Half: Forecast & Expired Alerts ─────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
         {/* Expiring Soon (30 Days) */}
         <div className="rounded-2xl border border-[#D1D9E3] bg-white shadow-sm overflow-hidden flex flex-col">
           <div className="p-4 border-b border-[#D1D9E3] bg-slate-50/50 flex items-center justify-between">
@@ -232,8 +380,11 @@ export function OGSubModule61() {
             </Badge>
           </div>
           <div className="p-2 divide-y divide-[#D1D9E3] flex-1">
-            {EXPIRING_30_DAYS.map(row => (
-              <div key={`${row.name}-${row.cert}`} className="flex items-center justify-between p-3 text-xs hover:bg-slate-50 transition-colors">
+            {EXPIRING_30_DAYS.map((row) => (
+              <div
+                key={`${row.name}-${row.cert}`}
+                className="flex items-center justify-between p-3 text-xs hover:bg-slate-50 transition-colors"
+              >
                 <div>
                   <p className="font-bold text-[#0D1B2A]">{row.name}</p>
                   <p className="text-[11px] text-[#8892A0]">{row.cert}</p>
@@ -241,7 +392,9 @@ export function OGSubModule61() {
                 <div className="flex items-center gap-4 text-right">
                   <div>
                     <p className="font-mono text-[11.5px] font-bold text-[#C8922A]">{row.date}</p>
-                    <p className="text-[10px] text-[#8892A0] font-mono">{row.days} days remaining</p>
+                    <p className="text-[10px] text-[#8892A0] font-mono">
+                      {row.days} days remaining
+                    </p>
                   </div>
                   <Button
                     size="sm"
@@ -263,14 +416,16 @@ export function OGSubModule61() {
           <div className="p-4 border-b border-[#D1D9E3] bg-slate-50/50 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <XCircle className="h-4 w-4 text-[#C0392B]" />
-              <h3 className="text-sm font-bold text-[#0D1B2A]">Already Expired - Action Required</h3>
+              <h3 className="text-sm font-bold text-[#0D1B2A]">
+                Already Expired - Action Required
+              </h3>
             </div>
             <Badge className="bg-[#FDECEA] text-[#C0392B] border border-[#C0392B]/20 text-[9px] font-bold">
               {EXPIRED_BLOCKED.length} Blocked
             </Badge>
           </div>
           <div className="p-2 divide-y divide-[#D1D9E3] flex-1">
-            {EXPIRED_BLOCKED.map(row => (
+            {EXPIRED_BLOCKED.map((row) => (
               <div
                 key={`${row.name}-${row.cert}`}
                 className="flex items-center justify-between p-3 text-xs hover:bg-slate-50 transition-colors border-l-4 border-l-[#C0392B] animate-pulse"
@@ -281,8 +436,12 @@ export function OGSubModule61() {
                 </div>
                 <div className="flex items-center gap-4 text-right">
                   <div>
-                    <p className="font-mono text-[11.5px] font-bold text-[#C0392B]">Lapsed {row.date}</p>
-                    <p className="text-[10px] text-[#8892A0] font-mono">{row.daysOverdue} days overdue</p>
+                    <p className="font-mono text-[11.5px] font-bold text-[#C0392B]">
+                      Lapsed {row.date}
+                    </p>
+                    <p className="text-[10px] text-[#8892A0] font-mono">
+                      {row.daysOverdue} days overdue
+                    </p>
                   </div>
                   <Button
                     size="sm"
@@ -297,7 +456,6 @@ export function OGSubModule61() {
             ))}
           </div>
         </div>
-
       </div>
 
       {/* ── Employee Search & Cert Portfolio Card ─────── */}
@@ -320,7 +478,7 @@ export function OGSubModule61() {
           />
           {showDropdown && searchQuery && (
             <div className="absolute z-10 w-full mt-1 bg-white border border-[#D1D9E3] rounded-xl shadow-lg max-h-48 overflow-y-auto divide-y divide-slate-100">
-              {filteredWorkers.map(w => (
+              {filteredWorkers.map((w) => (
                 <button
                   key={w.id}
                   onClick={() => {
@@ -354,13 +512,23 @@ export function OGSubModule61() {
                 </div>
                 <div>
                   <h4 className="text-sm font-bold text-[#0D1B2A]">{selectedWorker.name}</h4>
-                  <p className="text-[11px] text-[#8892A0] font-semibold">{selectedWorker.role} — {selectedWorker.department}</p>
+                  <p className="text-[11px] text-[#8892A0] font-semibold">
+                    {selectedWorker.role} — {selectedWorker.department}
+                  </p>
                 </div>
               </div>
               <div className="space-y-1.5 text-xs text-[#8892A0]">
-                <p>Site: <strong className="text-[#0D1B2A]">{selectedWorker.site}</strong></p>
-                <p>Employee ID: <strong className="text-[#0D1B2A] font-mono">{selectedWorker.id}</strong></p>
-                <p>Onboard Date: <strong className="text-[#0D1B2A] font-mono">{selectedWorker.onboardDate}</strong></p>
+                <p>
+                  Site: <strong className="text-[#0D1B2A]">{selectedWorker.site}</strong>
+                </p>
+                <p>
+                  Employee ID:{" "}
+                  <strong className="text-[#0D1B2A] font-mono">{selectedWorker.id}</strong>
+                </p>
+                <p>
+                  Onboard Date:{" "}
+                  <strong className="text-[#0D1B2A] font-mono">{selectedWorker.onboardDate}</strong>
+                </p>
               </div>
 
               {selectedWorker.blockedPermits.length > 0 ? (
@@ -384,17 +552,22 @@ export function OGSubModule61() {
             </div>
 
             <div className="md:col-span-3 space-y-3">
-              <h5 className="text-[10.5px] font-bold text-[#1A6B8A] uppercase tracking-wider">Certification Portfolio</h5>
+              <h5 className="text-[10.5px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                Certification Portfolio
+              </h5>
               <div className="max-h-[220px] overflow-y-auto border border-[#D1D9E3] rounded-xl bg-white divide-y divide-[#D1D9E3] text-xs">
-                {selectedWorker.certificates.map(c => {
+                {selectedWorker.certificates.map((c) => {
                   const statusColors = {
                     CURRENT: "bg-[#E3F4F2] text-[#0F7B6C] border-[#0F7B6C]/20",
                     EXPIRING: "bg-amber-50 text-amber-700 border-amber-200",
-                    EXPIRED: "bg-[#FDECEA] text-[#C0392B] border-[#C0392B]/20 font-bold"
+                    EXPIRED: "bg-[#FDECEA] text-[#C0392B] border-[#C0392B]/20 font-bold",
                   }[c.status];
 
                   return (
-                    <div key={c.name} className="p-3 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                    <div
+                      key={c.name}
+                      className="p-3 flex items-center justify-between hover:bg-slate-50 transition-colors"
+                    >
                       <div>
                         <p className="font-semibold text-[#0D1B2A]">{c.name}</p>
                         <p className="text-[9.5px] text-[#8892A0] font-mono">
@@ -411,7 +584,9 @@ export function OGSubModule61() {
               <div className="flex items-center gap-2 pt-2">
                 <Button
                   size="sm"
-                  onClick={() => toast.success("Downloading complete certification portfolio PDF...")}
+                  onClick={() =>
+                    toast.success("Downloading complete certification portfolio PDF...")
+                  }
                   className="h-8 bg-[#C8922A] hover:bg-[#b78222] text-white text-[10.5px] font-bold rounded-lg"
                 >
                   <Download className="h-3.5 w-3.5 mr-1" />
@@ -431,7 +606,6 @@ export function OGSubModule61() {
           </div>
         )}
       </div>
-
     </div>
   );
 }

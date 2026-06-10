@@ -1,4 +1,5 @@
 # Manufacturing AI Command Center
+
 ### by Fortiv Solutions · fortivsolutions.in
 
 > **India's First End-to-End Manufacturing AI Operating System**
@@ -17,14 +18,17 @@
 ## Table of Contents
 
 ### Intelligence
+
 1. [M1 — AI-Powered Management Dashboards](#m1--ai-powered-management-dashboards)
 
 ### Operations
+
 2. [M2 — Production Planning Automation](#m2--production-planning-automation)
 3. [M3 — Procurement & Vendor Workflow Automation](#m3--procurement--vendor-workflow-automation)
 4. [M4 — Quality & Compliance Reporting](#m4--quality--compliance-reporting)
 
 ### Sales & Customer
+
 5. [M5 — Dealer & Distributor Communication Automation](#m5--dealer--distributor-communication-automation)
 6. [M6 — Customer & Dealer Voice Agents](#m6--customer--dealer-voice-agents)
 7. [M7 — Customer Complaint & After-Sales Management](#m7--customer-complaint--after-sales-management)
@@ -33,6 +37,7 @@
 10. [Brand & Tech Constants](#brand--tech-constants)
 
 ---
+
 ## M1 — AI-Powered Management Dashboards
 
 > Real-time operational intelligence pulling from ERP, CRM, and spreadsheets — giving leadership live visibility into production output, order pipeline, inventory levels, cost variances, and financial performance.
@@ -49,6 +54,7 @@
 A detailed production operations dashboard for the Production Head — showing line-wise performance, OEE breakdown, machine status, shift productivity, and production vs plan tracking in real time.
 
 **What it does:**
+
 - Line status grid: all production lines with current status (Running / Idle / Breakdown / Changeover) and reason, updating in real time
 - Hourly production counter per line: units produced this hour vs target, accumulating towards shift target
 - OEE dashboard: Availability %, Performance %, Quality % per line for current shift and month-to-date — with trend sparklines
@@ -65,6 +71,7 @@ A detailed production operations dashboard for the Production Head — showing l
 A real-time inventory dashboard that tracks raw material stock levels, WIP inventory by stage, and finished goods warehouse status — with automated alerts for items below reorder level and excess/slow-moving stock.
 
 **What it does:**
+
 - Raw material stock levels: all tracked materials with current quantity, reorder level, and days of production coverage remaining
 - Reorder alert list: items below reorder level highlighted — with one-click "Raise Requisition" action
 - Slow-moving and dead stock identification: items with zero consumption in the last 60/90 days — flagged for review
@@ -81,6 +88,7 @@ A real-time inventory dashboard that tracks raw material stock levels, WIP inven
 A sales performance dashboard for the Sales Head and MD — showing order intake, revenue trends, customer-wise performance, product-wise mix, and sales team productivity.
 
 **What it does:**
+
 - Order intake: orders received this month vs last month vs target — value and volume
 - Revenue trend: monthly invoiced revenue for the last 12 months with this-year vs last-year comparison bar chart
 - Customer concentration analysis: top 10 customers by revenue with % of total — highlighting dependency risk
@@ -97,6 +105,7 @@ A sales performance dashboard for the Sales Head and MD — showing order intake
 A financial performance dashboard for the CFO and MD — tracking actual vs standard costs, material price variances, conversion cost trends, and overall profitability — updated from ERP data automatically.
 
 **What it does:**
+
 - Material price variance: actual purchase price vs standard cost per material, identifying inflationary trends and supplier-specific price drift
 - Conversion cost per unit: actual labour + overhead cost per unit produced vs standard, by product and line
 - Scrap and rework cost: value of material scrapped and rework hours logged — as % of total production cost
@@ -112,6 +121,7 @@ A financial performance dashboard for the CFO and MD — tracking actual vs stan
 A workforce productivity intelligence dashboard for HR and Operations — tracking attendance, overtime, productivity per operator, and training compliance across the manufacturing workforce.
 
 **What it does:**
+
 - Today's attendance: headcount in vs total workforce, by department and shift — with % attendance rate
 - Overtime tracking: current month OT hours by department vs budget — with alert if OT exceeds 20% of regular hours
 - Operator productivity: output per operator per shift by department — identifying high performers and laggards
@@ -137,6 +147,7 @@ A workforce productivity intelligence dashboard for HR and Operations — tracki
 An always-on integration agent that connects to your existing ERP (SAP, Oracle, Tally, Odoo, or custom) and MES systems and continuously pulls live data — open orders, material availability, machine status, workforce rosters, and WIP levels — into a unified planning data layer.
 
 **What it does:**
+
 - Connects to ERP via API, database query, or file-based sync depending on system capability
 - Pulls: open sales orders (quantity, due date, priority), BOM (Bill of Materials) for each product, raw material stock levels, WIP inventory per work centre, machine capacity and shift schedules, and workforce attendance data
 - Syncs every 15–30 minutes to keep the planning engine current
@@ -157,6 +168,7 @@ Most planning problems in manufacturing stem from stale or siloed data. A planne
 An AI scheduling engine that ingests the live ERP data pulled by ERP/MES Data Sync Agent and automatically generates an optimised weekly production schedule — balancing order priorities, machine capacity, shift availability, and material constraints simultaneously.
 
 **What it does:**
+
 - Accepts inputs: open orders ranked by due date and customer priority, available machine hours per line per shift, workforce availability by skill/department, raw material availability per BOM line
 - Generates a conflict-free schedule: job sequences per machine, quantity per shift, material pull timing, and workforce allocation
 - Applies scheduling logic: EDD (Earliest Due Date), FIFO, or custom priority rules configurable per client
@@ -177,6 +189,7 @@ Manual scheduling in Excel takes a planner 3–5 hours per week and still produc
 An AI analysis agent that continuously monitors machine utilisation, shift loading, and order pipeline data to identify capacity bottlenecks before they cause missed delivery commitments — and recommends corrective actions.
 
 **What it does:**
+
 - Monitors real-time utilisation of every machine/work centre against rated capacity
 - Identifies chronic bottlenecks: machines consistently loaded above 85% across multiple shifts
 - Identifies hidden bottlenecks: machines that look underloaded but are the constraint because upstream operations feed them unevenly
@@ -197,6 +210,7 @@ Manufacturing delays are almost never random — they are predictable from capac
 An automation agent that monitors daily attendance data from your HR/biometric system and automatically detects shift coverage gaps — then alerts supervisors and suggests reallocation options before the shift starts.
 
 **What it does:**
+
 - Integrates with biometric attendance systems (ZKTeco, eSSL, or HRMS export)
 - Compares actual attendance vs planned roster for each shift and department
 - Detects gaps: absent operators in critical roles, understaffed lines, skill mismatches
@@ -217,6 +231,7 @@ A single absent operator on a critical machine can halt an entire production lin
 An AI agent that automatically calculates material requirements for the approved production schedule, compares against current stock levels, and generates purchase requisitions for items that need replenishment — before stock-outs can disrupt production.
 
 **What it does:**
+
 - Reads approved production schedule from AI Production Schedule Generator and extracts per-item material requirements by date
 - Compares requirements against real-time inventory levels pulled from ERP
 - Calculates: projected stock-out date per material, reorder quantity (EOQ or safety-stock-based), and required delivery date from vendor
@@ -238,6 +253,7 @@ Stock-outs are the single biggest cause of production line stoppages in Indian m
 A real-time production performance tracking module that compares actual output per line, per shift, and per day against planned targets — giving supervisors and management instant visibility into schedule adherence and output efficiency.
 
 **What it does:**
+
 - Pulls actual production count data from MES, barcode scanner output, or manual entry via supervisor app
 - Compares actual vs planned output at hourly, shift, daily, and weekly granularity
 - Calculates schedule adherence %: actual completed jobs vs planned completions for the period
@@ -258,6 +274,7 @@ Most manufacturing managers find out about production shortfalls at the end of t
 An automated report generation agent that compiles the weekly production plan, performance summary, upcoming order commitments, and risk flags into a formatted report — delivered to relevant stakeholders every Monday morning without any manual effort.
 
 **What it does:**
+
 - Aggregates: prior week actual vs target performance, line OEE summary, top 10 orders due this week, critical material status, and capacity risk flags
 - Formats into a clean, branded PDF report (Fortiv-designed template or client-branded)
 - Includes: Gantt snapshot of the week's plan, KPI dashboard (units produced, order fulfilment %, OEE %, downtime hours), and exception summary
@@ -286,6 +303,7 @@ The weekly planning meeting consumes 2–3 hours of senior management time every
 An AI agent that converts approved purchase requisitions from your ERP into formatted Purchase Orders — selecting the right vendor, applying approved pricing, and issuing the PO via email and WhatsApp — without procurement staff intervention for standard repeat items.
 
 **What it does:**
+
 - Picks up approved purchase requisitions from ERP (triggered from MRP agent or manual raise)
 - For each item: looks up approved vendor list, selects vendor based on configurable logic (lowest price / preferred vendor / fastest lead time / rotation policy)
 - Populates PO with: vendor details, item description, HSN code, quantity, rate, GST %, delivery address, and required delivery date
@@ -301,14 +319,13 @@ In most SME manufacturers, raising a PO involves a procurement officer manually 
 
 ---
 
-
-
 ### GRN (Goods Receipt Note) Matching Agent
 
 **What it is:**
 An AI agent that automatically matches incoming goods receipts against the corresponding PO — flagging quantity discrepancies, quality rejections, and partial deliveries without any manual cross-referencing.
 
 **What it does:**
+
 - Receives GRN input: via ERP entry, warehouse app, or scanned delivery challan (AI reads the document)
 - Matches GRN line items against open PO lines: item code, description, quantity, and unit
 - Flags discrepancies automatically:
@@ -332,6 +349,7 @@ Manual GRN matching is time-consuming and error-prone — discrepancies get miss
 An AI agent that processes vendor invoices — matching each line item against the corresponding approved GRN and PO — and routes validated invoices for payment approval while flagging disputes for resolution.
 
 **What it does:**
+
 - Accepts vendor invoices via: email attachment, WhatsApp document, or supplier portal upload
 - AI reads invoice: extracts vendor name, invoice number, date, line items, quantities, rates, GST components, and total
 - Three-way match: invoice vs PO vs GRN — validates that goods were ordered, received, and invoiced correctly
@@ -354,6 +372,7 @@ Invoice processing in Indian manufacturing is typically 5–10 days of manual ma
 An automated analytics module that tracks and scores every vendor across four dimensions — delivery, quality, pricing, and responsiveness — and generates monthly scorecards used for vendor selection, negotiations, and rationalisation decisions.
 
 **What it does:**
+
 - Pulls data automatically from: PO fulfilment records (OTD %), GRN rejection rates (quality %), invoice price vs quoted price (pricing compliance %), and follow-up response time (responsiveness)
 - Calculates a composite vendor score (0–100) with weighted sub-scores per dimension
 - Flags underperforming vendors: score below 60 triggers a performance improvement alert to procurement head
@@ -374,6 +393,7 @@ Most manufacturers have no objective basis for vendor selection — decisions ar
 A real-time spend intelligence dashboard that tracks actual procurement spend against approved budget — by category, vendor, department, and time period — giving finance and management complete visibility into purchasing activity.
 
 **What it does:**
+
 - Tracks all POs issued and invoices approved, mapped to budget categories (Raw Materials, Consumables, Packaging, Spares, Capex)
 - Compares actual spend vs approved budget per category, monthly and year-to-date
 - Flags over-budget categories: "Raw Material spend is 108% of monthly budget — ₹L over"
@@ -402,6 +422,7 @@ Without spend visibility, procurement decisions are made in isolation. This modu
 A digital inspection data capture system that replaces paper QC checksheets with mobile-friendly digital forms — feeding structured inspection data into the quality analytics engine in real time, accessible from any smartphone on the shop floor.
 
 **What it does:**
+
 - Digital inspection forms configured per product, process, and inspection stage (incoming / in-process / final)
 - Mobile app: inspector opens form → scans batch or job number → enters measurement readings, visual inspection results, and pass/fail determination
 - Accepts attachments: photos of defects, measurement instrument readings, and calibration certificates
@@ -423,6 +444,7 @@ Paper QC checksheets are completed hours after inspection, entries are illegible
 An AI-powered NCR management system that captures, classifies, routes, and tracks every non-conformance report from creation to closure — replacing the manual NCR register and disconnected email chains.
 
 **What it does:**
+
 - NCR raised via mobile form or desktop: product, batch, defect description, quantity affected, detected at (incoming/in-process/customer complaint)
 - AI classification: automatically categorises defect by type (dimensional / surface / functional / documentation / packaging) using NLP on the defect description
 - Severity scoring: Minor / Major / Critical — based on defect type and quantity affected
@@ -445,6 +467,7 @@ Most factory NCR registers are filled in retrospect and never analysed. Unresolv
 A digital batch record system that maintains complete forward and backward traceability for every manufactured batch — linking raw material lots, process parameters, equipment used, operator ID, inspection results, and dispatch details into a single searchable record.
 
 **What it does:**
+
 - Creates a batch record card at the start of every production run: batch number, product code, quantity, date, shift, and line assignment
 - Links incoming: raw material lot numbers consumed, supplier GRN reference, and material test certificate
 - Records in-process: machine ID, process parameters (temperature, speed, pressure — manual or automated input), operator/supervisor names
@@ -466,6 +489,7 @@ When a customer raises a quality complaint or a product recall is necessary, mos
 An AI report generation agent that automatically compiles inspection data, test results, NCR summaries, and CAPA status into formatted compliance reports — ready for internal audits, customer audits, BIS, ISO, and regulatory inspections — without any manual document preparation.
 
 **What it does:**
+
 - Configurable report templates: ISO 9001 management review, BIS self-certification, customer-specific PPAP (Production Part Approval Process), and regulatory submission formats
 - Auto-populates report fields from the quality database: inspection pass rates, defect rates, NCR counts, CAPA closure rates, calibration status
 - Generates on demand or on a scheduled cycle (monthly / quarterly / annually)
@@ -487,6 +511,7 @@ Preparing for an audit in most factories means a week of frantic document compil
 A real-time statistical process control monitoring module that tracks critical-to-quality (CTQ) process parameters, plots them on control charts, and alerts quality and production teams the moment a process goes out of control — before defective product is produced.
 
 **What it does:**
+
 - Accepts measurement data from: digital inspection forms (Inspection Data Capture & Digitisation), automated gauges (where integrated), or manual entry
 - Plots X-Bar R charts, X-Bar S charts, or Individual-MR charts per CTQ parameter and product
 - Applies Western Electric rules to detect out-of-control signals: single point beyond control limits, 8 consecutive points one side of centreline, 2 of 3 beyond 2-sigma, and 4 of 5 beyond 1-sigma
@@ -507,6 +532,7 @@ Most quality issues in manufacturing are not sudden failures — they are gradua
 An automated calibration management system that tracks every measuring instrument and gauge, sends calibration due reminders, logs calibration results, and ensures no out-of-calibration instrument is used for quality decisions.
 
 **What it does:**
+
 - Maintains a master register of all instruments: ID, name, type, location, calibration frequency, last calibration date, next due date, and calibration agency
 - Sends reminders 30 days, 15 days, and 3 days before calibration due date — to lab in-charge and QA head via WhatsApp
 - Marks instruments as "Overdue" if not calibrated by due date — auto-triggers a hold alert: "Instrument VN-204 calibration overdue. Do not use for final inspection until recalibrated."
@@ -527,6 +553,7 @@ Using an out-of-calibration instrument means your entire quality record for that
 An AI agent that receives customer quality complaints from M8 (Customer Complaint Management), automatically links them to the relevant batch records, inspection history, and process parameters — accelerating root cause identification and 8D report preparation.
 
 **What it does:**
+
 - Receives complaint: product, batch number, defect description, and quantity affected from M8
 - Pulls complete batch record from Batch Record & Traceability Engine: all RM lots, process parameters, inspection results, and operators
 - Compares complaint defect type against NCR history: "Similar surface finish defect was observed internally on Batch B-4415 — same production line, same operator shift."
@@ -555,6 +582,7 @@ When a customer calls with a quality complaint, the typical response is 3 days o
 A fully autonomous AI agent deployed on WhatsApp Business API that handles inbound queries from your dealer and distributor network — stock enquiries, order status, pricing, dispatch confirmation, and return requests — 24 hours a day, in English, Hindi, and Gujarati.
 
 **What it does:**
+
 - Each dealer is authenticated by their registered mobile number — agent identifies the dealer and retrieves their account context automatically
 - Handles stock availability queries: "Do you have 500 units of Item Code MS-204 available?" → checks live inventory → responds with available quantity and lead time for balance
 - Order status: "What is the status of my order #ORD-2024-887?" → pulls ERP data → responds with current stage (In Production / QC Cleared / Dispatch Scheduled / Dispatched with LR number)
@@ -576,6 +604,7 @@ Dealers are your most important B2B customers. Slow query response — especiall
 An AI agent that accepts dealer orders via WhatsApp, email, or dealer portal — parses the order details, validates stock availability and credit limit, and logs the confirmed order into ERP — without any manual order entry by your sales team.
 
 **What it does:**
+
 - Order submission via:
   - WhatsApp: dealer sends a message ("Please book: MS-204 × 500 units, MS-208 × 200 units for this week dispatch") → AI extracts items, quantities → validates → confirms order
   - Email: dealer sends a PO attachment → AI reads the PDF/Excel → extracts line items → creates sales order in ERP
@@ -598,6 +627,7 @@ In most manufacturing companies, order intake involves a dealer calling → sale
 An automated agent that sends proactive dispatch and logistics updates to dealers and distributors via WhatsApp — so they always know when their material is moving without having to call or WhatsApp your dispatch team repeatedly.
 
 **What it does:**
+
 - Trigger 1 — Dispatch Scheduled: "Your order #ORD-2024-1044 is scheduled for dispatch tomorrow. Estimated delivery: 25th Jan."
 - Trigger 2 — Material Dispatched: "Your order #ORD-2024-1044 has been dispatched. LR No: TM24-88721, Transporter: Saurashtra Transport. Track: [link]"
 - Trigger 3 — Delay Alert: if dispatch is delayed beyond committed date → "We regret to inform that dispatch of your order will be delayed by 2 days due to [reason]. New dispatch date: 27th Jan. Apologies for the inconvenience."
@@ -616,6 +646,7 @@ Dealers calling the dispatch team repeatedly to track their orders is one of the
 An AI agent that collects and aggregates secondary sales data (dealer sell-out to end customers) from your distributor network via WhatsApp or portal — giving you visibility into actual market demand, not just your shipments to dealers.
 
 **What it does:**
+
 - Sends automated weekly WhatsApp message to each dealer: "Hi [Dealer Name], please share this week's sales report. [Formatted template or link]"
 - Processes responses: dealer shares sales data via Excel, photo, or structured WhatsApp reply → AI extracts product, quantity, and customer category data
 - Aggregates secondary sales data by product, geography, dealer, and week
@@ -628,14 +659,13 @@ Manufacturers who only track their own shipments to dealers are flying blind on 
 
 ---
 
-
-
 ### Dealer Onboarding Workflow
 
 **What it is:**
 An automated onboarding workflow that guides new dealer and distributor applicants through the registration, KYC verification, agreement execution, and system access setup — digitising a process that typically takes 2–4 weeks into a 2–3 day workflow.
 
 **What it does:**
+
 - Onboarding form: dealer submits business details, GST number, bank details, trade references, and KYC documents (GST certificate, PAN, Aadhaar, cancelled cheque) via web form or WhatsApp document upload
 - AI document verification: validates GST registration status in real time (GSTN API), checks PAN-Aadhaar linkage, verifies bank account via penny drop
 - Credit assessment workflow: routes application to credit team with a pre-compiled profile for limit setting
@@ -667,6 +697,7 @@ A dealer who has to wait 3 weeks to start ordering can become a competitor's dea
 An AI voice agent that handles inbound calls from customers and dealers requesting order status, dispatch updates, and delivery ETAs — retrieving live ERP data to provide accurate, real-time responses.
 
 **What it does:**
+
 - Greets caller in their preferred language (detected from caller ID or asked at start of call)
 - Authenticates caller: "Please say your account name or registered mobile number" → verifies against CRM
 - Handles order status queries: "Let me check your order status. Order #4821 for 1,000 units of MS-204 — current status: dispatched on 26th January. LR number is TM24-88744 with Saurashtra Transport. Expected delivery tomorrow."
@@ -686,6 +717,7 @@ Order status calls are the highest-volume inbound query in any manufacturing com
 An AI voice agent that handles inbound complaint calls — empathetically acknowledging the issue, capturing complete complaint details via structured voice dialogue, issuing a complaint reference number, and triggering the M8 complaint workflow automatically.
 
 **What it does:**
+
 - Detects complaint intent from opening statement: "I want to raise a complaint about my last delivery"
 - Empathetic acknowledgement: "I'm very sorry to hear about this issue. Let me help you register your complaint so our team can resolve it urgently."
 - Structured data collection via voice: product, invoice/order number, problem description, quantity affected, and customer-suggested resolution
@@ -696,14 +728,13 @@ An AI voice agent that handles inbound complaint calls — empathetically acknow
 
 ---
 
-
-
 ### Dealer Feedback & Survey Agent
 
 **What it is:**
 An AI voice agent that calls dealers monthly or post-delivery to collect structured feedback on product quality, delivery experience, and service satisfaction — building a real-time dealer satisfaction database without any manual survey effort.
 
 **What it does:**
+
 - Automated post-delivery call: 3–5 days after confirmed delivery — "How would you rate the quality of the material delivered? How would you rate the delivery experience?" (0–10 NPS scale via voice)
 - Monthly dealer satisfaction survey: overall satisfaction, product quality rating, company responsiveness rating, and open-ended improvement suggestion captured via speech-to-text
 - Aggregates NPS and satisfaction scores by dealer, region, product, and month
@@ -731,6 +762,7 @@ Most manufacturers have no structured mechanism to measure dealer satisfaction �
 A unified complaint intake system that captures complaints from every channel — WhatsApp, email, phone (via Complaint Logging Voice Agent), dealer portal, and field sales reports — into a single complaint management system with a consistent ticket format, regardless of how the complaint arrived.
 
 **What it does:**
+
 - WhatsApp intake: customer or dealer sends a complaint message → AI captures, creates ticket, sends reference number
 - Email intake: complaint email received → AI extracts details, creates ticket, sends acknowledgement
 - Voice agent intake: complaint logged via Complaint Logging Voice Agent → automatically transferred to ticket system
@@ -750,6 +782,7 @@ Companies that handle complaints inconsistently — quickly via some channels, s
 An AI NLP agent that reads every new complaint, automatically classifies it into a defined taxonomy, assigns a severity level, and routes it to the correct team — within seconds of receipt and without any manual triage.
 
 **What it does:**
+
 - Classification taxonomy configured per client, example for manufacturing:
   - Quality Defects: Dimensional / Surface Finish / Material Property / Contamination / Packaging
   - Delivery: Short Shipment / Late Delivery / Wrong Item / Damaged in Transit
@@ -768,6 +801,7 @@ An AI NLP agent that reads every new complaint, automatically classifies it into
 An automated customer communication agent that sends an immediate, personalised acknowledgement to every complainant — confirming receipt, providing a reference number, explaining next steps, and committing to a response timeline.
 
 **What it does:**
+
 - Sends within 5 minutes of ticket creation — regardless of time of day
 - Personalised WhatsApp message: "Dear [Customer Name], thank you for bringing this to our attention. We have registered your complaint (Ref: CMP-2024-441) regarding [brief complaint description]. Our [QA/Dispatch] team will contact you within [SLA hours] with an update. We sincerely apologise for the inconvenience."
 - Email version: same content in a more formal format with complaint summary and our quality commitment statement
@@ -785,6 +819,7 @@ Customers who complain and receive silence feel ignored and become hostile. A pr
 A structured CAPA management module that ensures every customer complaint generates a root cause investigation and documented corrective action — closing the loop between customer-facing resolution and internal process improvement.
 
 **What it does:**
+
 - For every Major or Critical complaint: auto-generates a CAPA task linked to the complaint ticket
 - Links to quality module (Customer Complaint Quality Linkage): pulls batch record, inspection history, and similar NCR data for root cause analysis support
 - CAPA task structure: Complaint summary → Immediate containment action → Root cause (5-Why or Fishbone) → Corrective action → Preventive action → Effectiveness verification
@@ -801,6 +836,7 @@ A structured CAPA management module that ensures every customer complaint genera
 An automated customer communication agent that sends proactive status updates to complainants as their complaint progresses through investigation and resolution — so customers never have to chase for an update.
 
 **What it does:**
+
 - Investigation started update (within SLA): "We have begun investigating your complaint CMP-2024-441. Our QA team is reviewing the batch records and will have an update for you by [date/time]."
 - Root cause update (if available): "We have identified the likely cause of the issue as [brief explanation]. We are taking immediate corrective action. Replacement/credit/rework will be arranged as follows: [detail]."
 - Resolution confirmed: "Your complaint CMP-2024-441 has been resolved. [Summary of action taken: replacement dispatched / credit note raised / process corrected]. We have implemented corrective actions to prevent recurrence."
@@ -814,6 +850,7 @@ An automated customer communication agent that sends proactive status updates to
 An analytics module that aggregates complaint data across the entire customer base to identify systemic quality and service issues — generating management reports that drive prioritised improvement investment.
 
 **What it does:**
+
 - Complaint trend by type: month-over-month trend chart by complaint category — identifying rising issues early
 - Product-level complaint rate: complaints per thousand units shipped by product — identifying problematic products
 - Customer-level complaint history: frequency of complaints by customer — distinguishing genuinely problematic products from high-maintenance accounts
@@ -839,6 +876,7 @@ An analytics module that aggregates complaint data across the entire customer ba
 An automated follow-up system that monitors outstanding POs and sends timely, personalised reminders to vendors via WhatsApp and email — ensuring deliveries arrive on time without a procurement officer manually chasing each supplier.
 
 **What it does:**
+
 - Monitors all open POs and their promised delivery dates against current date
 - Sends automated WhatsApp reminders on a configurable schedule:
   - T-5 days: "Reminder: PO #2024-1147 for 500 kg CRCA Sheet due in 5 days. Please confirm dispatch plan."
@@ -861,6 +899,7 @@ Procurement officers in typical factories spend 30–40% of their time chasing v
 An automated payment collection agent that sends structured, polite payment reminders to dealers based on invoice due dates — reducing outstanding receivables and eliminating the awkward manual chasing that strains dealer relationships.
 
 **What it does:**
+
 - Pulls outstanding invoice data from ERP: dealer name, invoice number, amount, due date, and days overdue
 - Sends automated WhatsApp reminders on a configurable schedule:
   - T-3 days before due: "Friendly reminder: Invoice #INV-2024-4421 for ₹2,84,000 is due on 25th Jan."
@@ -883,6 +922,7 @@ Chasing dealer payments is one of the most uncomfortable and time-consuming acti
 An AI outbound voice agent that calls dealers and customers with overdue payments — delivering a polite, professional payment reminder and logging payment commitment responses — without requiring your finance team to make awkward collection calls.
 
 **What it does:**
+
 - Triggered from accounts receivable system when invoice is overdue by a configurable number of days (e.g. 7 days)
 - Places outbound call to dealer/customer in business hours (9 AM – 6 PM)
 - Script: "Good morning, may I speak with [contact name]? This is a call from [Company] regarding Invoice #INV-2024-4421 for ₹2,84,000, which was due on 25th January. We'd like to understand when we can expect the payment."
@@ -922,7 +962,6 @@ Build a manufacturing MD command dashboard for a Gujarat SME manufacturer. Six K
 
 **M8 — Complaint Management Dashboard:**
 Build a customer complaint management dashboard for Indian manufacturing. Left panel: complaint inbox feed — 12 complaints, each with: complaint ID, customer name (Indian companies), defect type badge (Quality/Delivery/Documentation), severity badge (Critical/Major/Minor), SLA countdown timer, and assigned team. Centre: complaint detail view for selected complaint with timeline (Received → Classified → Routed → Investigation → Resolution). Right panel: analytics — complaint by type Pareto chart, open vs closed donut, avg resolution time trend. Coral red #D85A30 for overdue SLA. Dark theme. React + recharts.
-
 
 ---
 
@@ -1016,6 +1055,6 @@ Module Summary:
 
 ---
 
-*Manufacturing AI Command Center by Fortiv Solutions*
-*Version 1.0 · 8 Modules · 41 Sub-Modules · India-Ready*
-*fortivsolutions.in · Confidential*
+_Manufacturing AI Command Center by Fortiv Solutions_
+_Version 1.0 · 8 Modules · 41 Sub-Modules · India-Ready_
+_fortivsolutions.in · Confidential_

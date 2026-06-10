@@ -1,9 +1,25 @@
 import { useState } from "react";
 import {
-  FileText, Clock, Users, AlertTriangle, Play, Download,
-  Send, Settings, Calendar, ChevronRight, Loader2,
-  CheckCircle2, Zap, Shield, Wrench, ClipboardList, Drill,
-  Timer, ArrowDown, RefreshCw
+  FileText,
+  Clock,
+  Users,
+  AlertTriangle,
+  Play,
+  Download,
+  Send,
+  Settings,
+  Calendar,
+  ChevronRight,
+  Loader2,
+  CheckCircle2,
+  Zap,
+  Shield,
+  Wrench,
+  ClipboardList,
+  Drill,
+  Timer,
+  ArrowDown,
+  RefreshCw,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -168,9 +184,24 @@ const REPORT_SECTIONS: ReportSection[] = [
 ];
 
 const OPEN_ACTIONS: OpenAction[] = [
-  { id: "ACT-0091", action: "Complete ESP trip RCA for Well C-07", owner: "Rajesh Kumar", due: "28 Oct 2025" },
-  { id: "ACT-0092", action: "Submit weekly safety walk-through report (Pad B)", owner: "P. Menon", due: "28 Oct 2025" },
-  { id: "ACT-0093", action: "Commission replacement bearing — G-Compressor #2", owner: "Sushant Verma", due: "28 Oct 2025" },
+  {
+    id: "ACT-0091",
+    action: "Complete ESP trip RCA for Well C-07",
+    owner: "Rajesh Kumar",
+    due: "28 Oct 2025",
+  },
+  {
+    id: "ACT-0092",
+    action: "Submit weekly safety walk-through report (Pad B)",
+    owner: "P. Menon",
+    due: "28 Oct 2025",
+  },
+  {
+    id: "ACT-0093",
+    action: "Commission replacement bearing — G-Compressor #2",
+    owner: "Sushant Verma",
+    due: "28 Oct 2025",
+  },
 ];
 
 const COMPILATION_STEPS = [
@@ -214,7 +245,9 @@ export function OGSubModule52() {
         setTimeout(() => runStep(i + 1), 700);
       } else {
         toast.dismiss("gen-progress");
-        toast.success(`${selectedReport.name} compiled and distributed to ${selectedReport.recipientCount} recipients.`);
+        toast.success(
+          `${selectedReport.name} compiled and distributed to ${selectedReport.recipientCount} recipients.`,
+        );
         setIsGenerating(false);
         setGenStep(0);
       }
@@ -227,11 +260,15 @@ export function OGSubModule52() {
   };
 
   const handleEditDistribution = () => {
-    toast.info(`Opening distribution list for ${selectedReport.name} — ${selectedReport.recipientCount} recipients configured.`);
+    toast.info(
+      `Opening distribution list for ${selectedReport.name} — ${selectedReport.recipientCount} recipients configured.`,
+    );
   };
 
   const handleResend = () => {
-    toast.success(`Resending ${selectedReport.name} to ${selectedReport.recipientCount} recipients.`);
+    toast.success(
+      `Resending ${selectedReport.name} to ${selectedReport.recipientCount} recipients.`,
+    );
   };
 
   return (
@@ -243,8 +280,12 @@ export function OGSubModule52() {
             <FileText className="h-4.5 w-4.5 text-[#C8922A]" />
           </div>
           <div>
-            <h2 className="text-sm font-bold text-[#0D1B2A]">Daily Operational Reporting Automation</h2>
-            <p className="text-[10.5px] text-[#8892A0]">Automated compilation, distribution & exception flagging</p>
+            <h2 className="text-sm font-bold text-[#0D1B2A]">
+              Daily Operational Reporting Automation
+            </h2>
+            <p className="text-[10.5px] text-[#8892A0]">
+              Automated compilation, distribution & exception flagging
+            </p>
           </div>
         </div>
 
@@ -259,7 +300,9 @@ export function OGSubModule52() {
             className="h-9 rounded-lg border border-[#D1D9E3] bg-white px-3 text-xs font-semibold text-[#0D1B2A] focus:outline-none focus:ring-1 focus:ring-[#C8922A]"
           >
             {CONFIGURED_REPORTS.map((r) => (
-              <option key={r.id} value={r.id}>{r.name}</option>
+              <option key={r.id} value={r.id}>
+                {r.name}
+              </option>
             ))}
           </select>
 
@@ -281,9 +324,15 @@ export function OGSubModule52() {
             className="h-9 bg-[#C8922A] hover:bg-[#b78222] text-white font-bold text-xs px-5 rounded-lg shadow-sm"
           >
             {isGenerating ? (
-              <><Loader2 className="h-3.5 w-3.5 animate-spin mr-1.5" />Generating...</>
+              <>
+                <Loader2 className="h-3.5 w-3.5 animate-spin mr-1.5" />
+                Generating...
+              </>
             ) : (
-              <><Play className="h-3.5 w-3.5 mr-1.5" />Generate Now</>
+              <>
+                <Play className="h-3.5 w-3.5 mr-1.5" />
+                Generate Now
+              </>
             )}
           </Button>
         </div>
@@ -291,12 +340,15 @@ export function OGSubModule52() {
 
       {/* ─── Main Two-Panel Layout ─── */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-
         {/* ═══ LEFT PANEL: Report Schedule (30%) ═══ */}
         <div className="lg:col-span-4 space-y-2">
           <div className="flex items-center justify-between px-1 mb-1">
-            <p className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">Report Schedule</p>
-            <span className="text-[10px] text-[#8892A0] font-mono">{CONFIGURED_REPORTS.length} configured</span>
+            <p className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+              Report Schedule
+            </p>
+            <span className="text-[10px] text-[#8892A0] font-mono">
+              {CONFIGURED_REPORTS.length} configured
+            </span>
           </div>
 
           {CONFIGURED_REPORTS.map((report) => (
@@ -314,12 +366,18 @@ export function OGSubModule52() {
                   <p className="text-xs font-bold text-[#0D1B2A] truncate">{report.name}</p>
                   <div className="flex items-center gap-1.5 mt-1">
                     <Clock className="h-3 w-3 text-[#8892A0] shrink-0" />
-                    <span className="text-[10.5px] text-[#8892A0] font-mono">{report.schedule}</span>
+                    <span className="text-[10.5px] text-[#8892A0] font-mono">
+                      {report.schedule}
+                    </span>
                   </div>
                 </div>
                 <div className="flex flex-col items-end gap-1 shrink-0">
-                  <Badge className={`${statusColor(report.status)} border text-[9px] font-bold px-1.5 py-0`}>
-                    <span className={`inline-block h-1.5 w-1.5 rounded-full ${statusDot(report.status)} mr-1`} />
+                  <Badge
+                    className={`${statusColor(report.status)} border text-[9px] font-bold px-1.5 py-0`}
+                  >
+                    <span
+                      className={`inline-block h-1.5 w-1.5 rounded-full ${statusDot(report.status)} mr-1`}
+                    />
                     {report.status}
                   </Badge>
                   <ChevronRight className="h-3.5 w-3.5 text-[#D1D9E3]" />
@@ -330,14 +388,21 @@ export function OGSubModule52() {
               <div className="flex items-center gap-3 mt-2.5 pt-2 border-t border-dashed border-[#D1D9E3]">
                 <span className="flex items-center gap-1 text-[10px] text-[#8892A0]">
                   <Users className="h-3 w-3" />
-                  <span className="font-mono font-semibold text-[#0D1B2A]">{report.recipientCount}</span>
+                  <span className="font-mono font-semibold text-[#0D1B2A]">
+                    {report.recipientCount}
+                  </span>
                 </span>
                 <span className="flex items-center gap-1 text-[10px] text-[#8892A0]">
                   <Timer className="h-3 w-3" />
-                  <span className="font-mono font-semibold text-[#0D1B2A]">{report.compilationTime}</span>
+                  <span className="font-mono font-semibold text-[#0D1B2A]">
+                    {report.compilationTime}
+                  </span>
                 </span>
                 <span className="text-[10px] text-[#8892A0] ml-auto truncate">
-                  Next: <span className="font-mono text-[#0D1B2A]">{report.nextRun.split(" ").slice(0, 3).join(" ")}</span>
+                  Next:{" "}
+                  <span className="font-mono text-[#0D1B2A]">
+                    {report.nextRun.split(" ").slice(0, 3).join(" ")}
+                  </span>
                 </span>
               </div>
             </button>
@@ -346,13 +411,14 @@ export function OGSubModule52() {
 
         {/* ═══ RIGHT PANEL: Report Viewer (70%) ═══ */}
         <div className="lg:col-span-8 rounded-2xl border border-[#D1D9E3] bg-white shadow-sm overflow-hidden flex flex-col">
-
           {/* ── Generation Progress Overlay ── */}
           {isGenerating && (
             <div className="p-4 border-b border-[#D1D9E3] bg-gradient-to-r from-amber-50 to-white">
               <div className="flex items-center gap-2 mb-3">
                 <Loader2 className="h-4 w-4 animate-spin text-[#C8922A]" />
-                <span className="text-xs font-bold text-[#0D1B2A]">Compiling {selectedReport.name}...</span>
+                <span className="text-xs font-bold text-[#0D1B2A]">
+                  Compiling {selectedReport.name}...
+                </span>
               </div>
               <div className="space-y-1.5">
                 {COMPILATION_STEPS.map((step, i) => (
@@ -364,7 +430,9 @@ export function OGSubModule52() {
                     ) : (
                       <div className="h-3.5 w-3.5 rounded-full border border-[#D1D9E3] shrink-0" />
                     )}
-                    <span className={`text-[10.5px] ${i <= genStep ? "text-[#0D1B2A] font-semibold" : "text-[#8892A0]"}`}>
+                    <span
+                      className={`text-[10.5px] ${i <= genStep ? "text-[#0D1B2A] font-semibold" : "text-[#8892A0]"}`}
+                    >
                       {step}
                     </span>
                   </div>
@@ -382,11 +450,17 @@ export function OGSubModule52() {
             <div className="flex items-center flex-wrap gap-x-5 gap-y-2">
               <div className="flex items-center gap-1.5 text-[10.5px] text-[#8892A0]">
                 <Calendar className="h-3 w-3" />
-                Generated: <span className="font-mono font-semibold text-[#0D1B2A]">28 Oct 2025 06:00 IST</span>
+                Generated:{" "}
+                <span className="font-mono font-semibold text-[#0D1B2A]">
+                  28 Oct 2025 06:00 IST
+                </span>
               </div>
               <div className="flex items-center gap-1.5 text-[10.5px] text-[#8892A0]">
                 <Timer className="h-3 w-3" />
-                Compilation: <span className="font-mono font-semibold text-[#0D1B2A]">{selectedReport.compilationTime}</span>
+                Compilation:{" "}
+                <span className="font-mono font-semibold text-[#0D1B2A]">
+                  {selectedReport.compilationTime}
+                </span>
                 <Badge className="bg-[#E3F4F2] text-[#0F7B6C] border-[#0F7B6C]/20 border text-[9px] font-bold ml-1">
                   <ArrowDown className="h-2.5 w-2.5 mr-0.5" />
                   vs manual avg 1h 32m
@@ -394,7 +468,10 @@ export function OGSubModule52() {
               </div>
               <div className="flex items-center gap-1.5 text-[10.5px] text-[#8892A0]">
                 <Users className="h-3 w-3" />
-                Recipients: <span className="font-mono font-semibold text-[#0D1B2A]">{selectedReport.recipientCount}</span>
+                Recipients:{" "}
+                <span className="font-mono font-semibold text-[#0D1B2A]">
+                  {selectedReport.recipientCount}
+                </span>
               </div>
               <div className="flex items-center gap-1.5 text-[10.5px] text-[#8892A0]">
                 <AlertTriangle className="h-3 w-3 text-[#C0392B]" />
@@ -404,8 +481,10 @@ export function OGSubModule52() {
           </div>
 
           {/* ── Scrollable Report Body ── */}
-          <div className="flex-1 p-5 overflow-y-auto space-y-5" style={{ maxHeight: "calc(100vh - 320px)" }}>
-
+          <div
+            className="flex-1 p-5 overflow-y-auto space-y-5"
+            style={{ maxHeight: "calc(100vh - 320px)" }}
+          >
             {/* Exception Callout Cards */}
             <div className="space-y-2.5">
               <p className="text-[10px] font-bold text-[#C0392B] uppercase tracking-wider flex items-center gap-1.5">
@@ -413,10 +492,7 @@ export function OGSubModule52() {
                 Exceptions Flagged
               </p>
               {EXCEPTIONS.map((exc, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl border border-[#C0392B]/20 bg-[#FDECEA] p-3.5"
-                >
+                <div key={i} className="rounded-xl border border-[#C0392B]/20 bg-[#FDECEA] p-3.5">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1 min-w-0">
                       <p className="text-xs font-bold text-[#C0392B]">{exc.title}</p>
@@ -431,7 +507,9 @@ export function OGSubModule52() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3 mt-2 pt-2 border-t border-[#C0392B]/10 text-[10px] text-[#C0392B]/80">
-                    <span>Owner: <strong className="text-[#C0392B]">{exc.owner}</strong></span>
+                    <span>
+                      Owner: <strong className="text-[#C0392B]">{exc.owner}</strong>
+                    </span>
                   </div>
                 </div>
               ))}
@@ -446,7 +524,9 @@ export function OGSubModule52() {
                 {/* Section Header */}
                 <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-50/80 border-b border-[#D1D9E3]">
                   <span className="text-[#1A6B8A]">{section.icon}</span>
-                  <p className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">{section.label}</p>
+                  <p className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                    {section.label}
+                  </p>
                 </div>
                 {/* Section Body */}
                 <div className="border-l-4 border-[#1A6B8A]">
@@ -454,9 +534,11 @@ export function OGSubModule52() {
                     {section.rows.map((row) => (
                       <div key={row.key} className="bg-white px-4 py-2.5">
                         <p className="text-[10px] text-[#8892A0] mb-0.5">{row.key}</p>
-                        <p className={`text-xs font-bold font-mono ${
-                          row.value.startsWith("-") ? "text-[#C0392B]" : "text-[#0D1B2A]"
-                        }`}>
+                        <p
+                          className={`text-xs font-bold font-mono ${
+                            row.value.startsWith("-") ? "text-[#C0392B]" : "text-[#0D1B2A]"
+                          }`}
+                        >
                           {row.value}
                         </p>
                       </div>
@@ -468,15 +550,25 @@ export function OGSubModule52() {
                 {section.label === "Open Actions" && (
                   <div className="border-t border-[#D1D9E3]">
                     <div className="px-4 py-2 bg-slate-50/40">
-                      <p className="text-[10px] font-bold text-[#8892A0] uppercase tracking-wider">Due Today</p>
+                      <p className="text-[10px] font-bold text-[#8892A0] uppercase tracking-wider">
+                        Due Today
+                      </p>
                     </div>
                     <div className="divide-y divide-[#D1D9E3]">
                       {OPEN_ACTIONS.map((action) => (
                         <div key={action.id} className="flex items-center gap-3 px-4 py-2.5">
-                          <span className="text-[10px] font-mono font-semibold text-[#1A6B8A]">{action.id}</span>
-                          <span className="text-[10.5px] text-[#0D1B2A] flex-1">{action.action}</span>
-                          <span className="text-[10px] text-[#8892A0] shrink-0">{action.owner}</span>
-                          <span className="text-[10px] font-mono text-[#8892A0] shrink-0">{action.due}</span>
+                          <span className="text-[10px] font-mono font-semibold text-[#1A6B8A]">
+                            {action.id}
+                          </span>
+                          <span className="text-[10.5px] text-[#0D1B2A] flex-1">
+                            {action.action}
+                          </span>
+                          <span className="text-[10px] text-[#8892A0] shrink-0">
+                            {action.owner}
+                          </span>
+                          <span className="text-[10px] font-mono text-[#8892A0] shrink-0">
+                            {action.due}
+                          </span>
                         </div>
                       ))}
                     </div>

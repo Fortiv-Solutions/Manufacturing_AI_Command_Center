@@ -45,7 +45,8 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
     return response;
   }
 
-  const err = lastConsoleError ?? consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`);
+  const err =
+    lastConsoleError ?? consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`);
   return new Response(renderErrorPage(err), {
     status: 500,
     headers: { "content-type": "text/html; charset=utf-8" },
@@ -58,7 +59,7 @@ export default {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      
+
       // If the response is a 500, check if we captured an error in console.error
       if (response.status >= 500 && lastConsoleError) {
         return new Response(renderErrorPage(lastConsoleError), {
@@ -66,7 +67,7 @@ export default {
           headers: { "content-type": "text/html; charset=utf-8" },
         });
       }
-      
+
       return await normalizeCatastrophicSsrResponse(response);
     } catch (error) {
       console.error(error);

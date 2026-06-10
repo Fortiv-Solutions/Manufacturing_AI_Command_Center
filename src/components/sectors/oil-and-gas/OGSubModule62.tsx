@@ -1,7 +1,16 @@
 import { useState } from "react";
 import {
-  Users, CheckCircle2, Clock, Play, FileText, Send, CheckCircle,
-  GraduationCap, Award, Compass, AlertCircle
+  Users,
+  CheckCircle2,
+  Clock,
+  Play,
+  FileText,
+  Send,
+  CheckCircle,
+  GraduationCap,
+  Award,
+  Compass,
+  AlertCircle,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -53,21 +62,90 @@ const ONBOARDINGS: OnboardingPlan[] = [
     status: "At Risk",
     milestones: {
       week1: [
-        { id: "M1", name: "Site security induction & ID badge", dueDate: "04 Nov 2025", status: "complete", owner: "Anand Sharma", completedDate: "04 Nov 2025" },
-        { id: "M2", name: "Emergency mustering drill & assembly points", dueDate: "04 Nov 2025", status: "complete", owner: "Priya Menon", completedDate: "04 Nov 2025" },
-        { id: "M3", name: "OISD-STD-154 awareness training", dueDate: "06 Nov 2025", status: "pending", owner: "Priya Menon", actionText: "Book now - 1 slot available" },
-        { id: "M4", name: "Driller's cabin familiarisation", dueDate: "07 Nov 2025", status: "paused", owner: "Sushant Verma" },
-        { id: "M5", name: "H2S monitor calibration training", dueDate: "08 Nov 2025", status: "paused", owner: "Safety Team", actionText: "Book now" },
-        { id: "M6", name: "PTW system orientation (read access)", dueDate: "08 Nov 2025", status: "paused", owner: "IT Team", notes: "IT access request raised" }
+        {
+          id: "M1",
+          name: "Site security induction & ID badge",
+          dueDate: "04 Nov 2025",
+          status: "complete",
+          owner: "Anand Sharma",
+          completedDate: "04 Nov 2025",
+        },
+        {
+          id: "M2",
+          name: "Emergency mustering drill & assembly points",
+          dueDate: "04 Nov 2025",
+          status: "complete",
+          owner: "Priya Menon",
+          completedDate: "04 Nov 2025",
+        },
+        {
+          id: "M3",
+          name: "OISD-STD-154 awareness training",
+          dueDate: "06 Nov 2025",
+          status: "pending",
+          owner: "Priya Menon",
+          actionText: "Book now - 1 slot available",
+        },
+        {
+          id: "M4",
+          name: "Driller's cabin familiarisation",
+          dueDate: "07 Nov 2025",
+          status: "paused",
+          owner: "Sushant Verma",
+        },
+        {
+          id: "M5",
+          name: "H2S monitor calibration training",
+          dueDate: "08 Nov 2025",
+          status: "paused",
+          owner: "Safety Team",
+          actionText: "Book now",
+        },
+        {
+          id: "M6",
+          name: "PTW system orientation (read access)",
+          dueDate: "08 Nov 2025",
+          status: "paused",
+          owner: "IT Team",
+          notes: "IT access request raised",
+        },
       ],
       week2: [
-        { id: "M7", name: "Shadow well test (with Rajesh Kumar)", dueDate: "10 Nov 2025", status: "paused", owner: "Rajesh Kumar", notes: "Scheduled 10 Nov 08:00" },
-        { id: "M8", name: "Attend daily drilling review × 5", dueDate: "14 Nov 2025", status: "paused", owner: "Anand Sharma", notes: "Ongoing" },
-        { id: "M9", name: "MOC procedure training (online)", dueDate: "13 Nov 2025", status: "paused", owner: "HR Team", actionText: "Assign module" },
-        { id: "M10", name: "ERP (SAP) system orientation", dueDate: "12 Nov 2025", status: "paused", owner: "IT Team", notes: "IT ticket: #SAP-0891" }
+        {
+          id: "M7",
+          name: "Shadow well test (with Rajesh Kumar)",
+          dueDate: "10 Nov 2025",
+          status: "paused",
+          owner: "Rajesh Kumar",
+          notes: "Scheduled 10 Nov 08:00",
+        },
+        {
+          id: "M8",
+          name: "Attend daily drilling review × 5",
+          dueDate: "14 Nov 2025",
+          status: "paused",
+          owner: "Anand Sharma",
+          notes: "Ongoing",
+        },
+        {
+          id: "M9",
+          name: "MOC procedure training (online)",
+          dueDate: "13 Nov 2025",
+          status: "paused",
+          owner: "HR Team",
+          actionText: "Assign module",
+        },
+        {
+          id: "M10",
+          name: "ERP (SAP) system orientation",
+          dueDate: "12 Nov 2025",
+          status: "paused",
+          owner: "IT Team",
+          notes: "IT ticket: #SAP-0891",
+        },
       ],
-      weeks3_4Count: 18
-    }
+      weeks3_4Count: 18,
+    },
   },
   {
     id: "ONB-2025-0048",
@@ -82,23 +160,44 @@ const ONBOARDINGS: OnboardingPlan[] = [
     status: "On Track",
     milestones: {
       week1: [
-        { id: "K1", name: "Site security induction & ID badge", dueDate: "28 Oct 2025", status: "complete", owner: "Anand Sharma", completedDate: "28 Oct 2025" },
-        { id: "K2", name: "Emergency mustering drill", dueDate: "28 Oct 2025", status: "complete", owner: "Priya Menon", completedDate: "28 Oct 2025" }
+        {
+          id: "K1",
+          name: "Site security induction & ID badge",
+          dueDate: "28 Oct 2025",
+          status: "complete",
+          owner: "Anand Sharma",
+          completedDate: "28 Oct 2025",
+        },
+        {
+          id: "K2",
+          name: "Emergency mustering drill",
+          dueDate: "28 Oct 2025",
+          status: "complete",
+          owner: "Priya Menon",
+          completedDate: "28 Oct 2025",
+        },
       ],
       week2: [
-        { id: "K3", name: "Environmental Regulations Handout", dueDate: "04 Nov 2025", status: "complete", owner: "Priya Menon", completedDate: "04 Nov 2025" }
+        {
+          id: "K3",
+          name: "Environmental Regulations Handout",
+          dueDate: "04 Nov 2025",
+          status: "complete",
+          owner: "Priya Menon",
+          completedDate: "04 Nov 2025",
+        },
       ],
-      weeks3_4Count: 21
-    }
-  }
+      weeks3_4Count: 21,
+    },
+  },
 ];
 
 export function OGSubModule62() {
   const [selectedPlan, setSelectedPlan] = useState<OnboardingPlan>(ONBOARDINGS[0]);
   const [checklist, setChecklist] = useState<Record<string, Milestone["status"]>>(() => {
     const states: Record<string, Milestone["status"]> = {};
-    ONBOARDINGS.forEach(p => {
-      [...p.milestones.week1, ...p.milestones.week2].forEach(m => {
+    ONBOARDINGS.forEach((p) => {
+      [...p.milestones.week1, ...p.milestones.week2].forEach((m) => {
         states[`${p.id}-${m.id}`] = m.status;
       });
     });
@@ -113,8 +212,8 @@ export function OGSubModule62() {
     const key = `${planId}-${mId}`;
     const curr = checklist[key] || "paused";
     const next: Milestone["status"] = curr === "complete" ? "paused" : "complete";
-    setChecklist(prev => ({ ...prev, [key]: next }));
-    
+    setChecklist((prev) => ({ ...prev, [key]: next }));
+
     // adjust complete tasks count for display
     if (next === "complete") {
       toast.success("Milestone marked as complete.");
@@ -124,35 +223,78 @@ export function OGSubModule62() {
   };
 
   const handleGeneratePack = (plan: OnboardingPlan) => {
-    toast.loading(`Compiling induction materials, maps, and safety standards for ${plan.workerName}...`);
+    toast.loading(
+      `Compiling induction materials, maps, and safety standards for ${plan.workerName}...`,
+    );
     setTimeout(() => {
       toast.dismiss();
-      toast.success(`Induction Pack PDF generated! 34 pages dispatched to ${plan.workerName} via email.`);
+      toast.success(
+        `Induction Pack PDF generated! 34 pages dispatched to ${plan.workerName} via email.`,
+      );
     }, 2000);
   };
 
   const handleSendReminder = (plan: OnboardingPlan) => {
-    toast.success(`Buddy notification sent to ${plan.buddy} to check in on ${plan.workerName}'s milestones.`);
+    toast.success(
+      `Buddy notification sent to ${plan.buddy} to check in on ${plan.workerName}'s milestones.`,
+    );
   };
 
   const handleMarkReady = (plan: OnboardingPlan) => {
-    toast.success(`${plan.workerName} signed off by ${plan.supervisor} for independent operational clearance!`);
+    toast.success(
+      `${plan.workerName} signed off by ${plan.supervisor} for independent operational clearance!`,
+    );
   };
 
   return (
     <div className="space-y-6">
-
       {/* ── Top Summary Bar ──────────────────────────── */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {[
-          { label: "Active Onboardings", value: "2", icon: Users, color: "#1A6B8A", bg: "bg-blue-50" },
-          { label: "Avg Completion Rate", value: "61%", icon: Compass, color: "#1A6B8A", bg: "bg-blue-50" },
-          { label: "On Track", value: "1", icon: CheckCircle2, color: "#0F7B6C", bg: "bg-[#E3F4F2]" },
-          { label: "At Risk", value: "1", icon: AlertCircle, color: "#C8922A", bg: "bg-amber-50", pulse: true },
-          { label: "Completed This Month", value: "3", icon: Award, color: "#0F7B6C", bg: "bg-[#E3F4F2]" }
-        ].map(kpi => (
-          <div key={kpi.label} className="rounded-2xl border border-[#D1D9E3] bg-white p-4 shadow-sm flex items-center gap-3">
-            <div className={`${kpi.bg} h-9 w-9 rounded-xl flex items-center justify-center shrink-0`}>
+          {
+            label: "Active Onboardings",
+            value: "2",
+            icon: Users,
+            color: "#1A6B8A",
+            bg: "bg-blue-50",
+          },
+          {
+            label: "Avg Completion Rate",
+            value: "61%",
+            icon: Compass,
+            color: "#1A6B8A",
+            bg: "bg-blue-50",
+          },
+          {
+            label: "On Track",
+            value: "1",
+            icon: CheckCircle2,
+            color: "#0F7B6C",
+            bg: "bg-[#E3F4F2]",
+          },
+          {
+            label: "At Risk",
+            value: "1",
+            icon: AlertCircle,
+            color: "#C8922A",
+            bg: "bg-amber-50",
+            pulse: true,
+          },
+          {
+            label: "Completed This Month",
+            value: "3",
+            icon: Award,
+            color: "#0F7B6C",
+            bg: "bg-[#E3F4F2]",
+          },
+        ].map((kpi) => (
+          <div
+            key={kpi.label}
+            className="rounded-2xl border border-[#D1D9E3] bg-white p-4 shadow-sm flex items-center gap-3"
+          >
+            <div
+              className={`${kpi.bg} h-9 w-9 rounded-xl flex items-center justify-center shrink-0`}
+            >
               <kpi.icon className="h-5 w-5" style={{ color: kpi.color }} />
             </div>
             <div>
@@ -165,14 +307,15 @@ export function OGSubModule62() {
 
       {/* ── Main Area: Split List & Details ──────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
         {/* Left Side: Onboarding Plans List (35%) */}
         <div className="lg:col-span-4 rounded-2xl border border-[#D1D9E3] bg-white shadow-sm overflow-hidden flex flex-col">
           <div className="p-4 border-b border-[#D1D9E3] bg-slate-50/50">
-            <h3 className="text-xs font-bold text-[#1A6B8A] uppercase tracking-wider">Active Onboarding Plans</h3>
+            <h3 className="text-xs font-bold text-[#1A6B8A] uppercase tracking-wider">
+              Active Onboarding Plans
+            </h3>
           </div>
           <div className="p-3 divide-y divide-slate-100 flex-1">
-            {ONBOARDINGS.map(plan => {
+            {ONBOARDINGS.map((plan) => {
               const isSelected = selectedPlan.id === plan.id;
               const isAtRisk = plan.status === "At Risk";
 
@@ -181,16 +324,20 @@ export function OGSubModule62() {
                   key={plan.id}
                   onClick={() => setSelectedPlan(plan)}
                   className={`p-3 rounded-xl cursor-pointer transition-all ${
-                    isSelected ? "bg-blue-50/60 border border-blue-200" : "hover:bg-slate-50 border border-transparent"
+                    isSelected
+                      ? "bg-blue-50/60 border border-blue-200"
+                      : "hover:bg-slate-50 border border-transparent"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1.5">
                     <span className="font-bold text-[#0D1B2A] text-xs">{plan.workerName}</span>
-                    <Badge className={
-                      isAtRisk
-                        ? "bg-amber-50 text-amber-700 border-amber-200 border text-[9px] font-bold animate-pulse"
-                        : "bg-[#E3F4F2] text-[#0F7B6C] border-[#0F7B6C]/20 border text-[9px] font-bold"
-                    }>
+                    <Badge
+                      className={
+                        isAtRisk
+                          ? "bg-amber-50 text-amber-700 border-amber-200 border text-[9px] font-bold animate-pulse"
+                          : "bg-[#E3F4F2] text-[#0F7B6C] border-[#0F7B6C]/20 border text-[9px] font-bold"
+                      }
+                    >
                       {plan.status}
                     </Badge>
                   </div>
@@ -198,7 +345,8 @@ export function OGSubModule62() {
                   <div className="flex items-center justify-between mt-3 text-[10px]">
                     <span className="text-[#8892A0] font-mono">ID: {plan.id}</span>
                     <span className="text-[#0D1B2A] font-bold font-mono">
-                      {plan.tasksComplete}/{plan.totalTasks} tasks ({((plan.tasksComplete / plan.totalTasks) * 100).toFixed(0)}%)
+                      {plan.tasksComplete}/{plan.totalTasks} tasks (
+                      {((plan.tasksComplete / plan.totalTasks) * 100).toFixed(0)}%)
                     </span>
                   </div>
                 </div>
@@ -214,13 +362,17 @@ export function OGSubModule62() {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
               <div>
                 <h3 className="text-sm font-bold text-[#0D1B2A]">{selectedPlan.workerName}</h3>
-                <p className="text-xs text-[#8892A0] font-semibold">{selectedPlan.role} — {selectedPlan.id}</p>
+                <p className="text-xs text-[#8892A0] font-semibold">
+                  {selectedPlan.role} — {selectedPlan.id}
+                </p>
               </div>
-              <Badge className={
-                selectedPlan.status === "At Risk"
-                  ? "bg-amber-50 text-amber-700 border-amber-200 border text-[9.5px] font-bold self-start sm:self-center"
-                  : "bg-[#E3F4F2] text-[#0F7B6C] border-[#0F7B6C]/20 border text-[9.5px] font-bold self-start sm:self-center"
-              }>
+              <Badge
+                className={
+                  selectedPlan.status === "At Risk"
+                    ? "bg-amber-50 text-amber-700 border-amber-200 border text-[9.5px] font-bold self-start sm:self-center"
+                    : "bg-[#E3F4F2] text-[#0F7B6C] border-[#0F7B6C]/20 border text-[9.5px] font-bold self-start sm:self-center"
+                }
+              >
                 {selectedPlan.status}
               </Badge>
             </div>
@@ -229,13 +381,16 @@ export function OGSubModule62() {
               <div className="flex items-center justify-between text-[11px]">
                 <span className="text-[#8892A0]">Milestone Completion Progress</span>
                 <span className="font-mono font-bold text-[#0D1B2A]">
-                  {selectedPlan.tasksComplete} of {selectedPlan.totalTasks} ({((selectedPlan.tasksComplete / selectedPlan.totalTasks) * 100).toFixed(1)}%)
+                  {selectedPlan.tasksComplete} of {selectedPlan.totalTasks} (
+                  {((selectedPlan.tasksComplete / selectedPlan.totalTasks) * 100).toFixed(1)}%)
                 </span>
               </div>
               <Progress
                 value={(selectedPlan.tasksComplete / selectedPlan.totalTasks) * 100}
                 className={`h-2.5 rounded-full ${
-                  selectedPlan.status === "At Risk" ? "[&>div]:bg-[#C8922A]" : "[&>div]:bg-[#0F7B6C]"
+                  selectedPlan.status === "At Risk"
+                    ? "[&>div]:bg-[#C8922A]"
+                    : "[&>div]:bg-[#0F7B6C]"
                 }`}
               />
             </div>
@@ -262,14 +417,13 @@ export function OGSubModule62() {
 
           {/* Checklist Sections */}
           <div className="flex-1 overflow-y-auto p-5 space-y-6">
-
             {/* Week 1 */}
             <div className="space-y-2.5">
               <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider border-b pb-1">
                 Week 1 (Days 1–5) — General Site Orientation
               </h4>
               <div className="space-y-1.5">
-                {selectedPlan.milestones.week1.map(m => {
+                {selectedPlan.milestones.week1.map((m) => {
                   const status = getStatus(selectedPlan.id, m.id, m.status);
 
                   return (
@@ -280,8 +434,8 @@ export function OGSubModule62() {
                         status === "complete"
                           ? "bg-[#E3F4F2]/30 border-[#0F7B6C]/10"
                           : m.status === "pending"
-                          ? "border-amber-200 bg-amber-50/10"
-                          : "border-slate-200"
+                            ? "border-amber-200 bg-amber-50/10"
+                            : "border-slate-200"
                       }`}
                     >
                       <div className="shrink-0 mt-0.5">
@@ -295,14 +449,22 @@ export function OGSubModule62() {
                       </div>
                       <div className="flex-1 min-w-0 text-xs">
                         <div className="flex items-center justify-between gap-2">
-                          <p className={`font-semibold ${status === "complete" ? "line-through text-[#8892A0]" : "text-[#0D1B2A]"}`}>
+                          <p
+                            className={`font-semibold ${status === "complete" ? "line-through text-[#8892A0]" : "text-[#0D1B2A]"}`}
+                          >
                             {m.name}
                           </p>
                           <span className="text-[10px] font-mono text-[#8892A0]">{m.dueDate}</span>
                         </div>
                         <div className="flex items-center gap-3 mt-1.5 text-[10px] text-[#8892A0]">
-                          <span>Owner: <strong>{m.owner}</strong></span>
-                          {m.notes && <span>• <em>{m.notes}</em></span>}
+                          <span>
+                            Owner: <strong>{m.owner}</strong>
+                          </span>
+                          {m.notes && (
+                            <span>
+                              • <em>{m.notes}</em>
+                            </span>
+                          )}
                           {m.actionText && (
                             <span className="text-[#C8922A] font-bold hover:underline shrink-0">
                               [{m.actionText}]
@@ -322,7 +484,7 @@ export function OGSubModule62() {
                 Week 2 (Days 6–10) — Operational & Safety Training
               </h4>
               <div className="space-y-1.5">
-                {selectedPlan.milestones.week2.map(m => {
+                {selectedPlan.milestones.week2.map((m) => {
                   const status = getStatus(selectedPlan.id, m.id, m.status);
 
                   return (
@@ -344,14 +506,22 @@ export function OGSubModule62() {
                       </div>
                       <div className="flex-1 min-w-0 text-xs">
                         <div className="flex items-center justify-between gap-2">
-                          <p className={`font-semibold ${status === "complete" ? "line-through text-[#8892A0]" : "text-[#0D1B2A]"}`}>
+                          <p
+                            className={`font-semibold ${status === "complete" ? "line-through text-[#8892A0]" : "text-[#0D1B2A]"}`}
+                          >
                             {m.name}
                           </p>
                           <span className="text-[10px] font-mono text-[#8892A0]">{m.dueDate}</span>
                         </div>
                         <div className="flex items-center gap-3 mt-1.5 text-[10px] text-[#8892A0]">
-                          <span>Owner: <strong>{m.owner}</strong></span>
-                          {m.notes && <span>• <em>{m.notes}</em></span>}
+                          <span>
+                            Owner: <strong>{m.owner}</strong>
+                          </span>
+                          {m.notes && (
+                            <span>
+                              • <em>{m.notes}</em>
+                            </span>
+                          )}
                           {m.actionText && (
                             <span className="text-[#C8922A] font-bold hover:underline shrink-0">
                               [{m.actionText}]
@@ -373,7 +543,6 @@ export function OGSubModule62() {
               </span>
               <span>{selectedPlan.milestones.weeks3_4Count} tasks pending</span>
             </div>
-
           </div>
 
           {/* Footer Actions */}
@@ -407,9 +576,7 @@ export function OGSubModule62() {
             </Button>
           </div>
         </div>
-
       </div>
-
     </div>
   );
 }

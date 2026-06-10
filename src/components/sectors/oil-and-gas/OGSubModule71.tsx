@@ -1,7 +1,19 @@
 import { useState } from "react";
 import {
-  FileText, ShieldCheck, CheckCircle2, Clock, AlertTriangle, Send,
-  Download, Edit2, Check, RefreshCw, Layers, Users, TrendingUp, ShieldAlert
+  FileText,
+  ShieldCheck,
+  CheckCircle2,
+  Clock,
+  AlertTriangle,
+  Send,
+  Download,
+  Edit2,
+  Check,
+  RefreshCw,
+  Layers,
+  Users,
+  TrendingUp,
+  ShieldAlert,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -53,8 +65,13 @@ const INITIAL_REPORTS: ReportDraft[] = [
     recipientsCount: 24,
     recipients: [
       { name: "Anand Sharma", role: "VP Operations", status: "Opened", time: "01 Nov 09:14 IST" },
-      { name: "Ravi Patel", role: "Finance Controller", status: "Opened", time: "01 Nov 09:14 IST" },
-      { name: "Priya Menon", role: "HSE Manager", status: "Opened", time: "01 Nov 09:14 IST" }
+      {
+        name: "Ravi Patel",
+        role: "Finance Controller",
+        status: "Opened",
+        time: "01 Nov 09:14 IST",
+      },
+      { name: "Priya Menon", role: "HSE Manager", status: "Opened", time: "01 Nov 09:14 IST" },
     ],
     metrics: {
       production: "1,28,340 bbl",
@@ -68,11 +85,11 @@ const INITIAL_REPORTS: ReportDraft[] = [
       capexPlan: "Rs. 2.40 Cr",
       hse: "0 LTI | 4 Near Misses",
       compliance: "100% On-time | 0 Gaps",
-      workforce: "94.4% Qualified | 3 Blocked"
+      workforce: "94.4% Qualified | 3 Blocked",
     },
     summary: `October 2025 production of 1,28,340 bbl came in 4.76% below target (6,410 bbl shortfall), attributable primarily to two events: the unplanned shut-in of Well C-07 following an ESP trip on 28 Oct (estimated 3,200 bbl impact) and planned maintenance downtime at Pad A over 18–20 Oct (estimated 1,840 bbl impact).
 
-OPEX overrun of Rs. 16 lakh (3.69% above budget) was driven by unplanned pump repair costs at Pad B (Rs. 9 lakh) and increased H2S scavenger chemical volumes at Wells C-07 and C-11 (Rs. 7 lakh). These are assessed as one-off events; no structural cost trend is indicated. CAPEX was Rs. 26 lakh below plan, reflecting a 3-week delay to the B-15 well spud, which has been rescheduled to 14 Nov 2025.`
+OPEX overrun of Rs. 16 lakh (3.69% above budget) was driven by unplanned pump repair costs at Pad B (Rs. 9 lakh) and increased H2S scavenger chemical volumes at Wells C-07 and C-11 (Rs. 7 lakh). These are assessed as one-off events; no structural cost trend is indicated. CAPEX was Rs. 26 lakh below plan, reflecting a 3-week delay to the B-15 well spud, which has been rescheduled to 14 Nov 2025.`,
   },
   {
     id: "RPT-2025-D1847",
@@ -95,9 +112,9 @@ OPEX overrun of Rs. 16 lakh (3.69% above budget) was driven by unplanned pump re
       capexPlan: "Rs. 7.5 L",
       hse: "0 LTI | 0 Near Misses",
       compliance: "100% On-time",
-      workforce: "94.4% Qualified"
+      workforce: "94.4% Qualified",
     },
-    summary: "Production stable at 4,120 bbl. General maintenance routines completed on Pad A."
+    summary: "Production stable at 4,120 bbl. General maintenance routines completed on Pad A.",
   },
   {
     id: "RPT-2025-W44",
@@ -120,9 +137,9 @@ OPEX overrun of Rs. 16 lakh (3.69% above budget) was driven by unplanned pump re
       capexPlan: "Rs. 56.0 L",
       hse: "0 LTI | 2 Near Misses",
       compliance: "100%",
-      workforce: "94.4%"
+      workforce: "94.4%",
     },
-    summary: "Weekly metrics show a minor variance due to the Well C-07 shut-in. Repair completed."
+    summary: "Weekly metrics show a minor variance due to the Well C-07 shut-in. Repair completed.",
   },
   {
     id: "RPT-2025-Q2",
@@ -145,10 +162,10 @@ OPEX overrun of Rs. 16 lakh (3.69% above budget) was driven by unplanned pump re
       capexPlan: "Rs. 7.20 Cr",
       hse: "0 LTI | 11 Near Misses",
       compliance: "100%",
-      workforce: "94.4%"
+      workforce: "94.4%",
     },
-    summary: "Quarterly draft to compile automatically on 15 Nov."
-  }
+    summary: "Quarterly draft to compile automatically on 15 Nov.",
+  },
 ];
 
 export function OGSubModule71() {
@@ -166,21 +183,39 @@ export function OGSubModule71() {
 
   const handleApproveSend = () => {
     toast.loading("Encrypting PDF and broadcasting to distribution list...");
-    
+
     setTimeout(() => {
       // update state
-      const updatedReports = reports.map(r => {
+      const updatedReports = reports.map((r) => {
         if (r.id === selectedReport.id) {
           return {
             ...r,
             status: "Distributed" as const,
             summary: editableSummary,
             recipients: [
-              { name: "Anand Sharma", role: "VP Operations", status: "Sent" as const, time: "Just Now" },
-              { name: "Ravi Patel", role: "Finance Controller", status: "Sent" as const, time: "Just Now" },
-              { name: "Priya Menon", role: "HSE Manager", status: "Sent" as const, time: "Just Now" },
-              ...r.recipients.filter(x => x.name !== "Anand Sharma" && x.name !== "Ravi Patel" && x.name !== "Priya Menon")
-            ]
+              {
+                name: "Anand Sharma",
+                role: "VP Operations",
+                status: "Sent" as const,
+                time: "Just Now",
+              },
+              {
+                name: "Ravi Patel",
+                role: "Finance Controller",
+                status: "Sent" as const,
+                time: "Just Now",
+              },
+              {
+                name: "Priya Menon",
+                role: "HSE Manager",
+                status: "Sent" as const,
+                time: "Just Now",
+              },
+              ...r.recipients.filter(
+                (x) =>
+                  x.name !== "Anand Sharma" && x.name !== "Ravi Patel" && x.name !== "Priya Menon",
+              ),
+            ],
           };
         }
         return r;
@@ -196,17 +231,17 @@ export function OGSubModule71() {
   const handleCompileNow = (rId: string) => {
     setCompilingId(rId);
     toast.loading("Querying SAP registers and compiling PDF draft...");
-    
+
     setTimeout(() => {
       setCompilingId(null);
-      const updatedReports = reports.map(r => {
+      const updatedReports = reports.map((r) => {
         if (r.id === rId) {
           return { ...r, status: "Draft Ready" as const, compiledAt: "Just Now" };
         }
         return r;
       });
       setReports(updatedReports);
-      setSelectedReport(updatedReports.find(x => x.id === rId) || selectedReport);
+      setSelectedReport(updatedReports.find((x) => x.id === rId) || selectedReport);
       toast.dismiss();
       toast.success("Draft report generation complete.");
     }, 2000);
@@ -218,25 +253,55 @@ export function OGSubModule71() {
       Compiling: "bg-amber-50 text-[#C8922A] border-[#C8922A]/20 animate-pulse",
       "Draft Ready": "bg-[#E3F4F2] text-[#0F7B6C] border-[#0F7B6C]/20 border font-bold",
       Distributed: "bg-slate-100 text-slate-500 border-slate-200",
-      Overdue: "bg-[#FDECEA] text-[#C0392B] border-[#C0392B]/20 animate-bounce"
+      Overdue: "bg-[#FDECEA] text-[#C0392B] border-[#C0392B]/20 animate-bounce",
     }[s];
 
-    return <Badge className={`${maps} border text-[9px] font-bold font-mono`}>{s.toUpperCase()}</Badge>;
+    return (
+      <Badge className={`${maps} border text-[9px] font-bold font-mono`}>{s.toUpperCase()}</Badge>
+    );
   };
 
   return (
     <div className="space-y-6">
-
       {/* ── Top Stats Bar ────────────────────────────── */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {[
-          { label: "Gross Production (MTD)", value: "1,28,340 / 1,34,750 bbl", sub: "-4.76% vs Target", color: "#1A6B8A", bg: "bg-blue-50" },
-          { label: "OPEX Lifting Cost", value: "Rs. 4,127 / bbl", sub: "+3.69% vs Budget", color: "#C8922A", bg: "bg-[#F5F0E8]" },
-          { label: "HSE Status YTD", value: "0 LTI · 4 Near Miss", sub: "Safety checks 100% compliant", color: "#0F7B6C", bg: "bg-[#E3F4F2]" },
-          { label: "Regulatory Filings", value: "100% On-time", sub: "0 open compliance gaps", color: "#0F7B6C", bg: "bg-[#E3F4F2]" }
-        ].map(kpi => (
-          <div key={kpi.label} className="rounded-2xl border border-[#D1D9E3] bg-white p-4 shadow-sm flex items-center gap-3">
-            <div className={`${kpi.bg} h-10 w-10 rounded-xl flex items-center justify-center shrink-0`}>
+          {
+            label: "Gross Production (MTD)",
+            value: "1,28,340 / 1,34,750 bbl",
+            sub: "-4.76% vs Target",
+            color: "#1A6B8A",
+            bg: "bg-blue-50",
+          },
+          {
+            label: "OPEX Lifting Cost",
+            value: "Rs. 4,127 / bbl",
+            sub: "+3.69% vs Budget",
+            color: "#C8922A",
+            bg: "bg-[#F5F0E8]",
+          },
+          {
+            label: "HSE Status YTD",
+            value: "0 LTI · 4 Near Miss",
+            sub: "Safety checks 100% compliant",
+            color: "#0F7B6C",
+            bg: "bg-[#E3F4F2]",
+          },
+          {
+            label: "Regulatory Filings",
+            value: "100% On-time",
+            sub: "0 open compliance gaps",
+            color: "#0F7B6C",
+            bg: "bg-[#E3F4F2]",
+          },
+        ].map((kpi) => (
+          <div
+            key={kpi.label}
+            className="rounded-2xl border border-[#D1D9E3] bg-white p-4 shadow-sm flex items-center gap-3"
+          >
+            <div
+              className={`${kpi.bg} h-10 w-10 rounded-xl flex items-center justify-center shrink-0`}
+            >
               {kpi.color === "#0F7B6C" ? (
                 <ShieldCheck className="h-5.5 w-5.5 text-[#0F7B6C]" />
               ) : kpi.color === "#C8922A" ? (
@@ -256,11 +321,12 @@ export function OGSubModule71() {
 
       {/* ── Main Area: Split Report Panel ────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
         {/* Left Side: Report Compiler Schedule (35%) */}
         <div className="lg:col-span-4 rounded-2xl border border-[#D1D9E3] bg-white shadow-sm overflow-hidden flex flex-col">
           <div className="p-4 border-b border-[#D1D9E3] bg-slate-50/50 flex items-center justify-between">
-            <h3 className="text-xs font-bold text-[#1A6B8A] uppercase tracking-wider">Reports Schedule</h3>
+            <h3 className="text-xs font-bold text-[#1A6B8A] uppercase tracking-wider">
+              Reports Schedule
+            </h3>
             <Button
               size="sm"
               variant="outline"
@@ -272,7 +338,7 @@ export function OGSubModule71() {
           </div>
 
           <div className="p-3 divide-y divide-slate-100 flex-1">
-            {reports.map(r => {
+            {reports.map((r) => {
               const isSelected = selectedReport.id === r.id;
               const isCompiling = compilingId === r.id;
 
@@ -281,7 +347,9 @@ export function OGSubModule71() {
                   key={r.id}
                   onClick={() => !isCompiling && handleSelectReport(r)}
                   className={`p-3.5 rounded-xl cursor-pointer transition-all border ${
-                    isSelected ? "bg-blue-50/60 border-blue-200" : "hover:bg-slate-50 border-transparent"
+                    isSelected
+                      ? "bg-blue-50/60 border-blue-200"
+                      : "hover:bg-slate-50 border-transparent"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
@@ -290,7 +358,16 @@ export function OGSubModule71() {
                   </div>
                   <p className="text-[10px] text-[#8892A0] font-mono mb-2">{r.period}</p>
                   <div className="flex items-center justify-between text-[9.5px] text-[#8892A0]">
-                    <span>Next Due: <strong className="text-[#0D1B2A]">{r.period.includes("Oct") ? "01 Dec" : r.type.includes("Board") ? "15 Nov" : "Tomorrow"}</strong></span>
+                    <span>
+                      Next Due:{" "}
+                      <strong className="text-[#0D1B2A]">
+                        {r.period.includes("Oct")
+                          ? "01 Dec"
+                          : r.type.includes("Board")
+                            ? "15 Nov"
+                            : "Tomorrow"}
+                      </strong>
+                    </span>
                     {r.status === "Scheduled" ? (
                       <button
                         onClick={(e) => {
@@ -317,7 +394,9 @@ export function OGSubModule71() {
           <div className="p-5 border-b border-[#D1D9E3] bg-slate-50/50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
             <div>
               <h3 className="text-sm font-bold text-[#0D1B2A]">{selectedReport.type}</h3>
-              <p className="text-xs text-[#8892A0] font-mono">Period: {selectedReport.period} | ID: {selectedReport.id}</p>
+              <p className="text-xs text-[#8892A0] font-mono">
+                Period: {selectedReport.period} | ID: {selectedReport.id}
+              </p>
             </div>
             <div className="flex items-center gap-2">
               {statusBadge(selectedReport.status)}
@@ -334,16 +413,34 @@ export function OGSubModule71() {
           </div>
 
           <div className="flex-1 overflow-y-auto p-5 space-y-6">
-
             {/* Metrics Breakdown Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
-                { label: "Production", val: selectedReport.metrics.production, sub: `Target: ${selectedReport.metrics.prodTarget}` },
-                { label: "Lifting Cost", val: selectedReport.metrics.opexPerBbl, sub: `Budget: ${selectedReport.metrics.opexPerBblBudget}` },
-                { label: "CAPEX Spent", val: selectedReport.metrics.capex, sub: `Plan: ${selectedReport.metrics.capexPlan}` },
-                { label: "Safety Status", val: selectedReport.metrics.hse, sub: "Verified HSE log" }
-              ].map(m => (
-                <div key={m.label} className="p-3 border border-[#D1D9E3] rounded-xl bg-slate-50/20 text-xs">
+                {
+                  label: "Production",
+                  val: selectedReport.metrics.production,
+                  sub: `Target: ${selectedReport.metrics.prodTarget}`,
+                },
+                {
+                  label: "Lifting Cost",
+                  val: selectedReport.metrics.opexPerBbl,
+                  sub: `Budget: ${selectedReport.metrics.opexPerBblBudget}`,
+                },
+                {
+                  label: "CAPEX Spent",
+                  val: selectedReport.metrics.capex,
+                  sub: `Plan: ${selectedReport.metrics.capexPlan}`,
+                },
+                {
+                  label: "Safety Status",
+                  val: selectedReport.metrics.hse,
+                  sub: "Verified HSE log",
+                },
+              ].map((m) => (
+                <div
+                  key={m.label}
+                  className="p-3 border border-[#D1D9E3] rounded-xl bg-slate-50/20 text-xs"
+                >
                   <p className="text-[10px] text-[#8892A0] font-semibold">{m.label}</p>
                   <p className="font-bold text-[#0D1B2A] font-mono pt-1 text-sm">{m.val}</p>
                   <p className="text-[9.5px] text-[#8892A0] pt-0.5">{m.sub}</p>
@@ -354,7 +451,9 @@ export function OGSubModule71() {
             {/* AI Narrative Commentary Block */}
             <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">AI-Generated Executive Summary</h4>
+                <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                  AI-Generated Executive Summary
+                </h4>
                 {selectedReport.status === "Draft Ready" && (
                   <button
                     onClick={() => setIsEditing(!isEditing)}
@@ -389,35 +488,42 @@ export function OGSubModule71() {
             {/* Recipients & Distribution log */}
             {selectedReport.recipients.length > 0 && (
               <div className="space-y-3">
-                <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">Distribution Log</h4>
+                <h4 className="text-[10px] font-bold text-[#1A6B8A] uppercase tracking-wider">
+                  Distribution Log
+                </h4>
                 <div className="border border-[#D1D9E3] rounded-xl divide-y divide-slate-100 bg-white">
-                  {selectedReport.recipients.map(rep => (
+                  {selectedReport.recipients.map((rep) => (
                     <div key={rep.name} className="p-3 flex items-center justify-between text-xs">
                       <div>
                         <span className="font-bold text-[#0D1B2A]">{rep.name}</span>
                         <span className="text-[10px] text-[#8892A0] ml-2">({rep.role})</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Badge className={
-                          rep.status === "Opened"
-                            ? "bg-[#E3F4F2] text-[#0F7B6C] border-[#0F7B6C]/20 border text-[9px] font-bold"
-                            : "bg-blue-50 text-[#1A6B8A] border-blue-200 border text-[9px] font-bold"
-                        }>
+                        <Badge
+                          className={
+                            rep.status === "Opened"
+                              ? "bg-[#E3F4F2] text-[#0F7B6C] border-[#0F7B6C]/20 border text-[9px] font-bold"
+                              : "bg-blue-50 text-[#1A6B8A] border-blue-200 border text-[9px] font-bold"
+                          }
+                        >
                           {rep.status}
                         </Badge>
-                        {rep.time && <span className="font-mono text-[9px] text-[#8892A0]">{rep.time}</span>}
+                        {rep.time && (
+                          <span className="font-mono text-[9px] text-[#8892A0]">{rep.time}</span>
+                        )}
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
             )}
-
           </div>
 
           {/* Footer controls */}
           <div className="p-4 border-t border-[#D1D9E3] bg-slate-50/50 flex flex-wrap items-center justify-between gap-3">
-            <span className="text-[10px] text-[#8892A0] font-mono">Compiled at: {selectedReport.compiledAt}</span>
+            <span className="text-[10px] text-[#8892A0] font-mono">
+              Compiled at: {selectedReport.compiledAt}
+            </span>
             {selectedReport.status === "Draft Ready" ? (
               <Button
                 onClick={handleApproveSend}
@@ -429,14 +535,14 @@ export function OGSubModule71() {
             ) : (
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-[#0F7B6C]" />
-                <span className="text-[11px] font-bold text-[#0F7B6C]">Distributed to {selectedReport.recipientsCount} managers</span>
+                <span className="text-[11px] font-bold text-[#0F7B6C]">
+                  Distributed to {selectedReport.recipientsCount} managers
+                </span>
               </div>
             )}
           </div>
         </div>
-
       </div>
-
     </div>
   );
 }

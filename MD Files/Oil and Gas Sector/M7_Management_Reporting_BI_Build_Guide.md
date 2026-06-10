@@ -1,4 +1,5 @@
 # M7 — Management Reporting & Business Intelligence
+
 ### [PROJECT_NAME] · AI Operations Platform · [WEBSITE]
 
 > **Module Tagline:** Ask any operational or financial question in plain English and get a structured, cited answer in seconds — while board-ready reports compile and distribute themselves on schedule, without a single analyst in the loop.
@@ -16,43 +17,45 @@
 ## Module Overview
 
 ### Purpose
+
 Break the dependency between leadership decision-making and the human analysts who currently sit between executives and their data. [PROJECT_NAME]'s Reporting & BI module gives management teams **direct, conversational access to operational and financial performance data** — in plain English, with cited source records — while automating the full lifecycle of routine reports so they compile, format, and distribute on schedule without any manual aggregation.
 
 ### Core Problem Being Solved
 
-| Pain Point | Without M7 | With M7 |
-|---|---|---|
-| Answering a data question | Email to analyst → 30 minutes to 2 hours for response | Natural language query → structured answer in under 15 seconds |
-| Monthly management report compilation | 1–3 days of senior analyst time per report | Auto-compiled in under 5 minutes; distributed on schedule |
-| Board report preparation | 3–5 days of multi-department coordination | Draft auto-generated; reviewed and approved in under 2 hours |
-| ESG / BRSR disclosure | Manual data collection across departments — weeks of effort | Auto-populated from operational records in hours |
-| Performance variance explanation | Analyst manually traces data to explain a number | AI identifies root causes with cited source records |
-| Data access for field managers | Requires office return or analyst request | Mobile-accessible conversational BI from any device |
-| Reporting consistency | Varies by analyst, period, and availability | Standardised format, on-time delivery, every cycle |
+| Pain Point                            | Without M7                                                  | With M7                                                        |
+| ------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------- |
+| Answering a data question             | Email to analyst → 30 minutes to 2 hours for response       | Natural language query → structured answer in under 15 seconds |
+| Monthly management report compilation | 1–3 days of senior analyst time per report                  | Auto-compiled in under 5 minutes; distributed on schedule      |
+| Board report preparation              | 3–5 days of multi-department coordination                   | Draft auto-generated; reviewed and approved in under 2 hours   |
+| ESG / BRSR disclosure                 | Manual data collection across departments — weeks of effort | Auto-populated from operational records in hours               |
+| Performance variance explanation      | Analyst manually traces data to explain a number            | AI identifies root causes with cited source records            |
+| Data access for field managers        | Requires office return or analyst request                   | Mobile-accessible conversational BI from any device            |
+| Reporting consistency                 | Varies by analyst, period, and availability                 | Standardised format, on-time delivery, every cycle             |
 
 ### Demo Wow Moment
+
 **Conversational BI live on screen in front of management** — type "Compare our H1 2025 OPEX per barrel against H1 2024 and tell me which cost categories drove the difference." Within 15 seconds the system returns a structured comparison table, identifies the top three cost drivers with percentage breakdowns, and cites the specific cost ledger records behind each figure. No analyst, no Excel, no PowerPoint — the question and the answer happen live, in the room.
 
 ---
 
 ## Module-Level Parameters
 
-| Parameter | Value |
-|---|---|
-| Module ID | M7 |
-| Module Name | Management Reporting & Business Intelligence |
-| Sub-module Count | 3 |
-| Primary Output | Automated board/management reports + conversational BI answers with citations + ESG/BRSR disclosures |
-| Primary Users | VP Operations, CFO, Board Members, Department Heads, Operations Managers, ESG / Sustainability Lead |
-| Report Frequency | Daily operational (automated), Monthly management (automated), Quarterly board (automated draft), Annual ESG/BRSR (automated draft) |
-| Data Sources | Production logs, OPEX/CAPEX ledgers, HSE records, maintenance records, M1–M6 module data, ERP (SAP) |
-| Report Formats | PDF (board/management), Excel (data exports), in-app dashboard, email distribution |
-| ESG Standards Supported | SEBI BRSR (mandatory), GRI Standards (voluntary), TCFD (optional), CDP (optional) |
-| Conversational BI Scope | Production performance, OPEX/CAPEX, HSE metrics, compliance status, workforce, procurement |
-| Languages | English (primary) |
-| Compliance References | SEBI BRSR (listed entities), MoEFCC environmental reporting, PNGRB production reporting, Companies Act 2013 |
-| Currency Format | Rs. Indian Rupee — Lakhs (L) and Crores (Cr) |
-| Demo Financial Period | FY 2024–25 (Apr 2024 – Mar 2025) |
+| Parameter               | Value                                                                                                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Module ID               | M7                                                                                                                                  |
+| Module Name             | Management Reporting & Business Intelligence                                                                                        |
+| Sub-module Count        | 3                                                                                                                                   |
+| Primary Output          | Automated board/management reports + conversational BI answers with citations + ESG/BRSR disclosures                                |
+| Primary Users           | VP Operations, CFO, Board Members, Department Heads, Operations Managers, ESG / Sustainability Lead                                 |
+| Report Frequency        | Daily operational (automated), Monthly management (automated), Quarterly board (automated draft), Annual ESG/BRSR (automated draft) |
+| Data Sources            | Production logs, OPEX/CAPEX ledgers, HSE records, maintenance records, M1–M6 module data, ERP (SAP)                                 |
+| Report Formats          | PDF (board/management), Excel (data exports), in-app dashboard, email distribution                                                  |
+| ESG Standards Supported | SEBI BRSR (mandatory), GRI Standards (voluntary), TCFD (optional), CDP (optional)                                                   |
+| Conversational BI Scope | Production performance, OPEX/CAPEX, HSE metrics, compliance status, workforce, procurement                                          |
+| Languages               | English (primary)                                                                                                                   |
+| Compliance References   | SEBI BRSR (listed entities), MoEFCC environmental reporting, PNGRB production reporting, Companies Act 2013                         |
+| Currency Format         | Rs. Indian Rupee — Lakhs (L) and Crores (Cr)                                                                                        |
+| Demo Financial Period   | FY 2024–25 (Apr 2024 – Mar 2025)                                                                                                    |
 
 ---
 
@@ -79,9 +82,11 @@ M7 — Management Reporting & Business Intelligence
 ## Page 1 — Module Dashboard (M7 Overview)
 
 ### Purpose
+
 The landing screen for Module 7. Provides an executive-grade summary of the company's current operational and financial position — headline metrics, production vs target chart, key exceptions, and a direct entry point into the conversational BI interface — giving any manager an instant, complete picture without opening a separate report.
 
 ### Layout
+
 - **Top Stats Bar** (4 KPI cards across)
 - **Centre Left (60%):** Bar chart — monthly gross oil production vs target (12 months rolling)
 - **Centre Right (40%):** Donut chart — OPEX breakdown by cost category
@@ -90,101 +95,108 @@ The landing screen for Module 7. Provides an executive-grade summary of the comp
 
 ### KPI Cards (Top Stats Bar)
 
-| Card | Metric | Mock Value | Color |
-|---|---|---|---|
-| Gross Production (MTD) | Barrels produced month-to-date vs target | 1,28,340 bbl / 1,34,750 target | Accent Blue #1A6B8A |
-| OPEX per Barrel | All-in lifting cost per barrel (current month actuals) | Rs. 4,127 / bbl | Gold #C8922A |
-| HSE Status | LTI count YTD + near miss count MTD | 0 LTI · 4 Near Misses | Success Teal #0F7B6C |
-| Regulatory Compliance | % of filings submitted on time YTD | 100% on-time | Success Teal #0F7B6C |
+| Card                   | Metric                                                 | Mock Value                     | Color                |
+| ---------------------- | ------------------------------------------------------ | ------------------------------ | -------------------- |
+| Gross Production (MTD) | Barrels produced month-to-date vs target               | 1,28,340 bbl / 1,34,750 target | Accent Blue #1A6B8A  |
+| OPEX per Barrel        | All-in lifting cost per barrel (current month actuals) | Rs. 4,127 / bbl                | Gold #C8922A         |
+| HSE Status             | LTI count YTD + near miss count MTD                    | 0 LTI · 4 Near Misses          | Success Teal #0F7B6C |
+| Regulatory Compliance  | % of filings submitted on time YTD                     | 100% on-time                   | Success Teal #0F7B6C |
 
 ### Production vs Target Bar Chart
+
 Recharts BarChart — 12 months rolling (Nov 2024 – Oct 2025), two bars per month:
 
-| Month | Gross Oil (bbl) | Target (bbl) |
-|---|---|---|
-| Nov 2024 | 1,31,200 | 1,34,000 |
-| Dec 2024 | 1,29,800 | 1,34,000 |
-| Jan 2025 | 1,33,500 | 1,35,500 |
-| Feb 2025 | 1,27,400 | 1,35,500 |
-| Mar 2025 | 1,36,100 | 1,35,500 |
-| Apr 2025 | 1,30,200 | 1,34,750 |
-| May 2025 | 1,32,800 | 1,34,750 |
-| Jun 2025 | 1,29,600 | 1,34,750 |
-| Jul 2025 | 1,34,200 | 1,34,750 |
-| Aug 2025 | 1,31,900 | 1,34,750 |
-| Sep 2025 | 1,33,100 | 1,34,750 |
-| Oct 2025 | 1,28,340 | 1,34,750 |
+| Month    | Gross Oil (bbl) | Target (bbl) |
+| -------- | --------------- | ------------ |
+| Nov 2024 | 1,31,200        | 1,34,000     |
+| Dec 2024 | 1,29,800        | 1,34,000     |
+| Jan 2025 | 1,33,500        | 1,35,500     |
+| Feb 2025 | 1,27,400        | 1,35,500     |
+| Mar 2025 | 1,36,100        | 1,35,500     |
+| Apr 2025 | 1,30,200        | 1,34,750     |
+| May 2025 | 1,32,800        | 1,34,750     |
+| Jun 2025 | 1,29,600        | 1,34,750     |
+| Jul 2025 | 1,34,200        | 1,34,750     |
+| Aug 2025 | 1,31,900        | 1,34,750     |
+| Sep 2025 | 1,33,100        | 1,34,750     |
+| Oct 2025 | 1,28,340        | 1,34,750     |
 
 Bar colors: Navy (#0D1B2A) for actuals, Gold (#C8922A) for target line/bar.
 
 ### OPEX Breakdown Donut Chart
+
 Recharts donut — current month OPEX by category:
 
-| Category | % Share | Rs. Value | Color |
-|---|---|---|---|
-| Chemical Treatments | 28% | Rs. 1.47 Cr | #1A6B8A |
-| Labour & Contractor | 24% | Rs. 1.26 Cr | #0F7B6C |
-| Equipment Rental | 19% | Rs. 1.00 Cr | #C8922A |
-| Maintenance & Repairs | 16% | Rs. 0.84 Cr | #2596BE |
-| Other / Miscellaneous | 13% | Rs. 0.68 Cr | #8892A0 |
+| Category              | % Share | Rs. Value   | Color   |
+| --------------------- | ------- | ----------- | ------- |
+| Chemical Treatments   | 28%     | Rs. 1.47 Cr | #1A6B8A |
+| Labour & Contractor   | 24%     | Rs. 1.26 Cr | #0F7B6C |
+| Equipment Rental      | 19%     | Rs. 1.00 Cr | #C8922A |
+| Maintenance & Repairs | 16%     | Rs. 0.84 Cr | #2596BE |
+| Other / Miscellaneous | 13%     | Rs. 0.68 Cr | #8892A0 |
 
 ### Conversational BI Input Box (Bottom Left)
+
 - Label: **"Ask a question about your operations"**
-- Placeholder: *"e.g. Which wells had the highest NPT rate last quarter?"*
+- Placeholder: _"e.g. Which wells had the highest NPT rate last quarter?"_
 - Submit button (gold)
 - Below: 3 recent query chips — clickable to re-run
 
 ### Report Schedule Strip (Bottom Right)
+
 Three upcoming report rows:
 
-| Report | Frequency | Next Due | Status | Recipients |
-|---|---|---|---|---|
-| Monthly Operations Report | Monthly | 01 Nov 2025 | Auto-compiling | 24 |
-| Board Quarterly Report (Q2) | Quarterly | 15 Nov 2025 | Draft ready | 8 |
-| BRSR Annual Disclosure | Annual | 31 Mar 2026 | Data collection | 3 |
+| Report                      | Frequency | Next Due    | Status          | Recipients |
+| --------------------------- | --------- | ----------- | --------------- | ---------- |
+| Monthly Operations Report   | Monthly   | 01 Nov 2025 | Auto-compiling  | 24         |
+| Board Quarterly Report (Q2) | Quarterly | 15 Nov 2025 | Draft ready     | 8          |
+| BRSR Annual Disclosure      | Annual    | 31 Mar 2026 | Data collection | 3          |
 
 ---
 
 ## Page 2 — Sub-Module 7.1: Automated Executive & Board Reporting
 
 ### What It Is
+
 A scheduled report generation engine that pulls production, financial, safety, and compliance data from all source systems on a defined schedule, compiles it into [COMPANY_NAME]'s standard report formats, generates AI-drafted narrative commentary for human review, and distributes the finalised report to defined recipient lists — with no manual aggregation at any step.
 
 ### Report Types Supported
 
-| Report | Audience | Frequency | Key Sections | Auto-compiled From |
-|---|---|---|---|---|
-| Daily Operations Report | Site manager, operations team | Daily (06:00 IST) | Production, HSE, open actions, maintenance, permits | Production logs, HSE records, M3 PTW data, M5 workflow data |
-| Weekly Production Summary | VP Operations, department heads | Weekly (Monday 07:00) | Weekly production vs target, variance drivers, top open actions | Production logs, ERP, M5 action tracker |
-| Monthly Management Report | Senior leadership, department heads | Monthly (1st of month, 06:00) | Production, OPEX, HSE, compliance, workforce, capex summary | All modules + ERP + financial ledger |
-| Quarterly Board Report | Board of Directors, investors | Quarterly (15th of month following quarter-end) | Executive summary, production performance, financial summary, HSE, strategy | Monthly reports + board template |
-| Annual ESG/BRSR Disclosure | Board, SEBI (listed entities), investors | Annual (March) | BRSR Principles 1–9, emissions, water, waste, social metrics | M7.3 ESG data register + operational records |
+| Report                     | Audience                                 | Frequency                                       | Key Sections                                                                | Auto-compiled From                                          |
+| -------------------------- | ---------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| Daily Operations Report    | Site manager, operations team            | Daily (06:00 IST)                               | Production, HSE, open actions, maintenance, permits                         | Production logs, HSE records, M3 PTW data, M5 workflow data |
+| Weekly Production Summary  | VP Operations, department heads          | Weekly (Monday 07:00)                           | Weekly production vs target, variance drivers, top open actions             | Production logs, ERP, M5 action tracker                     |
+| Monthly Management Report  | Senior leadership, department heads      | Monthly (1st of month, 06:00)                   | Production, OPEX, HSE, compliance, workforce, capex summary                 | All modules + ERP + financial ledger                        |
+| Quarterly Board Report     | Board of Directors, investors            | Quarterly (15th of month following quarter-end) | Executive summary, production performance, financial summary, HSE, strategy | Monthly reports + board template                            |
+| Annual ESG/BRSR Disclosure | Board, SEBI (listed entities), investors | Annual (March)                                  | BRSR Principles 1–9, emissions, water, waste, social metrics                | M7.3 ESG data register + operational records                |
 
 ### Report Compilation Workflow
 
-| Step | Action | System | Duration |
-|---|---|---|---|
-| 1 | Scheduled trigger fires at defined time | [PROJECT_NAME] scheduler | Instant |
-| 2 | Data pull from all connected source systems (ERP, production logs, module data) | Automated API + DB query | 30–90 seconds |
-| 3 | Data validation — checks for missing or anomalous values; flags exceptions | Automated | 15–30 seconds |
-| 4 | Metrics calculation — variances, trends, period comparisons | Automated | 15–30 seconds |
-| 5 | Report template populated with calculated values and charts | Automated | 30–60 seconds |
-| 6 | AI drafts narrative commentary — executive summary, variance explanations, risk callouts | Claude API | 45–90 seconds |
-| 7 | Draft delivered to nominated reviewer for approval | In-app notification + email | Instant |
-| 8 | Reviewer edits (if needed), approves, and triggers distribution | Reviewer action | Varies |
-| 9 | Finalised report distributed to recipient list + archived | Automated | Instant |
+| Step | Action                                                                                   | System                      | Duration      |
+| ---- | ---------------------------------------------------------------------------------------- | --------------------------- | ------------- |
+| 1    | Scheduled trigger fires at defined time                                                  | [PROJECT_NAME] scheduler    | Instant       |
+| 2    | Data pull from all connected source systems (ERP, production logs, module data)          | Automated API + DB query    | 30–90 seconds |
+| 3    | Data validation — checks for missing or anomalous values; flags exceptions               | Automated                   | 15–30 seconds |
+| 4    | Metrics calculation — variances, trends, period comparisons                              | Automated                   | 15–30 seconds |
+| 5    | Report template populated with calculated values and charts                              | Automated                   | 30–60 seconds |
+| 6    | AI drafts narrative commentary — executive summary, variance explanations, risk callouts | Claude API                  | 45–90 seconds |
+| 7    | Draft delivered to nominated reviewer for approval                                       | In-app notification + email | Instant       |
+| 8    | Reviewer edits (if needed), approves, and triggers distribution                          | Reviewer action             | Varies        |
+| 9    | Finalised report distributed to recipient list + archived                                | Automated                   | Instant       |
 
 ### Page Layout
+
 **Top Control Bar:** \"New Report\" button (manual trigger) + report type selector + period selector + distribution list manager
 **Main Area (Left 35%):** Report schedule list — all active report types with next due date, status badge, last generated timestamp, and recipient count
 **Status Badges:**
+
 - `SCHEDULED` — Blue — report will auto-compile at next scheduled time
 - `COMPILING` — Gold pulsing — report is currently being generated
 - `DRAFT READY` — Teal — compiled and awaiting reviewer approval
 - `DISTRIBUTED` — Grey — finalised and sent to recipients
 - `OVERDUE` — Coral pulsing — report not compiled within the scheduled window
-**Main Area (Right 65%):** Report detail view — opens on list row click; shows report preview panel, commentary review interface, distribution log, and archive links
-**Bottom:** \"Download PDF\" button + \"Send Now\" button + \"Edit Distribution List\" button + \"View Archive\" button
+  **Main Area (Right 65%):** Report detail view — opens on list row click; shows report preview panel, commentary review interface, distribution log, and archive links
+  **Bottom:** \"Download PDF\" button + \"Send Now\" button + \"Edit Distribution List\" button + \"View Archive\" button
 
 ### Mock Demo Data — Monthly Management Report (October 2025)
 
@@ -236,31 +248,32 @@ DISTRIBUTION LOG (after approval):
 
 ### AI Commentary Generation Rules
 
-| Commentary Section | Inputs | What AI Generates |
-|---|---|---|
-| Executive Summary | All headline metrics vs prior period and budget | 3–4 paragraph narrative — performance, key variances, risks, outlook |
-| Variance Explanation | Specific metric deltas + source data records | Root cause identification for each material variance — concise, cited |
-| HSE Commentary | Incident count, near misses, LTI rate, comparison | Safety performance narrative — trend, events, corrective action status |
-| Compliance Commentary | Filing status, gaps, regulatory changes | Compliance position summary — status vs obligations, upcoming deadlines |
-| Outlook & Risks | Budget vs plan, upcoming events, open actions | Forward-looking paragraph — production forecast, key risks, mitigating actions |
+| Commentary Section    | Inputs                                            | What AI Generates                                                              |
+| --------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Executive Summary     | All headline metrics vs prior period and budget   | 3–4 paragraph narrative — performance, key variances, risks, outlook           |
+| Variance Explanation  | Specific metric deltas + source data records      | Root cause identification for each material variance — concise, cited          |
+| HSE Commentary        | Incident count, near misses, LTI rate, comparison | Safety performance narrative — trend, events, corrective action status         |
+| Compliance Commentary | Filing status, gaps, regulatory changes           | Compliance position summary — status vs obligations, upcoming deadlines        |
+| Outlook & Risks       | Budget vs plan, upcoming events, open actions     | Forward-looking paragraph — production forecast, key risks, mitigating actions |
 
 ### Report Archive Structure
 
-| Archive Field | Description | Mock Example |
-|---|---|---|
-| `report_id` | Unique report reference | RPT-2025-M10-MONTHLY |
-| `report_type` | Report category | Monthly Management Report |
-| `period` | Reporting period covered | October 2025 |
-| `compiled_at` | Timestamp of auto-compilation | 01 Nov 2025 05:58 IST |
-| `approved_by` | Name of the reviewing approver | Anand Sharma |
-| `approved_at` | Timestamp of approval | 01 Nov 2025 09:34 IST |
-| `distributed_at` | Timestamp of distribution | 01 Nov 2025 09:34 IST |
-| `recipient_count` | Number of recipients | 24 |
-| `open_rate` | % of recipients who opened the report | 87.5% |
-| `pdf_url` | Download link to the archived PDF | [link] |
-| `data_sources` | Source systems used for compilation | ERP (SAP), Production Logs, M1–M6 module data |
+| Archive Field     | Description                           | Mock Example                                  |
+| ----------------- | ------------------------------------- | --------------------------------------------- |
+| `report_id`       | Unique report reference               | RPT-2025-M10-MONTHLY                          |
+| `report_type`     | Report category                       | Monthly Management Report                     |
+| `period`          | Reporting period covered              | October 2025                                  |
+| `compiled_at`     | Timestamp of auto-compilation         | 01 Nov 2025 05:58 IST                         |
+| `approved_by`     | Name of the reviewing approver        | Anand Sharma                                  |
+| `approved_at`     | Timestamp of approval                 | 01 Nov 2025 09:34 IST                         |
+| `distributed_at`  | Timestamp of distribution             | 01 Nov 2025 09:34 IST                         |
+| `recipient_count` | Number of recipients                  | 24                                            |
+| `open_rate`       | % of recipients who opened the report | 87.5%                                         |
+| `pdf_url`         | Download link to the archived PDF     | [link]                                        |
+| `data_sources`    | Source systems used for compilation   | ERP (SAP), Production Logs, M1–M6 module data |
 
 ### Key UI Elements
+
 - **Live compilation progress bar** — when a report is compiling, a step-by-step progress display shows: Data pull → Validation → Metrics → Template → Commentary → Ready
 - **Inline commentary editor** — reviewer can edit AI-drafted narrative directly in the browser without downloading the document
 - **Track changes mode** — edits made by the reviewer are highlighted for the approver to confirm before distribution
@@ -269,6 +282,7 @@ DISTRIBUTION LOG (after approval):
 - **Version archive** — every finalised report stored permanently; previous periods accessible by date, type, or keyword
 
 ### Why It Matters
+
 A management report that arrives late loses most of its decision-support value. When the October report is distributed on the 9th instead of the 1st because of data chasing, formatting delays, and reviewer availability, the leadership team makes material decisions on information that is 9 days older than it needs to be. In a business where a single shut-in well costs crores per week, that lag has a real cost. Automated compilation delivers consistent, on-time reporting regardless of staff leave, system availability, or operational pressure.
 
 ---
@@ -276,40 +290,43 @@ A management report that arrives late loses most of its decision-support value. 
 ## Page 3 — Sub-Module 7.2: Conversational Data Analysis
 
 ### What It Is
+
 A natural language interface to the company's full operational and financial data that allows any manager or executive to ask complex analytical questions in plain English and receive structured, cited answers — without SQL knowledge, Excel access, or analyst support. Accessible from desktop and mobile.
 
 ### Query Types Supported
 
-| Query Type | Example Question | Answer Format |
-|---|---|---|
-| Single metric retrieval | "What was our gross production in September 2025?" | Single value with source citation |
-| Period comparison | "Compare our Q2 2025 OPEX vs Q2 2024 by cost category" | Comparison table with delta values and % change |
-| Trend analysis | "Show me the OPEX per barrel trend over the last 12 months" | Trend table or sparkline with narrative |
-| Root cause | "Which wells drove the production shortfall in October?" | Ranked list with impact values and source citations |
-| Ranking | "Which 3 wells had the longest average repair turnaround time this year?" | Ranked list with values and supporting records |
-| Cross-module | "What is the correlation between our near-miss count and maintenance backlog?" | Analytical response with data from M7 and M3 |
-| Forecast | "At current run rate, where will we end Q3 on OPEX vs budget?" | Projection with assumptions stated |
-| Free-form | "Why is our chemical cost up this month?" | Root cause narrative with cited cost records |
+| Query Type              | Example Question                                                               | Answer Format                                       |
+| ----------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------- |
+| Single metric retrieval | "What was our gross production in September 2025?"                             | Single value with source citation                   |
+| Period comparison       | "Compare our Q2 2025 OPEX vs Q2 2024 by cost category"                         | Comparison table with delta values and % change     |
+| Trend analysis          | "Show me the OPEX per barrel trend over the last 12 months"                    | Trend table or sparkline with narrative             |
+| Root cause              | "Which wells drove the production shortfall in October?"                       | Ranked list with impact values and source citations |
+| Ranking                 | "Which 3 wells had the longest average repair turnaround time this year?"      | Ranked list with values and supporting records      |
+| Cross-module            | "What is the correlation between our near-miss count and maintenance backlog?" | Analytical response with data from M7 and M3        |
+| Forecast                | "At current run rate, where will we end Q3 on OPEX vs budget?"                 | Projection with assumptions stated                  |
+| Free-form               | "Why is our chemical cost up this month?"                                      | Root cause narrative with cited cost records        |
 
 ### Answer Components
 
-| Component | Description | Always Present |
-|---|---|---|
-| Direct answer | The specific figure, comparison, or finding the question asked for | ✓ |
-| Confidence score | System confidence in the answer based on data completeness | ✓ |
-| Source citations | Document/record references for every data point used in the answer | ✓ |
-| Supporting table | Structured data table where the answer involves comparison or ranking | When relevant |
-| Caveat flag | Any data gaps, assumptions, or period mismatches that affect the answer | When relevant |
-| Follow-up suggestions | 2–3 related questions the user may want to ask next | Optional |
+| Component             | Description                                                             | Always Present |
+| --------------------- | ----------------------------------------------------------------------- | -------------- |
+| Direct answer         | The specific figure, comparison, or finding the question asked for      | ✓              |
+| Confidence score      | System confidence in the answer based on data completeness              | ✓              |
+| Source citations      | Document/record references for every data point used in the answer      | ✓              |
+| Supporting table      | Structured data table where the answer involves comparison or ranking   | When relevant  |
+| Caveat flag           | Any data gaps, assumptions, or period mismatches that affect the answer | When relevant  |
+| Follow-up suggestions | 2–3 related questions the user may want to ask next                     | Optional       |
 
 ### Page Layout
+
 **Full-Width Layout:** Chat-style conversational interface with message history
+
 - User queries: right-aligned, navy background, white text
 - AI responses: left-aligned, white card, navy text, with Sources section at the bottom of each card
 - Source citations: small chips showing document/record name + date — each clickable to open the underlying record
-**Input Bar (Fixed Bottom):** Text field + Send button (gold) + Voice input toggle (optional)
-**Left Panel (25%, collapsible):** Query history — past 20 queries with timestamps; click to re-run or copy
-**Top Bar:** Data freshness indicator (\"Data current as of: 04 Nov 2025 06:00 IST\") + \"Export conversation\" button + \"Pin answer to dashboard\" button
+  **Input Bar (Fixed Bottom):** Text field + Send button (gold) + Voice input toggle (optional)
+  **Left Panel (25%, collapsible):** Query history — past 20 queries with timestamps; click to re-run or copy
+  **Top Bar:** Data freshness indicator (\"Data current as of: 04 Nov 2025 06:00 IST\") + \"Export conversation\" button + \"Pin answer to dashboard\" button
 
 ### Mock Demo Conversation
 
@@ -394,24 +411,27 @@ CONFIDENCE: 99%
 
 ### Data Coverage Scope
 
-| Domain | Data Available for Query | Data Source |
-|---|---|---|
-| Production | Gross oil, gas, condensate, water cut, well-level production, NPT | Production logs, DDRs |
-| Financial | OPEX by category, CAPEX vs plan, OPEX/bbl, budget variances | ERP (SAP) financial ledger |
-| HSE | LTI count, near misses, incident types, permit counts, compliance gaps | M3 HSE data, M1 compliance data |
-| Workforce | Qualification compliance rate, blocked workers, onboarding status | M6 workforce data |
-| Maintenance | Equipment downtime, repair costs, PM completion rate, recurring failures | Maintenance records, ERP |
-| Procurement | PO cycle times, vendor performance, spend by category, outstanding POs | M5 procurement data, ERP |
-| Regulatory | Filing status, approval rates, compliance scores, gap counts | M1 regulatory data |
+| Domain      | Data Available for Query                                                 | Data Source                     |
+| ----------- | ------------------------------------------------------------------------ | ------------------------------- |
+| Production  | Gross oil, gas, condensate, water cut, well-level production, NPT        | Production logs, DDRs           |
+| Financial   | OPEX by category, CAPEX vs plan, OPEX/bbl, budget variances              | ERP (SAP) financial ledger      |
+| HSE         | LTI count, near misses, incident types, permit counts, compliance gaps   | M3 HSE data, M1 compliance data |
+| Workforce   | Qualification compliance rate, blocked workers, onboarding status        | M6 workforce data               |
+| Maintenance | Equipment downtime, repair costs, PM completion rate, recurring failures | Maintenance records, ERP        |
+| Procurement | PO cycle times, vendor performance, spend by category, outstanding POs   | M5 procurement data, ERP        |
+| Regulatory  | Filing status, approval rates, compliance scores, gap counts             | M1 regulatory data              |
 
 ### Mobile Access
+
 The conversational BI interface is designed for mobile-first use by field managers. On mobile:
+
 - Single-column layout — query input at top, response below
 - Previous answers collapsible with a tap
 - Source citation chips expand to full record detail on tap
 - Voice input available for hands-free querying in the field
 
 ### Key UI Elements
+
 - **Streaming response** — AI answer streams word-by-word rather than appearing all at once, reinforcing the live intelligence feel
 - **Pin to dashboard** — any answer can be pinned as a widget on the M7 dashboard for recurring visibility
 - **Source drill-through** — every source citation chip is a live link to the underlying record in the relevant module
@@ -420,6 +440,7 @@ The conversational BI interface is designed for mobile-first use by field manage
 - **Query suggestions** — after each answer, 2–3 follow-up question suggestions are shown as clickable chips
 
 ### Why It Matters
+
 The gap between operational data and operational decision-making in [MARKET / REGION] energy companies is rarely a data availability problem — it is an access and interpretation problem. When only the person who built the Excel model can answer a question about the data it contains, that data is effectively unavailable to everyone else. A VP Operations in the field at 07:00 asking "why is our OPEX up this month" should not need to wait two hours for an analyst in the office to produce an answer. Conversational BI makes every dataset accessible to every decision-maker, in the language they actually use, from any device.
 
 ---
@@ -427,44 +448,47 @@ The gap between operational data and operational decision-making in [MARKET / RE
 ## Page 4 — Sub-Module 7.3: ESG & Environmental Compliance Reporting
 
 ### What It Is
+
 A software-based ESG data consolidation and reporting module that aggregates environmental and sustainability data from operational records across the organisation, calculates emissions estimates using activity-based methodologies, auto-populates mandatory regulatory filings, and generates verified, audit-ready ESG disclosures in BRSR and GRI formats — without manual data collection or additional hardware.
 
 ### ESG Data Categories Tracked
 
-| Category | Metrics Tracked | Source Systems |
-|---|---|---|
-| Scope 1 Emissions | Diesel combustion, gas flaring, fugitive methane (activity-based), process venting | Fuel consumption logs, flaring records, equipment inventories |
-| Scope 2 Emissions | Grid electricity consumption (offices, facilities, pumping stations) | Electricity meter records, utility bills |
-| Water | Fresh water consumed, recycled/reused water, wastewater discharge volume, water intensity | Water meter records, lab reports |
-| Waste | Hazardous waste generated and disposed, drilling cuttings, produced water volumes | Waste manifests, disposal records |
-| Biodiversity | Land disturbed, land restored, protected area proximity | Site environmental assessments |
-| Social — Workforce | Total employees, gender ratio, contract workers, safety training hours, LTI rate | HR records, M6 workforce data, M3 HSE data |
-| Social — Community | Local hire %, CSR spend, community grievances | HR records, CSR reports |
-| Governance | Board composition, anti-corruption training %, ethics hotline disclosures | Governance records |
+| Category           | Metrics Tracked                                                                           | Source Systems                                                |
+| ------------------ | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Scope 1 Emissions  | Diesel combustion, gas flaring, fugitive methane (activity-based), process venting        | Fuel consumption logs, flaring records, equipment inventories |
+| Scope 2 Emissions  | Grid electricity consumption (offices, facilities, pumping stations)                      | Electricity meter records, utility bills                      |
+| Water              | Fresh water consumed, recycled/reused water, wastewater discharge volume, water intensity | Water meter records, lab reports                              |
+| Waste              | Hazardous waste generated and disposed, drilling cuttings, produced water volumes         | Waste manifests, disposal records                             |
+| Biodiversity       | Land disturbed, land restored, protected area proximity                                   | Site environmental assessments                                |
+| Social — Workforce | Total employees, gender ratio, contract workers, safety training hours, LTI rate          | HR records, M6 workforce data, M3 HSE data                    |
+| Social — Community | Local hire %, CSR spend, community grievances                                             | HR records, CSR reports                                       |
+| Governance         | Board composition, anti-corruption training %, ethics hotline disclosures                 | Governance records                                            |
 
 ### Emission Calculation Methodology
 
-| Emission Source | Calculation Method | Emission Factor Source |
-|---|---|---|
-| Diesel combustion | Litres consumed × diesel emission factor | MoEFCC / IPCC Tier 1 |
-| Gas flaring | MMSCFD flared × gas composition × flaring EF | IPCC Tier 2 |
-| Fugitive methane | Equipment count × activity-based emission factor | EPA AP-42 / GHG Protocol Oil & Gas |
-| Grid electricity | kWh consumed × grid emission factor (CEA published) | Central Electricity Authority (CEA) India grid EF |
-| Diesel generators | Litres consumed × generator EF | MoEFCC / IPCC |
+| Emission Source   | Calculation Method                                  | Emission Factor Source                            |
+| ----------------- | --------------------------------------------------- | ------------------------------------------------- |
+| Diesel combustion | Litres consumed × diesel emission factor            | MoEFCC / IPCC Tier 1                              |
+| Gas flaring       | MMSCFD flared × gas composition × flaring EF        | IPCC Tier 2                                       |
+| Fugitive methane  | Equipment count × activity-based emission factor    | EPA AP-42 / GHG Protocol Oil & Gas                |
+| Grid electricity  | kWh consumed × grid emission factor (CEA published) | Central Electricity Authority (CEA) India grid EF |
+| Diesel generators | Litres consumed × generator EF                      | MoEFCC / IPCC                                     |
 
 ### Page Layout
+
 **Top Stats Bar:** Scope 1 Total (tCO2e) | Scope 2 Total (tCO2e) | Data Completeness % | BRSR Status Badge
 **Tab Navigation:** [ESG Data Register] [Emissions Calculator] [BRSR Disclosure Builder] [Filing Tracker]
 **Default Tab — ESG Data Register:**
+
 - Data category tree (left 30%): Scope 1 / Scope 2 / Water / Waste / Social / Governance
 - Data entry panel (right 70%): metric fields with auto-populated values from source systems, manual override option, data source label per field, and confidence indicator
-**Emissions Calculator Tab:**
+  **Emissions Calculator Tab:**
 - Input summary (top): data fed from ESG register — auto-populated, not re-entered
 - Calculation output (bottom): emission totals by source with factor applied, formula shown, tCO2e result
-**BRSR Disclosure Builder Tab:**
+  **BRSR Disclosure Builder Tab:**
 - BRSR Principle selector (left): Principles 1–9 with completion status
 - Disclosure editor (right): auto-populated draft text per principle; editable by reviewer
-**Filing Tracker Tab:**
+  **Filing Tracker Tab:**
 - All ESG-related regulatory filings with due dates, status, and filed/pending indicators
 
 ### Mock Demo Data — ESG Data Register (FY 2024–25)
@@ -562,16 +586,17 @@ P6 Essential Indicator 3: GHG emissions
 
 ### Filing Tracker — ESG & Environmental Filings
 
-| Filing | Authority | Frequency | FY 25-26 Due Date | Status |
-|---|---|---|---|---|
-| Annual Environmental Statement (Form-V) | MoEFCC via CPCB portal | Annual | 30 Sep 2026 | Data collection |
-| Hazardous Waste Annual Return | CPCB | Annual | 30 Jun 2026 | Scheduled |
-| Consent to Operate Renewal | State PCB | As required | 15 Mar 2026 | In preparation |
-| BRSR Disclosure (with Annual Report) | SEBI / Stock Exchange | Annual | 31 Mar 2026 | 76% complete |
-| GHG Inventory (voluntary) | Internal / CDP | Annual | 31 Dec 2025 | 89% complete |
-| ESG Rating Agency Data Pack | CRISIL / MSCI (if applicable) | Annual | 28 Feb 2026 | Scheduled |
+| Filing                                  | Authority                     | Frequency   | FY 25-26 Due Date | Status          |
+| --------------------------------------- | ----------------------------- | ----------- | ----------------- | --------------- |
+| Annual Environmental Statement (Form-V) | MoEFCC via CPCB portal        | Annual      | 30 Sep 2026       | Data collection |
+| Hazardous Waste Annual Return           | CPCB                          | Annual      | 30 Jun 2026       | Scheduled       |
+| Consent to Operate Renewal              | State PCB                     | As required | 15 Mar 2026       | In preparation  |
+| BRSR Disclosure (with Annual Report)    | SEBI / Stock Exchange         | Annual      | 31 Mar 2026       | 76% complete    |
+| GHG Inventory (voluntary)               | Internal / CDP                | Annual      | 31 Dec 2025       | 89% complete    |
+| ESG Rating Agency Data Pack             | CRISIL / MSCI (if applicable) | Annual      | 28 Feb 2026       | Scheduled       |
 
 ### Key UI Elements
+
 - **Data source label per metric** — every auto-populated ESG data point shows its source system and the date the data was last updated
 - **Manual override with reason** — any auto-populated value can be overridden; the override requires a reason note and is flagged in the audit trail
 - **Completeness heat map** — BRSR Principles displayed as a colour-coded grid (red/amber/green) showing completion status at a glance
@@ -580,6 +605,7 @@ P6 Essential Indicator 3: GHG emissions
 - **Year-on-year comparison** — for metrics available in prior years, ESG register shows current vs prior year with % change
 
 ### Why It Matters
+
 SEBI's BRSR requirements, which became mandatory for the top 1,000 listed Indian companies and are expanding to broader corporate India, have created a significant new compliance burden for energy sector companies. ESG data that previously had only internal relevance now drives material investment decisions, analyst ratings, and regulatory scrutiny. Assembling this data manually — chasing fuel logs, water meter readings, and waste manifests across multiple sites and departments — consumes weeks of senior staff time and introduces aggregation errors. [PROJECT_NAME] replaces that manual process by consolidating ESG data automatically from operational records already captured in the platform, producing a disclosure that is faster to prepare, more complete, and more defensible in audit.
 
 ---
@@ -588,57 +614,57 @@ SEBI's BRSR requirements, which became mandatory for the top 1,000 listed Indian
 
 ### All Data Fields Across M7
 
-| Field Name | Type | Sub-module | Description |
-|---|---|---|---|
-| `report_id` | String | 7.1 | Unique identifier for each generated report |
-| `report_type` | Enum | 7.1 | Daily / Weekly / Monthly / Quarterly / Annual |
-| `report_period` | String | 7.1 | Reporting period covered (e.g. October 2025, Q2 FY 2025) |
-| `compiled_at` | DateTime | 7.1 | Timestamp when the report was auto-compiled |
-| `compilation_duration_sec` | Number | 7.1 | Time in seconds for the full compilation run |
-| `data_sources` | Array | 7.1 | List of source systems queried during compilation |
-| `data_validation_errors` | Number | 7.1 | Count of validation issues detected during compilation |
-| `ai_commentary_draft` | Text | 7.1 | AI-generated narrative commentary — for reviewer editing |
-| `reviewer_id` | String | 7.1 | Employee ID of the nominated reviewer |
-| `reviewed_at` | DateTime | 7.1 | Timestamp of reviewer approval |
-| `edits_made` | Number | 7.1 | Count of edits made to AI commentary by reviewer |
-| `distributed_at` | DateTime | 7.1 | Timestamp of distribution to recipient list |
-| `recipient_count` | Number | 7.1 | Number of recipients |
-| `open_rate` | Number (%) | 7.1 | % of recipients who opened the report |
-| `report_status` | Enum | 7.1 | Scheduled / Compiling / Draft Ready / Distributed / Overdue |
-| `report_archive_url` | URL | 7.1 | Link to the archived finalised PDF |
-| `query_id` | String | 7.2 | Unique identifier for each BI query |
-| `query_text` | Text | 7.2 | The plain-English question asked |
-| `query_timestamp` | DateTime | 7.2 | When the query was submitted |
-| `answer_text` | Text | 7.2 | AI-generated answer |
-| `answer_confidence` | Number (%) | 7.2 | Confidence score for the answer |
-| `source_citations` | Array | 7.2 | List of data sources cited in the answer |
-| `data_domains` | Array | 7.2 | Which data domains were queried (Production / Financial / HSE / etc.) |
-| `answer_type` | Enum | 7.2 | Single value / Comparison / Trend / Ranking / Root cause / Forecast |
-| `caveat_present` | Boolean | 7.2 | Whether the answer includes a data gap or assumption caveat |
-| `pinned_to_dashboard` | Boolean | 7.2 | Whether the answer has been pinned to the M7 dashboard |
-| `esg_period` | String | 7.3 | Financial year covered by the ESG register |
-| `scope_1_total_tco2e` | Number | 7.3 | Total Scope 1 emissions in tCO2e |
-| `scope_2_total_tco2e` | Number | 7.3 | Total Scope 2 emissions in tCO2e |
-| `total_ghg_tco2e` | Number | 7.3 | Combined Scope 1 + 2 total |
-| `ghg_intensity` | Number | 7.3 | GHG intensity — tCO2e per bbl produced |
-| `water_consumed_kl` | Number | 7.3 | Total fresh water consumed in kilolitres |
-| `water_recycled_kl` | Number | 7.3 | Water recycled or reused in kilolitres |
-| `water_intensity` | Number | 7.3 | Water intensity — kL per bbl produced |
-| `hazardous_waste_mt` | Number | 7.3 | Hazardous waste generated in metric tonnes |
-| `lti_rate` | Number | 7.3 | LTI frequency rate per million man-hours |
-| `trir` | Number | 7.3 | Total Recordable Incident Rate |
-| `safety_training_hours` | Number | 7.3 | Total safety training hours delivered |
-| `data_completeness_pct` | Number (%) | 7.3 | Overall ESG data completeness across all categories |
-| `brsr_principle_status` | Object | 7.3 | Completion % per BRSR Principle (P1–P9) |
-| `brsr_overall_completion` | Number (%) | 7.3 | Overall BRSR disclosure completion |
-| `emission_factor_version` | String | 7.3 | Version of emission factors used (e.g. IPCC AR6, CEA 2024) |
-| `last_data_refresh` | DateTime | 7.3 | Timestamp of the most recent auto-data pull from source systems |
-| `esg_filing_id` | String | 7.3 | Reference for a specific ESG/environmental regulatory filing |
-| `esg_filing_type` | String | 7.3 | BRSR / Form-V / Hazardous Waste Return / GHG Inventory |
-| `esg_filing_status` | Enum | 7.3 | Data Collection / Draft / Reviewer Approval / Filed / Acknowledged |
-| `esg_filing_due_date` | Date | 7.3 | Deadline for the filing |
-| `esg_filing_submitted_at` | DateTime | 7.3 | Timestamp of filing submission |
-| `third_party_verified` | Boolean | 7.3 | Whether the ESG data has been third-party verified |
+| Field Name                 | Type       | Sub-module | Description                                                           |
+| -------------------------- | ---------- | ---------- | --------------------------------------------------------------------- |
+| `report_id`                | String     | 7.1        | Unique identifier for each generated report                           |
+| `report_type`              | Enum       | 7.1        | Daily / Weekly / Monthly / Quarterly / Annual                         |
+| `report_period`            | String     | 7.1        | Reporting period covered (e.g. October 2025, Q2 FY 2025)              |
+| `compiled_at`              | DateTime   | 7.1        | Timestamp when the report was auto-compiled                           |
+| `compilation_duration_sec` | Number     | 7.1        | Time in seconds for the full compilation run                          |
+| `data_sources`             | Array      | 7.1        | List of source systems queried during compilation                     |
+| `data_validation_errors`   | Number     | 7.1        | Count of validation issues detected during compilation                |
+| `ai_commentary_draft`      | Text       | 7.1        | AI-generated narrative commentary — for reviewer editing              |
+| `reviewer_id`              | String     | 7.1        | Employee ID of the nominated reviewer                                 |
+| `reviewed_at`              | DateTime   | 7.1        | Timestamp of reviewer approval                                        |
+| `edits_made`               | Number     | 7.1        | Count of edits made to AI commentary by reviewer                      |
+| `distributed_at`           | DateTime   | 7.1        | Timestamp of distribution to recipient list                           |
+| `recipient_count`          | Number     | 7.1        | Number of recipients                                                  |
+| `open_rate`                | Number (%) | 7.1        | % of recipients who opened the report                                 |
+| `report_status`            | Enum       | 7.1        | Scheduled / Compiling / Draft Ready / Distributed / Overdue           |
+| `report_archive_url`       | URL        | 7.1        | Link to the archived finalised PDF                                    |
+| `query_id`                 | String     | 7.2        | Unique identifier for each BI query                                   |
+| `query_text`               | Text       | 7.2        | The plain-English question asked                                      |
+| `query_timestamp`          | DateTime   | 7.2        | When the query was submitted                                          |
+| `answer_text`              | Text       | 7.2        | AI-generated answer                                                   |
+| `answer_confidence`        | Number (%) | 7.2        | Confidence score for the answer                                       |
+| `source_citations`         | Array      | 7.2        | List of data sources cited in the answer                              |
+| `data_domains`             | Array      | 7.2        | Which data domains were queried (Production / Financial / HSE / etc.) |
+| `answer_type`              | Enum       | 7.2        | Single value / Comparison / Trend / Ranking / Root cause / Forecast   |
+| `caveat_present`           | Boolean    | 7.2        | Whether the answer includes a data gap or assumption caveat           |
+| `pinned_to_dashboard`      | Boolean    | 7.2        | Whether the answer has been pinned to the M7 dashboard                |
+| `esg_period`               | String     | 7.3        | Financial year covered by the ESG register                            |
+| `scope_1_total_tco2e`      | Number     | 7.3        | Total Scope 1 emissions in tCO2e                                      |
+| `scope_2_total_tco2e`      | Number     | 7.3        | Total Scope 2 emissions in tCO2e                                      |
+| `total_ghg_tco2e`          | Number     | 7.3        | Combined Scope 1 + 2 total                                            |
+| `ghg_intensity`            | Number     | 7.3        | GHG intensity — tCO2e per bbl produced                                |
+| `water_consumed_kl`        | Number     | 7.3        | Total fresh water consumed in kilolitres                              |
+| `water_recycled_kl`        | Number     | 7.3        | Water recycled or reused in kilolitres                                |
+| `water_intensity`          | Number     | 7.3        | Water intensity — kL per bbl produced                                 |
+| `hazardous_waste_mt`       | Number     | 7.3        | Hazardous waste generated in metric tonnes                            |
+| `lti_rate`                 | Number     | 7.3        | LTI frequency rate per million man-hours                              |
+| `trir`                     | Number     | 7.3        | Total Recordable Incident Rate                                        |
+| `safety_training_hours`    | Number     | 7.3        | Total safety training hours delivered                                 |
+| `data_completeness_pct`    | Number (%) | 7.3        | Overall ESG data completeness across all categories                   |
+| `brsr_principle_status`    | Object     | 7.3        | Completion % per BRSR Principle (P1–P9)                               |
+| `brsr_overall_completion`  | Number (%) | 7.3        | Overall BRSR disclosure completion                                    |
+| `emission_factor_version`  | String     | 7.3        | Version of emission factors used (e.g. IPCC AR6, CEA 2024)            |
+| `last_data_refresh`        | DateTime   | 7.3        | Timestamp of the most recent auto-data pull from source systems       |
+| `esg_filing_id`            | String     | 7.3        | Reference for a specific ESG/environmental regulatory filing          |
+| `esg_filing_type`          | String     | 7.3        | BRSR / Form-V / Hazardous Waste Return / GHG Inventory                |
+| `esg_filing_status`        | Enum       | 7.3        | Data Collection / Draft / Reviewer Approval / Filed / Acknowledged    |
+| `esg_filing_due_date`      | Date       | 7.3        | Deadline for the filing                                               |
+| `esg_filing_submitted_at`  | DateTime   | 7.3        | Timestamp of filing submission                                        |
+| `third_party_verified`     | Boolean    | 7.3        | Whether the ESG data has been third-party verified                    |
 
 ---
 
@@ -794,87 +820,87 @@ React + Tailwind + Recharts.
 
 ### Color Usage
 
-| Element | Color | Hex |
-|---|---|---|
-| Page background | Light off-white | #F5F6FA |
-| Card / panel background | White | #FFFFFF |
-| Primary brand | Deep navy | #0D1B2A |
-| Section headers | Accent blue | #1A6B8A |
-| Primary CTA | Gold | #C8922A |
-| CTA background (light) | Gold light | #FDF3E3 |
-| Success / Teal | On-target metric, compliance met, report distributed | #0F7B6C |
-| Success background | Teal light | #E3F4F2 |
-| Critical / Danger | Overdue report, data gap, critical variance | #C0392B (pulsing for active alerts) |
-| Critical background | Coral light | #FDECEA |
-| Advisory / Warning | Below-target metric, amber variance, draft ready | #C8922A |
-| Informational | ESG data, citation chips, neutral annotations | #1A6B8A |
-| Chart actual | Production / spend actuals | #0D1B2A (navy) |
-| Chart target | Budget / target series | #C8922A (gold) |
-| Card border | Border grey | #D1D9E3 |
-| Secondary text | Muted grey | #8892A0 |
+| Element                 | Color                                                | Hex                                 |
+| ----------------------- | ---------------------------------------------------- | ----------------------------------- |
+| Page background         | Light off-white                                      | #F5F6FA                             |
+| Card / panel background | White                                                | #FFFFFF                             |
+| Primary brand           | Deep navy                                            | #0D1B2A                             |
+| Section headers         | Accent blue                                          | #1A6B8A                             |
+| Primary CTA             | Gold                                                 | #C8922A                             |
+| CTA background (light)  | Gold light                                           | #FDF3E3                             |
+| Success / Teal          | On-target metric, compliance met, report distributed | #0F7B6C                             |
+| Success background      | Teal light                                           | #E3F4F2                             |
+| Critical / Danger       | Overdue report, data gap, critical variance          | #C0392B (pulsing for active alerts) |
+| Critical background     | Coral light                                          | #FDECEA                             |
+| Advisory / Warning      | Below-target metric, amber variance, draft ready     | #C8922A                             |
+| Informational           | ESG data, citation chips, neutral annotations        | #1A6B8A                             |
+| Chart actual            | Production / spend actuals                           | #0D1B2A (navy)                      |
+| Chart target            | Budget / target series                               | #C8922A (gold)                      |
+| Card border             | Border grey                                          | #D1D9E3                             |
+| Secondary text          | Muted grey                                           | #8892A0                             |
 
 ### Typography
 
-| Use Case | Font |
-|---|---|
-| Module title, page heading | DM Serif Display or Playfair Display |
-| Body text, labels, descriptions, commentary | DM Sans or Plus Jakarta Sans |
-| All numbers, metrics, tCO2e values, Rs. figures, timestamps | JetBrains Mono |
+| Use Case                                                    | Font                                 |
+| ----------------------------------------------------------- | ------------------------------------ |
+| Module title, page heading                                  | DM Serif Display or Playfair Display |
+| Body text, labels, descriptions, commentary                 | DM Sans or Plus Jakarta Sans         |
+| All numbers, metrics, tCO2e values, Rs. figures, timestamps | JetBrains Mono                       |
 
 ### Key Animations (Demo-Specific)
 
-| Animation | Where | Description |
-|---|---|---|
-| BI response streaming | 7.2 conversational interface | Answer text streams word-by-word — 40ms per token — for live intelligence feel |
-| Source chip reveal | 7.2 after each answer | Citation chips slide up with staggered 100ms delay per chip after answer completes |
-| Chart draw-in | Dashboard + 7.1 | BarChart bars grow from baseline on tab load; donut segments draw sequentially |
-| Report compilation progress | 7.1 compiling state | Step labels cycle: Data pull → Validation → Metrics → Template → Commentary → Ready |
-| BRSR completion bars | 7.3 BRSR builder | Principle completion bars animate from 0 to value on tab load |
-| KPI variance indicator | Dashboard KPI cards | ↓ / ↑ arrows fade in after card value, colour-coded by favourable/unfavourable direction |
-| Pinned answer animation | 7.2 pin action | Answer card shrinks and flies to a widget position on the dashboard |
-| ESG data refresh pulse | 7.3 data register | \"Refreshing data...\" pulse on the freshness timestamp when data pull is triggered |
+| Animation                   | Where                        | Description                                                                              |
+| --------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------- |
+| BI response streaming       | 7.2 conversational interface | Answer text streams word-by-word — 40ms per token — for live intelligence feel           |
+| Source chip reveal          | 7.2 after each answer        | Citation chips slide up with staggered 100ms delay per chip after answer completes       |
+| Chart draw-in               | Dashboard + 7.1              | BarChart bars grow from baseline on tab load; donut segments draw sequentially           |
+| Report compilation progress | 7.1 compiling state          | Step labels cycle: Data pull → Validation → Metrics → Template → Commentary → Ready      |
+| BRSR completion bars        | 7.3 BRSR builder             | Principle completion bars animate from 0 to value on tab load                            |
+| KPI variance indicator      | Dashboard KPI cards          | ↓ / ↑ arrows fade in after card value, colour-coded by favourable/unfavourable direction |
+| Pinned answer animation     | 7.2 pin action               | Answer card shrinks and flies to a widget position on the dashboard                      |
+| ESG data refresh pulse      | 7.3 data register            | \"Refreshing data...\" pulse on the freshness timestamp when data pull is triggered      |
 
 ---
 
 ## Technical Integration Map for M7
 
-| Sub-module | External Systems / APIs | Data Flow Direction |
-|---|---|---|
-| 7.1 Report Compilation | ERP (SAP) — OPEX/CAPEX/budget | ERP → Report engine → Report draft |
-| 7.1 Report Compilation | Production logs, M1–M6 module data | All modules → Report engine → Report draft |
-| 7.1 Report Compilation | Claude API (Anthropic) — commentary generation | Report metrics → AI → Draft narrative |
-| 7.1 Report Compilation | Email / distribution API | Finalised report → Recipient list |
-| 7.2 Conversational BI | All M7 data + ERP + production logs (read) | User query → AI → Answer with citations |
-| 7.2 Conversational BI | Claude API (Anthropic) — NL query processing | Plain-English query → AI → Structured answer |
-| 7.3 ESG Register | Fuel consumption logs, electricity meters, water meters, waste manifests (all read) | Operational records → ESG register |
-| 7.3 ESG Register | M3 HSE data (LTI, near misses, training) | M3 → ESG social metrics |
-| 7.3 ESG Register | M6 workforce data (headcount, gender ratio) | M6 → ESG social metrics |
-| 7.3 BRSR Builder | Claude API (Anthropic) — disclosure narrative generation | ESG data → AI → BRSR draft text |
-| 7.3 Filing Tracker | MoEFCC / CPCB / SEBI portals (where API available) | Disclosure → Regulatory portal |
-| All M7 | M7 report archive (write) | All finalised reports, queries, ESG disclosures → Permanent archive |
+| Sub-module             | External Systems / APIs                                                             | Data Flow Direction                                                 |
+| ---------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| 7.1 Report Compilation | ERP (SAP) — OPEX/CAPEX/budget                                                       | ERP → Report engine → Report draft                                  |
+| 7.1 Report Compilation | Production logs, M1–M6 module data                                                  | All modules → Report engine → Report draft                          |
+| 7.1 Report Compilation | Claude API (Anthropic) — commentary generation                                      | Report metrics → AI → Draft narrative                               |
+| 7.1 Report Compilation | Email / distribution API                                                            | Finalised report → Recipient list                                   |
+| 7.2 Conversational BI  | All M7 data + ERP + production logs (read)                                          | User query → AI → Answer with citations                             |
+| 7.2 Conversational BI  | Claude API (Anthropic) — NL query processing                                        | Plain-English query → AI → Structured answer                        |
+| 7.3 ESG Register       | Fuel consumption logs, electricity meters, water meters, waste manifests (all read) | Operational records → ESG register                                  |
+| 7.3 ESG Register       | M3 HSE data (LTI, near misses, training)                                            | M3 → ESG social metrics                                             |
+| 7.3 ESG Register       | M6 workforce data (headcount, gender ratio)                                         | M6 → ESG social metrics                                             |
+| 7.3 BRSR Builder       | Claude API (Anthropic) — disclosure narrative generation                            | ESG data → AI → BRSR draft text                                     |
+| 7.3 Filing Tracker     | MoEFCC / CPCB / SEBI portals (where API available)                                  | Disclosure → Regulatory portal                                      |
+| All M7                 | M7 report archive (write)                                                           | All finalised reports, queries, ESG disclosures → Permanent archive |
 
 ---
 
 ## Summary: M7 at a Glance
 
-| Item | Detail |
-|---|---|
-| Module | M7 — Management Reporting & Business Intelligence |
-| Sub-modules | 3 (7.1 → 7.3) |
-| Total pages | 4 (1 dashboard + 3 sub-module pages) |
-| Primary data objects | Automated reports, BI query-answer records, ESG data register, BRSR disclosures |
-| Regulators / standards covered | SEBI BRSR · MoEFCC Form-V · CPCB Hazardous Waste Return · GRI Standards · TCFD |
-| Key output | On-time automated reports + instant conversational BI answers with citations + audit-ready BRSR disclosure |
-| Demo focus | Live conversational BI — complex OPEX comparison question answered in under 15 seconds with cited source data |
-| Design tone | Executive-grade dashboard — light theme, premium, data-dense but visually clean |
-| Compliance | SEBI BRSR (mandatory listed) · MoEFCC · Companies Act 2013 · PNGRB Act 2006 |
-| Currency | Rs. Indian Rupee — Lakhs (L) and Crores (Cr) |
-| Date format | DD MMM YYYY |
-| Language | English (Indian) — formal management and regulatory context |
-| Market context | [MARKET / REGION] upstream oil and gas operations |
+| Item                           | Detail                                                                                                        |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| Module                         | M7 — Management Reporting & Business Intelligence                                                             |
+| Sub-modules                    | 3 (7.1 → 7.3)                                                                                                 |
+| Total pages                    | 4 (1 dashboard + 3 sub-module pages)                                                                          |
+| Primary data objects           | Automated reports, BI query-answer records, ESG data register, BRSR disclosures                               |
+| Regulators / standards covered | SEBI BRSR · MoEFCC Form-V · CPCB Hazardous Waste Return · GRI Standards · TCFD                                |
+| Key output                     | On-time automated reports + instant conversational BI answers with citations + audit-ready BRSR disclosure    |
+| Demo focus                     | Live conversational BI — complex OPEX comparison question answered in under 15 seconds with cited source data |
+| Design tone                    | Executive-grade dashboard — light theme, premium, data-dense but visually clean                               |
+| Compliance                     | SEBI BRSR (mandatory listed) · MoEFCC · Companies Act 2013 · PNGRB Act 2006                                   |
+| Currency                       | Rs. Indian Rupee — Lakhs (L) and Crores (Cr)                                                                  |
+| Date format                    | DD MMM YYYY                                                                                                   |
+| Language                       | English (Indian) — formal management and regulatory context                                                   |
+| Market context                 | [MARKET / REGION] upstream oil and gas operations                                                             |
 
 ---
 
-*[PROJECT_NAME] · Management Reporting & Business Intelligence Module — M7 Build Guide*
-*by [COMPANY_NAME] · [WEBSITE]*
-*Version [VERSION] · [PUBLIC / INTERNAL / CONFIDENTIAL]*
+_[PROJECT_NAME] · Management Reporting & Business Intelligence Module — M7 Build Guide_
+_by [COMPANY_NAME] · [WEBSITE]_
+_Version [VERSION] · [PUBLIC / INTERNAL / CONFIDENTIAL]_
